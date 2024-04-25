@@ -1,5 +1,4 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo;
-
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
@@ -23,7 +22,7 @@ public class Musico {
 	
 	private String contrasenia;
 	
-	private String tipoInstrumentos;
+	private String tipoInstrumento;
 	
 	private LocalDate fechaAlta;
 	
