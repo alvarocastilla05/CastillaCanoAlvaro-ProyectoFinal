@@ -28,4 +28,6 @@ public class Evento {
 	private String lugar;
 	
 	private double dineroPagado;
+	
+	//Completar atributos están incompletos.
 }
