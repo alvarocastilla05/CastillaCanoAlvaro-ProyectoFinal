@@ -16,7 +16,7 @@ public class MusicoControlador {
 		Musico musico = new Musico();
 		model.addAttribute("musicoForm", musico);
 		
-		return "formularioMusico";
+		return "registroMusico";
 	}
 	
 	@PostMapping("/addMusico")

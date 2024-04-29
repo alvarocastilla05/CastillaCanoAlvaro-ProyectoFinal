@@ -10,4 +10,9 @@ public class MainControlador {
 	public String index() {
 		return "index";//Mostramos la plantilla index
 	}
+	
+	@GetMapping("/escuela")
+	public String directo() {
+		return "nuestraEscuela";
+	}
 }
