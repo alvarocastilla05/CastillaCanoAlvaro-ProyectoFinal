@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+	
+</head>
+<body>
+	<!--REVISAR-->
+	<div class="container">
+	        <h2 class="mt-5 mb-4">Registro de Musico</h2>
+	        <form  method="POST" th:action="addMusico" th:object="${musicoForm}">
+				<div class="mb-3">
+					<label for="nombre" class="form-label">Nombre</label>
+				    <input type="text" class="form-control" id="nombre" name="nombre" required>
+				 </div>
+				 <div class="mb-3">
+				    <label for="fecha" class="form-label">Fecha</label>
+				    <input type="date" class="form-control" id="fecha" name="fecha" required>
+				 </div>
+				 <div class="mb-3">
+				    <label for="hora" class="form-label">Hora</label>
+				    <input type="time" class="form-control" id="hora" name="hora" required>
+				 </div>
+				 <div class="mb-3">
+				    <label for="duracion" class="form-label">Duración (en horas)</label>
+				    <input type="number" class="form-control" id="duracion" name="duracion" required>
+				 </div>
+				 <div class="mb-3">
+				    <label for="lugar" class="form-label">Lugar</label>
+				    <input type="text" class="form-control" id="lugar" name="lugar" required>
+				 </div>
+				 <div class="mb-3">
+				    <label for="dineroPagado" class="form-label">Dinero Pagado</label>
+				    <input type="number" class="form-control" id="dineroPagado" name="dineroPagado" step="100" required>
+				 </div>
+	
+	            <button type="submit" class="btn btn-primary">Registrar</button>
+	        </form>
+	    </div>
+
+</body>
+</html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
 	
 </head>
 <body>
@@ -13,7 +14,7 @@
 	        <form  method="POST" th:action="addMusico" th:object="${musicoForm}">
 	            <div class="mb-3">
 	                <label for="dni" class="form-label">DNI:</label>
-	                <input type="text" class="form-control" id="dni" name="dni" required>
+	                <input type="text" class="form-control" id="dni" name="dni" required th:field="*{dni}">
 	            </div>
 	
 	            <div class="mb-3">
@@ -28,12 +29,12 @@
 	
 	            <div class="mb-3">
 	                <label for="password" class="form-label">Contraseña:</label>
-	                <input type="password" class="form-control" id="password" name="password" required th:field="*{cotrasenia}">
+	                <input type="password" class="form-control" id="password" name="password" required th:field="*{contrasenia}">
 	            </div>
 	
 	            <div class="mb-3">
 	                <label for="tipo_instrumento" class="form-label">Tipo de Instrumento:</label>
-	                <select class="form-select" id="tipo_instrumento" name="tipo_instrumento" required th:field="*{tipo_instrumento}">
+	                <select class="form-select" id="tipo_instrumento" name="tipo_instrumento" required th:field="*{tipoInstrumento}">
 	                    <option value="viento-metal">Viento Metal</option>
 	                    <option value="viento-madera">Viento Madera</option>
 	                    <option value="percusion">Percusión</option>
@@ -42,7 +43,7 @@
 	
 	            <div class="mb-3">
 	                <label for="fecha_alta" class="form-label">Fecha de Alta:</label>
-	                <input type="date" class="form-control" id="fecha_alta" name="fecha_alta" required>
+	                <input type="date" class="form-control" id="fecha_alta" name="fecha_alta" required th:field="*{fechaAlta}">
 	            </div>
 	
 	            <button type="submit" class="btn btn-primary">Registrar</button>

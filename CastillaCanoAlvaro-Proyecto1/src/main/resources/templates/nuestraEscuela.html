@@ -15,32 +15,48 @@
 <body>
     <div th:replace="~{fragmentos/nav::nav}"></div>
 
-	<main>
-	       <div class="container">
-	           <h1>Historia de nuestra Escuela</h1>
-	           <p>La Escuela de Música "Maestro Enrique López Gómez", parte integral de AMUECI, fue fundada en 2009 como un semillero de talento musical en Écija. Bajo la dirección de Francisco Alhama Blanco y David Ruiz Carmona, la escuela se reorganizó con un plan de estudios de 4 años, equivalente al grado elemental de música.</p>
-	           <p>En honor a D. Enrique López Gómez, la escuela fue bautizada con su nombre en una emotiva ceremonia en 2011. Desde entonces, la escuela ha sido un punto de referencia para la formación musical en la ciudad.</p>
-	           <p>Nuestro plan de estudios incluye especialidades como oboe, flauta travesera, clarinete, fagot, saxofón, trompeta, trombón, trompa, bombardino, tuba, percusión, guitarra y piano. Además, ofrecemos asignaturas como Instrumento Principal, Lenguaje Musical y Colectivas, junto con talleres y actividades culturales durante todo el año.</p>
-	           <p>Nos enorgullece la dedicación de nuestros nueve profesores y el éxito de nuestros alumnos, muchos de los cuales continúan sus estudios en conservatorios y se unen a la Banda de Música AMUECI.</p>
-	           <p>¡Únete a nuestra comunidad musical y descubre tu talento en la Escuela de Música "Maestro Enrique López Gómez"!</p>
-	       </div>
-	   </main>
+	<div class="container">
+			<div class="row justify-content-center d-flex">
 	
-	   <!-- Offcanvas lateral -->
-	   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-	       <div class="offcanvas-header">
-	           <h5 class="offcanvas-title" id="offcanvasLabel">Quiénes Somos</h5>
-	           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-	       </div>
-	       <div class="offcanvas-body">
-	           <h1>Quiénes Somos</h1>
-	       </div>
-	   </div>
+				<div class="col-12 col-md-8">
+					<h1 class="pt-2">Nuesta Escuela</h1>
+					<hr>
+					<p>La Escuela de Música "Maestro Enrique López Gómez", parte integral de AMUECI, fue fundada en 2009
+						como un semillero de talento musical en Écija. Bajo la dirección de Francisco Alhama Blanco y David
+						Ruiz Carmona, la escuela se reorganizó con un plan de estudios de 4 años, equivalente al grado
+						elemental de música.</p>
+					<p>En honor a D. Enrique López Gómez, la escuela fue bautizada con su nombre en una emotiva ceremonia en
+						2011. Desde entonces, la escuela ha sido un punto de referencia para la formación musical en la
+						ciudad.</p>
+					<p>Nuestro plan de estudios incluye especialidades como oboe, flauta travesera, clarinete, fagot,
+						saxofón, trompeta, trombón, trompa, bombardino, tuba, percusión, guitarra y piano. Además, ofrecemos
+						asignaturas como Instrumento Principal, Lenguaje Musical y Colectivas, junto con talleres y
+						actividades culturales durante todo el año.</p>
+					<p>Nos enorgullece la dedicación de nuestros nueve profesores y el éxito de nuestros alumnos, muchos de
+						los cuales continúan sus estudios en conservatorios y se unen a la Banda de Música AMUECI.</p>
+					<p>¡Únete a nuestra comunidad musical y descubre tu talento en la Escuela de Música "Maestro Enrique
+						López Gómez"!</p>
 	
-	   <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
-	       aria-controls="offcanvas">
-	       Nuestra Escuela
-	   </button>
+					<!-- Offcanvas lateral -->
+					<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+						<div class="offcanvas-header">
+							<h5 class="offcanvas-title" id="offcanvasLabel">Quiénes Somos</h5>
+							<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+								aria-label="Close"></button>
+						</div>
+						<div class="offcanvas-body">
+							<ul><a href="#">Quienes Somos</a></ul>
+							<ul><a href="#">Ubicacion</a></ul>
+						</div>
+					</div>
+	
+					<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+						aria-controls="offcanvas">
+						Más Sobre Nosotros
+					</button>
+			</div>
+	</div>
+	</div>
 
 	
 

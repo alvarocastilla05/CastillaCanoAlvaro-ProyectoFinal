@@ -6,24 +6,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
 
 @Controller
-public class MusicoControlador {
+public class EventoControlador {
 
-	@GetMapping("/musico")
+	@GetMapping("/evento")
 	public String showForm(Model model) {
-		Musico musico = new Musico();
-		model.addAttribute("musicoForm", musico);
+		Evento evento = new Evento();
+		model.addAttribute("eventoForm", evento);
 		
-		return "registroMusico";
+		return "registroEvento";
 	}
 	
-	@PostMapping("/addMusico")
-	public String submit(@ModelAttribute("musico") Musico musico, Model model) {
+	@PostMapping("addEvento")
+	public String submit(@ModelAttribute("evento") Evento evento, Model model) {
 		
-		model.addAttribute("musico", musico);
+		model.addAttribute("evento", evento);
 		
-		return "tablaMusicos";
+		return "tablaEvento";
 	}
 }
