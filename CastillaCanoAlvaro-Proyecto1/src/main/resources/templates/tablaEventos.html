@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Datos</title>
+	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h2>EVENTOS</h2>
+
+	<!-- 
+		Solo una pequeña página para mostrar los campos del objeto recogido desde el formulario
+    -->
+	<table>
+		<tr>
+			<td>Nombre:</td>
+			<td th:text="${evento.nombre}"></td>
+		</tr>
+
+		<tr>
+			<td>Fecha:</td>
+			<td th:text="${evento.fecha}"></td>
+		</tr>
+		<tr>
+			<td>Hora:</td>
+			<td th:text="${evento.hora}"></td>
+		</tr>
+		<tr>
+			<td>Duracion:</td>
+			<td th:text="${evento.duracion}"></td>
+		</tr>
+		<tr>
+			<td>Ciudad:</td>
+			<td th:text="${evento.ciudad}"></td>
+		</tr>
+		<tr>
+			<td>Dinero Pagado:</td>
+			<td th:text="${evento.dineroPagado}"></td>
+		</tr>
+		<tr>
+			<td>URL cartel</td>
+			<td th:text="${evento.urlImg}"></td>
+		</tr>
+				
+	</table>
+</body>
+
+</html>

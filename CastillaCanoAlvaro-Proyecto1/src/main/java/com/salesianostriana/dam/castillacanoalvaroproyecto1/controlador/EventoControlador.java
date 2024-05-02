@@ -24,6 +24,6 @@ public class EventoControlador {
 		
 		model.addAttribute("evento", evento);
 		
-		return "tablaEvento";
+		return "tablaEventos";
 	}
 }
