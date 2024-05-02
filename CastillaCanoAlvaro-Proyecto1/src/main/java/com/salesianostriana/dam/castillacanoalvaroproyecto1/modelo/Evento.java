@@ -9,10 +9,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Evento {
 	
@@ -34,6 +38,18 @@ public abstract class Evento {
 	private double dineroPagado;
 	
 	private String urlImg;
+
+	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad, int musicosNecesarios,
+			double dineroPagado, String urlImg) {
+		this.nombre = nombre;
+		this.fecha = fecha;
+		this.hora = hora;
+		this.duracion = duracion;
+		this.ciudad = ciudad;
+		this.musicosNecesarios = musicosNecesarios;
+		this.dineroPagado = dineroPagado;
+		this.urlImg = urlImg;
+	}
 	
-	//Completar atributos están incompletos.
+	
 }

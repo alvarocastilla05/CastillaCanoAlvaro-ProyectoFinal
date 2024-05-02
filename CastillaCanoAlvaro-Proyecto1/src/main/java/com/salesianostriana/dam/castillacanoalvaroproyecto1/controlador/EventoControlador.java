@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
 
 @Controller
@@ -13,7 +14,7 @@ public class EventoControlador {
 
 	@GetMapping("/evento")
 	public String showForm(Model model) {
-		Evento evento = new Evento();
+		Evento evento = new Concierto();
 		model.addAttribute("eventoForm", evento);
 		
 		return "registroEvento";
