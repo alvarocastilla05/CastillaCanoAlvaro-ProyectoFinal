@@ -24,6 +24,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
+
 public abstract class Evento {
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,7 +54,7 @@ public abstract class Evento {
 	
 
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
-			int musicosNecesarios, double dineroPagado, String urlImg, List<Musico> musicos) {
+			int musicosNecesarios, double dineroPagado, String urlImg) {
 		super();
 		this.nombre = nombre;
 		this.fecha = fecha;
@@ -63,7 +64,6 @@ public abstract class Evento {
 		this.musicosNecesarios = musicosNecesarios;
 		this.dineroPagado = dineroPagado;
 		this.urlImg = urlImg;
-		this.musicos = musicos;
 	}
 
 	

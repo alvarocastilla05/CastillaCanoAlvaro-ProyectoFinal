@@ -23,7 +23,7 @@ public class Procesion extends Evento {
 	public Procesion(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
 			int musicosNecesarios, double dineroPagado, String urlImg, List<Musico> musicos, String hermandad,
 			String titular, double precioHorasExtras) {
-		super(nombre, fecha, hora, duracion, ciudad, musicosNecesarios, dineroPagado, urlImg, musicos);
+		super(nombre, fecha, hora, duracion, ciudad, musicosNecesarios, dineroPagado, urlImg);
 		this.hermandad = hermandad;
 		this.titular = titular;
 		this.precioHorasExtras = precioHorasExtras;
