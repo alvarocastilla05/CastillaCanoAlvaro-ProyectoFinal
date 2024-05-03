@@ -1,19 +1,25 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ForeignKey;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Data
 @NoArgsConstructor @AllArgsConstructor
 @Entity
+@Builder
 public class Musico {
 
 	@Id @GeneratedValue
@@ -29,7 +35,27 @@ public class Musico {
 	
 	private LocalDate fechaAlta;
 	
-	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name="fk_musico_evento"))
-	private Evento evento;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+				name = "asociacion",
+				joinColumns = @JoinColumn(name="dni"),
+				inverseJoinColumns = @JoinColumn(name="id_evento")
+			)
+	@Builder.Default
+	private List<Evento> eventos = new ArrayList<>();
+	
+	public void addEvento(Evento e) {
+		this.eventos.add(e);
+		e.getMusicos().add(this);
+	}
+	
+	public void removeEvento(Evento e) {
+		e.getMusicos().remove(this);
+		this.eventos.remove(e);
+	}
+	
+	
+	
+	
+	
 }
