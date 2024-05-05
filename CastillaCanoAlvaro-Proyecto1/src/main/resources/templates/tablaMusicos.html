@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Datos</title>
+	<title>Listado Musicos</title>
 	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
 	<meta charset="utf-8" />
 </head>
@@ -13,33 +13,37 @@
 	<!-- 
 		Solo una pequeña página para mostrar los campos del objeto recogido desde el formulario
     -->
-	<table th:each="musico : ${musico}">
-		<tr>
-			<td>DNI:</td>
-			<td th:text="${musico.dni}"></td>
-		</tr>
+	<div class="container text-center">
+		<table>
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">DNI</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Apellidos</th>
+					<th scope="col">Contrasenia</th>
+					<th scope="col">Tipo Instrumento</th>
+					<th scope="col">Fecha Alta</th>	
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="musico : ${musico}">
+					<td th:text="${musico.id}"></td>
+					<td th:text="${musico.dni}"></td>
+					<td th:text="${musico.nombre}"></td>
+					<td th:text="${musico.apellidos}"></td>
+					<td th:text="${musico.contrasenia}"></td>
+					<td th:text="${musico.tipoInstrumento}"></td>
+					<td th:text="${musico.fechaAlta}"></td>
+					<td>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	
 
-		<tr>
-			<td>Nombre:</td>
-			<td th:text="${musico.nombre}"></td>
-		</tr>
-		<tr>
-			<td>Apellidos:</td>
-			<td th:text="${musico.apellidos}"></td>
-		</tr>
-		<tr>
-			<td>Contrasenia:</td>
-			<td th:text="${musico.contrasenia}"></td>
-		</tr>
-		<tr>
-			<td>Tipo Instrumento:</td>
-			<td th:text="${musico.tipoInstrumento}"></td>
-		</tr>
-		<tr>
-			<td>Fecha Alta:</td>
-			<td th:text="${musico.fechaAlta}"></td>
-		</tr>
-	</table>
 </body>
 
 </html>

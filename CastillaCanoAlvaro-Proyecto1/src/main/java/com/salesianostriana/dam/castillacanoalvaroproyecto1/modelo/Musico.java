@@ -22,7 +22,9 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Musico {
 
-	@Id @GeneratedValue
+	@Id @GeneratedValue 
+	private Long id;
+	
 	private String dni;
 	
 	private String nombre;
@@ -37,8 +39,8 @@ public class Musico {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
-				name = "asociacion",
-				joinColumns = @JoinColumn(name="dni"),
+				name = "asiste",
+				joinColumns = @JoinColumn(name="id"),
 				inverseJoinColumns = @JoinColumn(name="id_evento")
 			)
 	@Builder.Default

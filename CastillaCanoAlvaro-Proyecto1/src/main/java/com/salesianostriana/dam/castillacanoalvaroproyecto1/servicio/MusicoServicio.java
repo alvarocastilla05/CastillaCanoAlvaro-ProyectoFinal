@@ -7,6 +7,6 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.repositorio.MusicoRe
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base.BaseServiceImpl;
 
 @Service
-public class MusicoServicio extends BaseServiceImpl<Musico, String, MusicoRepositorio>{
+public class MusicoServicio extends BaseServiceImpl<Musico, Long, MusicoRepositorio>{
 
 }

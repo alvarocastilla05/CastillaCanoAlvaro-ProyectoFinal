@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.repositorio.MusicoRepositorio;
@@ -21,16 +23,33 @@ public class MusicoControlador {
 	@GetMapping("/listado")
 	public String lista(Model model) {
 		List<Musico> musico = repo.findAll();
-		model.addAttribute("musicoForm", musico);
-		
-		return "tablaMusicos";
-	}
-	
-	@PostMapping("/addMusico")
-	public String submit(@ModelAttribute("musico") Musico musico, Model model) {
-		
 		model.addAttribute("musico", musico);
 		
 		return "tablaMusicos";
 	}
+	
+	@GetMapping("/nuevoMusico")
+	public String mostrarFormularioMusico(Model model) {
+		Musico musico = new Musico();
+		model.addAttribute("musico", musico);
+		return "registroMusico";
+	}
+	
+	@PostMapping("/guardar")
+	public String guardarProducto(@ModelAttribute("musico")Musico musico, Model model) {
+		repo.save(musico);
+		return "redirect:/listado";
+	}
+	
+	@GetMapping("/editar/{id}")
+	public ModelAndView mostrarFormularioDeEditarMusico(@PathVariable(name = "id") Long id) {
+		ModelAndView model = new ModelAndView("editar_musico");
+		
+		Musico musico = repo.getReferenceById(id);
+		model.addObject("musico", musico);
+		
+		return model;
+	}
+	
+	
 }
