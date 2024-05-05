@@ -12,7 +12,17 @@ public class MainControlador {
 	}
 	
 	@GetMapping("/escuela")
-	public String directo() {
+	public String escuela() {
 		return "nuestraEscuela";
+	}
+	
+	@GetMapping("/ubicacion")
+	public String ubicacion() {
+		return "ubicacion";
+	}
+	
+	@GetMapping("/director")
+	public String director() {
+		return "director";
 	}
 }

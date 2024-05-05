@@ -18,27 +18,30 @@
 	<div class="container mt-5 pt-5">
 	        <h1 class="text-center">¿Dónde nos encontramos?</h1>
 	        <p class="text-center">¡Bienvenido a nuestra página para descubrir dónde se encuentra nuestra sede!</p>
-	        <p class="d-inline-flex gap-1">
-	            <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
-	                aria-expanded="false" aria-controls="multiCollapseExample1">Descubrelo!</a>
-	
-	        </p>
-	        <div class="offcanvas offcanvas-start bg-primary" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+	        <div class="d-flex justify-content-between">
+	            <p class="d-inline-flex gap-1">
+	                <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
+	                    aria-expanded="false" aria-controls="multiCollapseExample1">Descubrelo!</a>
+	            </p>
+	            <p class="d-inline-flex gap-1">
+	                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+	                    aria-controls="offcanvas">
+	                    Más Sobre Nosotros
+	                </button>
+	            </p>
+	        </div>
+	        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
 	            <div class="offcanvas-header">
 	                <h5 class="offcanvas-title" id="offcanvasLabel">Quiénes Somos</h5>
 	                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
 	                    aria-label="Close"></button>
 	            </div>
 	            <div class="offcanvas-body">
-	                <ul><a href="#">Quienes Somos</a></ul>
+	                <ul><a href="director">Nuestro Director</a></ul>
 	                <ul><a href="escuela">Escuela</a></ul>
 	            </div>
 	        </div>
 	
-	        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
-	            aria-controls="offcanvas">
-	            Más Sobre Nosotros
-	        </button>
 	        <div class="row">
 	            <div class="col justify-content-center">
 	                <div class="collapse multi-collapse" id="multiCollapseExample1">
@@ -76,10 +79,6 @@
 	            </div>
 	        </div>
 	    </div>
-
-	
-
-    
 
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 

@@ -13,7 +13,7 @@
 	<!-- 
 		Solo una pequeña página para mostrar los campos del objeto recogido desde el formulario
     -->
-	<table>
+	<table th:each="musico : ${musico}">
 		<tr>
 			<td>DNI:</td>
 			<td th:text="${musico.dni}"></td>
