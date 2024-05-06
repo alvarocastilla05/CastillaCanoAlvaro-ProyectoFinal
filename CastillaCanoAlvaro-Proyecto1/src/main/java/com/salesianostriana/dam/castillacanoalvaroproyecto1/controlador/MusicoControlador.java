@@ -36,7 +36,7 @@ public class MusicoControlador {
 	}
 	
 	@PostMapping("/guardar")
-	public String guardarProducto(@ModelAttribute("musico")Musico musico, Model model) {
+	public String guardarMusico(@ModelAttribute("musico")Musico musico, Model model) {
 		repo.save(musico);
 		return "redirect:/listado";
 	}
