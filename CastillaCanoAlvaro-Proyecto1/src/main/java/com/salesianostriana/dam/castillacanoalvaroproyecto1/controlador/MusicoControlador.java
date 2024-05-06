@@ -51,5 +51,13 @@ public class MusicoControlador {
 		return model;
 	}
 	
+	@GetMapping("/eliminar/{id}")
+	public String eliminarMusico(@PathVariable(name = "id") Long id) {
+		Musico musico = repo.getReferenceById(id);
+		repo.delete(musico);
+		
+		return "redirect:/listado";
+	}
+	
 	
 }

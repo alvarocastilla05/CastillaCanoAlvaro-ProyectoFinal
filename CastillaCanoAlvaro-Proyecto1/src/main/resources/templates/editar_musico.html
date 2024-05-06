@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registro Musico</title>
+	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+
+</head>
+
+<body>
+	<!--REVISAR-->
+	<div class="container">
+		<h2 class="mt-5 mb-4">Registro de Musico</h2>
+		<div class="card-body">
+			<form method="POST" th:action="guardar" th:object="${musico}">
+				
+				<div class="mb-3">
+					<label for="id" class="form-label">Músico ID:</label>
+					<input type="text" class="form-control" id="id" name="id" required th:field="*{id}" readonly="readonly">
+				</div>
+
+				<div class="mb-3">
+					<label for="dni" class="form-label">DNI:</label>
+					<input type="text" class="form-control" id="dni" name="dni" required th:field="*{dni}">
+				</div>
+
+				<div class="mb-3">
+					<label for="nombre" class="form-label">Nombre:</label>
+					<input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
+				</div>
+
+				<div class="mb-3">
+					<label for="apellidos" class="form-label">Apellidos:</label>
+					<input type="text" class="form-control" id="apellidos" name="apellidos" required
+						th:field="*{apellidos}">
+				</div>
+
+				<div class="mb-3">
+					<label for="password" class="form-label">Contraseña:</label>
+					<input type="password" class="form-control" id="password" name="password" required
+						th:field="*{contrasenia}">
+				</div>
+
+				<div class="mb-3">
+					<label for="tipo_instrumento" class="form-label">Tipo de Instrumento:</label>
+					<select class="form-select" id="tipo_instrumento" name="tipo_instrumento" required
+						th:field="*{tipoInstrumento}">
+						<option value="viento-metal">Viento Metal</option>
+						<option value="viento-madera">Viento Madera</option>
+						<option value="percusion">Percusión</option>
+					</select>
+				</div>
+
+				<div class="mb-3">
+					<label for="fecha_alta" class="form-label">Fecha de Alta:</label>
+					<input type="date" class="form-control" id="fecha_alta" name="fecha_alta" required
+						th:field="*{fechaAlta}">
+				</div>
+
+				<button type="submit" class="btn btn-primary">Registrar</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>

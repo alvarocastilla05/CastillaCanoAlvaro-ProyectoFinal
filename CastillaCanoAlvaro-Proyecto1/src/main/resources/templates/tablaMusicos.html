@@ -36,10 +36,14 @@
 					<td th:text="${musico.tipoInstrumento}"></td>
 					<td th:text="${musico.fechaAlta}"></td>
 					<td>
+						<a class="btn btn-primary" th:href="@{'/editar/' + ${musico.id}}">Editar</a>
+						&nbsp;
+						<a class="btn btn-danger" th:href="@{'/eliminar/' + ${musico.id}}">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+		<a class="btn btn-primary" th:href="nuevoMusico">Añadir Musico</a>
 	</div>
 	
 	
