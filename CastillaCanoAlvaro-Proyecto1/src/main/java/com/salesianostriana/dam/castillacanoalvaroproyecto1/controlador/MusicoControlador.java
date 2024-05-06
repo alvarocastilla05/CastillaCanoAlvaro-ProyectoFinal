@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.controlador;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,26 +29,40 @@ public class MusicoControlador {
 		return "tablaMusicos";
 	}
 	
-	@GetMapping("/nuevoMusico")
+	@GetMapping("/nuevo")
 	public String mostrarFormularioMusico(Model model) {
 		Musico musico = new Musico();
 		model.addAttribute("musico", musico);
 		return "registroMusico";
 	}
 	
-	@PostMapping("/guardar")
+	@PostMapping("/nuevo/submit")
 	public String guardarMusico(@ModelAttribute("musico")Musico musico, Model model) {
 		repo.save(musico);
 		return "redirect:/listado";
 	}
 	
 	@GetMapping("/editar/{id}")
-	public ModelAndView mostrarFormularioDeEditarMusico(@PathVariable(name = "id") Long id) {
+	public String mostrarFormularioDeEditarMusico(@PathVariable("id") long id, Model model) {
+		Optional<Musico> musicoEditar = repo.findById(id);
+		
+		if(musicoEditar.isPresent()) {
+			model.addAttribute("musico", musicoEditar.get());
+			return "registroMusico";
+		}else {
+			return "redirect:/listado";
+		}
 		
 	}
 	
+	@PostMapping("/editar/submit")
+	public String procesarFormularioEdicion(@ModelAttribute("musico") Musico m) {
+		repo.save(m);
+		return "redirect:/listado";
+	}
+	
 	@GetMapping("/eliminar/{id}")
-	public String eliminarMusico(@PathVariable(name = "id") Long id) {
+	public String eliminarMusico(@PathVariable("id") long id) {
 		Musico musico = repo.getReferenceById(id);
 		repo.delete(musico);
 		

@@ -14,7 +14,8 @@
 	<div class="container">
 		<h2 class="mt-5 mb-4">Registro de Musico</h2>
 		<div class="card-body">
-			<form method="POST" th:action="guardar" th:object="${musico}">
+			<form th:action="${musico.id != 0} ? @{/editar/submit} : @{/nuevo/submit}" th:object="${musico}" method="post">
+				<input th:if="${musico.id != 0}" type="hidden" name="id" th:field="*{id}">
 				<div class="mb-3">
 					<label for="dni" class="form-label">DNI:</label>
 					<input type="text" class="form-control" id="dni" name="dni" required th:field="*{dni}">

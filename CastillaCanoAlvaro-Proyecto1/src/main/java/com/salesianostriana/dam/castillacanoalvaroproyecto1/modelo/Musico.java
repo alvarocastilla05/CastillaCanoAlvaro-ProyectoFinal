@@ -3,6 +3,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -35,6 +38,7 @@ public class Musico {
 	
 	private String tipoInstrumento;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaAlta;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
