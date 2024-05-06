@@ -5,6 +5,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -32,6 +34,7 @@ public abstract class Evento {
 	
 	private String nombre;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fecha;
 	
 	private LocalTime hora;
@@ -46,10 +49,7 @@ public abstract class Evento {
 	
 	private String urlImg;
 	
-	@ManyToMany(mappedBy="eventos", fetch = FetchType.EAGER)
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
-	private List<Musico> musicos = new ArrayList<>();
+	
 
 	
 

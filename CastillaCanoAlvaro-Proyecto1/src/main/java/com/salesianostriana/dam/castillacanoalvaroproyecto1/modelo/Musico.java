@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,10 +12,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 @Data
@@ -41,24 +43,13 @@ public class Musico {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaAlta;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(
-				name = "asiste",
-				joinColumns = @JoinColumn(name="id"),
-				inverseJoinColumns = @JoinColumn(name="id_evento")
-			)
+	@OneToMany(mappedBy="musico", fetch = FetchType.EAGER)
 	@Builder.Default
-	private List<Evento> eventos = new ArrayList<>();
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	private List<Asiste> asiste = new ArrayList<>();
 	
-	public void addEvento(Evento e) {
-		this.eventos.add(e);
-		e.getMusicos().add(this);
-	}
 	
-	public void removeEvento(Evento e) {
-		e.getMusicos().remove(this);
-		this.eventos.remove(e);
-	}
 	
 	
 	

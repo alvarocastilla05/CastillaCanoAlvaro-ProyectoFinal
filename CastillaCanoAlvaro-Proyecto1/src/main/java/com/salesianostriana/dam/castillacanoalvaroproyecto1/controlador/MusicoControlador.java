@@ -14,16 +14,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.repositorio.MusicoRepositorio;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.MusicoServicio;
 
 @Controller
 public class MusicoControlador {
 
 	@Autowired
-	private MusicoRepositorio repo;
+	private MusicoServicio servicio;
 	
 	@GetMapping("/listado")
 	public String lista(Model model) {
-		List<Musico> musico = repo.findAll();
+		List<Musico> musico = servicio.findAll();
 		model.addAttribute("musico", musico);
 		
 		return "tablaMusicos";
@@ -38,13 +39,13 @@ public class MusicoControlador {
 	
 	@PostMapping("/nuevo/submit")
 	public String guardarMusico(@ModelAttribute("musico")Musico musico, Model model) {
-		repo.save(musico);
+		servicio.save(musico);
 		return "redirect:/listado";
 	}
 	
 	@GetMapping("/editar/{id}")
 	public String mostrarFormularioDeEditarMusico(@PathVariable("id") long id, Model model) {
-		Optional<Musico> musicoEditar = repo.findById(id);
+		Optional<Musico> musicoEditar = servicio.findBYId(id);
 		
 		if(musicoEditar.isPresent()) {
 			model.addAttribute("musico", musicoEditar.get());
@@ -57,14 +58,13 @@ public class MusicoControlador {
 	
 	@PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("musico") Musico m) {
-		repo.save(m);
+		servicio.save(m);
 		return "redirect:/listado";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarMusico(@PathVariable("id") long id) {
-		Musico musico = repo.getReferenceById(id);
-		repo.delete(musico);
+		servicio.deleteById(id);
 		
 		return "redirect:/listado";
 	}
