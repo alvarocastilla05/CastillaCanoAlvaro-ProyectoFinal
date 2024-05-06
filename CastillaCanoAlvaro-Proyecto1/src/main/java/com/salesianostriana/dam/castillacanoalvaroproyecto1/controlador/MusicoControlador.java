@@ -43,12 +43,7 @@ public class MusicoControlador {
 	
 	@GetMapping("/editar/{id}")
 	public ModelAndView mostrarFormularioDeEditarMusico(@PathVariable(name = "id") Long id) {
-		ModelAndView model = new ModelAndView("editar_musico");
 		
-		Musico musico = repo.getReferenceById(id);
-		model.addObject("musico", musico);
-		
-		return model;
 	}
 	
 	@GetMapping("/eliminar/{id}")
