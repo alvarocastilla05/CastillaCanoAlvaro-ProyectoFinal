@@ -35,5 +35,11 @@ public class EventoControlador {
 		return "registroProcesion";
 	}
 	
+	@PostMapping("/nuevo/procesion/submit")
+	public String guardarProcesion(@ModelAttribute("evento")Evento evento, Model model) {
+		servicio.save(evento);
+		return "redirect:/eventos";
+	}
+	
 	
 }
