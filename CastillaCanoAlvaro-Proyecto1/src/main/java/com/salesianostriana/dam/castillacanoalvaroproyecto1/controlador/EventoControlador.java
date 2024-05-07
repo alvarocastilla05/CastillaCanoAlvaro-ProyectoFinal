@@ -1,5 +1,8 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.controlador;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,23 +11,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.EventoServicio;
 
 @Controller
 public class EventoControlador {
 
-	@GetMapping("/evento")
-	public String showForm(Model model) {
-		Evento evento = new Concierto();
-		model.addAttribute("eventoForm", evento);
-		
-		return "registroEvento";
-	}
+	@Autowired
+	private EventoServicio servicio;
 	
-	@PostMapping("addEvento")
-	public String submit(@ModelAttribute("evento") Evento evento, Model model) {
-		
+	@GetMapping("/evento")
+	public String lista(Model model) {
+		List<Evento> evento = servicio.findAll();
 		model.addAttribute("evento", evento);
 		
-		return "tablaEventos";
+		return "eventos";
 	}
+	
+	@GetMapping("/nuevo/procesion")
+	public String mostrarFormularioEvento(Model model) {
+		Evento procesion = new Procesion();
+		model.addAttribute("evento", procesion);
+		return "registroProcesion";
+	}
+	
+	
 }
