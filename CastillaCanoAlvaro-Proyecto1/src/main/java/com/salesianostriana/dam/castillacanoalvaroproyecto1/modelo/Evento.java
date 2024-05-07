@@ -9,12 +9,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -50,9 +53,6 @@ public abstract class Evento {
 	private String urlImg;
 	
 	
-
-	
-
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
 			int musicosNecesarios, double dineroPagado, String urlImg) {
 		super();
@@ -65,6 +65,10 @@ public abstract class Evento {
 		this.dineroPagado = dineroPagado;
 		this.urlImg = urlImg;
 	}
+	
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name="fk_evento_bus"))
+	private Bus bus;
 
 	
 	

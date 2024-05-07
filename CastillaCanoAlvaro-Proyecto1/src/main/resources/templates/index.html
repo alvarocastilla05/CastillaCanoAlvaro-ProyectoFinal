@@ -30,13 +30,13 @@
 	        <!-- The slideshow/carousel -->
 	        <div class="carousel-inner">
 	            <div class="carousel-item active">
-	                <img src="../img/carousel1.jpg" alt="Carousel" class="d-block w-100">
+	                <img src="../img/carousel1.jpg" th:src="@{../img/carousel1.jpg}", th:alt-title="#{Carousel}" class="d-block w-100">
 	            </div>
 	            <div class="carousel-item">
-	                <img src="../img/carousel3.jpeg" alt="Carousel" class="d-block w-100">
+	                <img src="../img/carousel3.jpeg" th:src="@{../img/carousel3.jpeg}", th:alt-title="#{Carousel}" class="d-block w-100">
 	            </div>
 	            <div class="carousel-item">
-	                <img src="../img/carousel2.jpg" alt="Carousel" class="d-block w-100">
+	                <img src="../img/carousel2.jpg" th:src="@{../img/carousel2.jpg}", th:alt-title="#{Carousel}" class="d-block w-100">
 	            </div>
 	        </div>
 	
@@ -78,7 +78,7 @@
 	
 	                <div class="conteiner-fluid">
 	                    <div class="row d-flex justify-content-center">
-	                            <img src="../img/nuestraHistoria-3-209x300.jpg" alt="Nuestra Historia" class="w-25">
+	                            <img src="../img/nuestraHistoria-3-209x300.jpg" th:src="@{../img/nuestraHistoria-3-209x300.jpg}", th:alt-title="#{Carousel}" class="w-25">
 	                    </div>
 	                </div>
 	
@@ -103,7 +103,7 @@
 	        <div class="row mt-5">
 	            <div class="col-12 col-md-4 mt-5">
 	                <div class="card">
-	                    <img src="../img/evento1.jpg" class="card-img-top" alt="...">
+	                    <img src="../img/evento1.jpg" th:src="@{../img/evento1.jpg}", th:alt-title="#{Evento1}" class="card-img-top">
 	                    <div class="card-body">
 	                        <h5 class="card-title">Card title</h5>
 	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -114,7 +114,7 @@
 	            </div>
 	            <div class="col-12 col-md-4 mt-5">
 	                <div class="card">
-	                    <img src="../img/evento2.jpg" class="card-img-top" alt="...">
+	                    <img src="../img/evento2.jpg" th:src="@{../img/evento2.jpg}", th:alt-title="#{Evento2}" class="card-img-top">
 	                    <div class="card-body">
 	                        <h5 class="card-title">Card title</h5>
 	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -125,7 +125,7 @@
 	            </div>
 	            <div class="col-12 col-md-4 mt-5">
 	                <div class="card">
-	                    <img src="../img/evento3.jpg" class="card-img-top" alt="...">
+	                    <img src="../img/evento3.jpg" th:src="@{../img/evento3.jpg}", th:alt-title="#{Evento3}"class="card-img-top">
 	                    <div class="card-body">
 	                        <h5 class="card-title">Card title</h5>
 	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of

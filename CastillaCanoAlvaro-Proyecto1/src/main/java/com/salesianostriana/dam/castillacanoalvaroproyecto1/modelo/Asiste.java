@@ -2,6 +2,7 @@ package com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
@@ -33,6 +34,10 @@ public class Asiste {
 	@MapsId("evento_id")
 	@JoinColumn(name = "evento_id")
 	private Evento evento;
+	
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name="fk_asiste_bus"))
+	private Bus bus;
 	
 	public void addToMusico(Musico m) {
 		m.getAsiste().add(this);

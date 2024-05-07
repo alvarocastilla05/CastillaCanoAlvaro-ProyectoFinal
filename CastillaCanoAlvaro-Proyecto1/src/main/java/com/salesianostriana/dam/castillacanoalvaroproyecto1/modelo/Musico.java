@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -38,7 +40,8 @@ public class Musico {
 	
 	private String contrasenia;
 	
-	private String tipoInstrumento;
+	@Enumerated(value = EnumType.STRING)
+	private TipoInstrumento tipoInstrumento;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaAlta;
