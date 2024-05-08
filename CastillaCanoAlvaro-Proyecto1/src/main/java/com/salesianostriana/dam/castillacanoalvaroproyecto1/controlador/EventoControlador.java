@@ -23,7 +23,7 @@ public class EventoControlador {
 	private EventoServicio servicio;
 	
 	@Autowired
-	private ProcesionServicio servicoProce;
+	private ProcesionServicio servicioProce;
 	
 	@Autowired
 	private ConciertoServicio servicioConcer;
@@ -45,7 +45,7 @@ public class EventoControlador {
 	
 	@PostMapping("/nuevo/procesion/submit")
 	public String guardarProcesion(@ModelAttribute("evento")Model model, Procesion procesion) {
-		servicoProce.save(procesion);
+		servicioProce.save(procesion);
 		return "redirect:/evento";
 	}
 	
