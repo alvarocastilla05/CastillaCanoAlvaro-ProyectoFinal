@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.EventoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
 
@@ -24,6 +25,9 @@ public class EventoControlador {
 	@Autowired
 	private ProcesionServicio servicoProce;
 	
+	@Autowired
+	private ConciertoServicio servicioConcer;
+	
 	@GetMapping("/evento")
 	public String lista(Model model) {
 		List<Evento> evento = servicio.findAll();
@@ -33,17 +37,29 @@ public class EventoControlador {
 	}
 	
 	@GetMapping("/nuevo/procesion")
-	public String mostrarFormularioEvento(Model model) {
+	public String mostrarFormularioProcesion(Model model) {
 		Evento procesion = new Procesion();
 		model.addAttribute("evento", procesion);
 		return "registroProcesion";
 	}
 	
 	@PostMapping("/nuevo/procesion/submit")
-	public String guardarProcesion(@ModelAttribute("evento")Evento evento, Model model, Procesion procesion) {
+	public String guardarProcesion(@ModelAttribute("evento")Model model, Procesion procesion) {
 		servicoProce.save(procesion);
 		return "redirect:/evento";
 	}
 	
+	@GetMapping("/nuevo/concierto")
+	public String mostrarFormularioConcierto(Model model) {
+		Evento concierto = new Concierto();
+		model.addAttribute("evento", concierto);
+		return "registroConcierto";
+	}
+	
+	@PostMapping("nuevo/concierto/submit")
+	public String guardarConcierto(@ModelAttribute("evento")Model model, Concierto concierto) {
+		servicioConcer.save(concierto);
+		return "redirect:/evento";
+	}
 	
 }
