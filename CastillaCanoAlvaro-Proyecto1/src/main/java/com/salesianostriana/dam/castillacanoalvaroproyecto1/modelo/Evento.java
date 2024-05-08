@@ -30,7 +30,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 
-public abstract class Evento {
+public class Evento {
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
