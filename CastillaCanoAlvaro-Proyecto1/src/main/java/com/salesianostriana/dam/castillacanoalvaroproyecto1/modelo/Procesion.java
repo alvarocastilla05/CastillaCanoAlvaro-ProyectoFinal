@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 
 
@@ -16,8 +17,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
-
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class Procesion extends Evento {
 
 	public Procesion(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,

@@ -35,7 +35,7 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                    <!-- Iterar sobre cada objeto musico -->
+	                    
 	                    <tr th:each="evento : ${evento}">
 	                        <td th:text="${evento.id}"></td>
 	                        <td th:text="${evento.nombre}"></td>
@@ -58,7 +58,8 @@
 	        </div>
 	    </div>
 	</div>
-		<a class="btn btn-primary" th:href="nuevo">Añadir Musico</a>
+		<a class="btn btn-primary" th:href="@{/nuevo/procesion}">Añadir Procesión</a>
+		<a class="btn btn-primary" th:href="@{/nuevo/concierto}">Añadir Concierto</a>
 	</div>
 </body>
 

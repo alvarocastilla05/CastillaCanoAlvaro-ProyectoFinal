@@ -2386,3 +2386,7 @@ insert into musico (id, dni, nombre, apellidos, contrasenia, tipo_instrumento, f
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.castillacanoalvaroproyecto1.CastillaCanoAlvaroProyecto1Application.main(CastillaCanoAlvaroProyecto1Application.java:10)
+2024-05-08 09:59:16.756300+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM EVENTO PROCESION [*]EVENTO EVENTO"
+Syntax error in SQL statement "SELECT * FROM EVENTO PROCESION [*]EVENTO EVENTO"; SQL statement:
+SELECT * FROM EVENTO PROCESION EVENTO EVENTO [42000-224]

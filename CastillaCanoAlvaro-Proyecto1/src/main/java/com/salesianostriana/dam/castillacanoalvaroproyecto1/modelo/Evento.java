@@ -52,6 +52,10 @@ public class Evento {
 	
 	private String urlImg;
 	
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name="fk_evento_bus"))
+	private Bus bus;
+	
 	
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
 			int musicosNecesarios, double dineroPagado, String urlImg) {
@@ -66,9 +70,7 @@ public class Evento {
 		this.urlImg = urlImg;
 	}
 	
-	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name="fk_evento_bus"))
-	private Bus bus;
+	
 
 	
 	

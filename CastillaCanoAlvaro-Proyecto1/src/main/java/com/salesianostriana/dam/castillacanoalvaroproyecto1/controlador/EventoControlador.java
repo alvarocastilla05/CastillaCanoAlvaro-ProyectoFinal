@@ -13,12 +13,16 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.EventoServicio;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
 
 @Controller
 public class EventoControlador {
 
 	@Autowired
 	private EventoServicio servicio;
+	
+	@Autowired
+	private ProcesionServicio servicoProce;
 	
 	@GetMapping("/evento")
 	public String lista(Model model) {
@@ -36,9 +40,9 @@ public class EventoControlador {
 	}
 	
 	@PostMapping("/nuevo/procesion/submit")
-	public String guardarProcesion(@ModelAttribute("evento")Evento evento, Model model) {
-		servicio.save(evento);
-		return "redirect:/eventos";
+	public String guardarProcesion(@ModelAttribute("evento")Evento evento, Model model, Procesion procesion) {
+		servicoProce.save(procesion);
+		return "redirect:/evento";
 	}
 	
 	
