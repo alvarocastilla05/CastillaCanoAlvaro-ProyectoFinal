@@ -33,6 +33,13 @@
 				    <input type="text" class="form-control" id="ciudad" name="ciudad" required th:field="*{ciudad}">
 				 </div>
 				 <div class="mb-3">
+					 <label for="respuesta">¿Estás de acuerdo?</label><br>
+					 <input type="radio" id="si" name="respuesta" value="true" th:field="*{busContratado}">
+					 <label for="si">Sí</label><br>
+					 <input type="radio" id="no" name="respuesta" value="false" th:field="*{busContratado}">
+					 <label for="no">No</label>
+				 </div>
+				 <div class="mb-3">
 				    <label for="dineroPagado" class="form-label">Dinero Pagado</label>
 				    <input type="number" class="form-control" id="dineroPagado" name="dineroPagado" step="100" required th:field="*{dineroPagado}">
 				 </div>
@@ -45,16 +52,15 @@
 				 	<input type="number" class="form-control" id="aforo" name="aforo" step="100" required th:field="*{aforo}">
 				 </div>
 				 <div class="mb-3">
-					<input class="form-check-input" type="radio" name="gratuito" id="gratuito">
-					<label class="form-check-label" for="gratuito">
-					    Sí
-					  </label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="gratuito" id="gratuito">
-						<label class="form-check-label" for="gratuito">
-					    No
-					  </label>
+						<label for="respuesta">Gratuito</label><br>
+						<input type="radio" id="si" name="respuesta" value="true" th:field="*{gratuito}">
+						<label for="si">Sí</label><br>
+						<input type="radio" id="no" name="respuesta" value="false" th:field="*{gratuito}">
+						<label for="no">No</label>
+				</div>
+				<div class="mb-3" th:if="${gratuito}">
+					<label for="precio" class="form-label">Aforo:</label>
+					<input type="number" class="form-control" id="precio" name="precio" required th:field="*{precio}">
 				</div>
 				 
 				 

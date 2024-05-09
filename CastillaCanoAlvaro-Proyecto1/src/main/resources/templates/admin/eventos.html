@@ -46,11 +46,8 @@
 	                        <td th:text="${evento.musicosNecesarios}"></td>
 							<td th:text="${evento.dineroPagado}"></td>
 							<td th:text="${evento.urlImg}"></td>
-							<td th:text="${evento.hermandad}"></td>
-							<td th:text="${evento.titular}"></td>
-							<td th:text="${evento.dineroHorasExtras}"></td>
-	                            <a class="btn btn-primary" th:href="@{/editar/{id}(id=${musico.id})}">Editar</a>
-	                            <a class="btn btn-danger" th:href="@{/eliminar/{id}(id=${musico.id})}">Eliminar</a>
+	                            <a class="btn btn-primary" th:href="@{/editar/{id}(id=${evento.id})}">Editar</a>
+	                            <a class="btn btn-danger" th:href="@{/eliminar/{id}(id=${evento.id})}">Eliminar</a>
 	                        </td>
 	                    </tr>
 	                </tbody>
@@ -58,8 +55,8 @@
 	        </div>
 	    </div>
 	</div>
-		<a class="btn btn-primary" th:href="@{/nuevo/procesion}">Añadir Procesión</a>
-		<a class="btn btn-primary" th:href="@{/nuevo/concierto}">Añadir Concierto</a>
+		<a class="btn btn-primary" th:href="@{/admin/evento/nuevo/procesion}">Añadir Procesión</a>
+		<a class="btn btn-primary" th:href="@{/admin/evento/nuevo/concierto}">Añadir Concierto</a>
 	</div>
 </body>
 

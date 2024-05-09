@@ -48,6 +48,8 @@ public class Evento {
 	
 	private int musicosNecesarios;
 	
+	private boolean busContratado;
+	
 	private double dineroPagado;
 	
 	private String urlImg;
@@ -58,7 +60,7 @@ public class Evento {
 	
 	
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
-			int musicosNecesarios, double dineroPagado, String urlImg) {
+			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg) {
 		super();
 		this.nombre = nombre;
 		this.fecha = fecha;
@@ -66,6 +68,7 @@ public class Evento {
 		this.duracion = duracion;
 		this.ciudad = ciudad;
 		this.musicosNecesarios = musicosNecesarios;
+		this.busContratado = busContratado;
 		this.dineroPagado = dineroPagado;
 		this.urlImg = urlImg;
 	}

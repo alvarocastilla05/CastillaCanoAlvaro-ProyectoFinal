@@ -30,7 +30,7 @@ public class EventoControlador {
 	@Autowired
 	private ConciertoServicio servicioConcer;
 	
-	@GetMapping("/evento")
+	@GetMapping("/listadoEvento")
 	public String lista(Model model) {
 		List<Evento> evento = servicio.findAll();
 		model.addAttribute("evento", evento);
@@ -48,7 +48,7 @@ public class EventoControlador {
 	@PostMapping("/nuevo/procesion/submit")
 	public String guardarProcesion(@ModelAttribute("evento")Model model, Procesion procesion) {
 		servicioProce.save(procesion);
-		return "redirect:/evento";
+		return "redirect:/admin/evento/listadoEvento";
 	}
 	
 	@GetMapping("/nuevo/concierto")
@@ -61,7 +61,7 @@ public class EventoControlador {
 	@PostMapping("nuevo/concierto/submit")
 	public String guardarConcierto(@ModelAttribute("evento")Model model, Concierto concierto) {
 		servicioConcer.save(concierto);
-		return "redirect:/evento";
+		return "redirect:/admin/evento/listadoEvento";
 	}
 	
 }
