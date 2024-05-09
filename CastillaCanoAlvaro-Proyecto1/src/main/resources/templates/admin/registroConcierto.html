@@ -11,7 +11,7 @@
 	<!--REVISAR-->
 	<div class="container">
 	        <h2 class="mt-5 mb-4">Registro de Evento</h2>
-	        <form  method="POST" th:action="@{/nuevo/concierto/submit}" th:object="${evento}">
+	        <form  method="POST" th:action="@{admin/evento/nuevo/concierto/submit}" th:object="${evento}">
 				<div class="mb-3">
 					<label for="nombre" class="form-label">Nombre</label>
 				    <input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
@@ -41,12 +41,20 @@
 				 	<input type="text" class="form-control" id="img" name="img" required th:field="*{urlImg}">
 				 </div>
 				 <div class="mb-3">
-				 	<label for="aforo" class="form-label">Dinero Pagado</label>
+				 	<label for="aforo" class="form-label">Aforo:</label>
 				 	<input type="number" class="form-control" id="aforo" name="aforo" step="100" required th:field="*{aforo}">
 				 </div>
 				 <div class="mb-3">
-				 	<label for="aforo" class="form-label">Dinero Pagado</label>
-				 	<input type="number" class="form-control" id="aforo" name="aforo" step="100" required th:field="*{aforo}">
+					<input class="form-check-input" type="radio" name="gratuito" id="gratuito">
+					<label class="form-check-label" for="gratuito">
+					    Sí
+					  </label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="gratuito" id="gratuito">
+						<label class="form-check-label" for="gratuito">
+					    No
+					  </label>
 				</div>
 				 
 				 

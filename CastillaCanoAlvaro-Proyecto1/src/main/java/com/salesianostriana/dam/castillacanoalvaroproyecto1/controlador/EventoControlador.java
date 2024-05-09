@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
@@ -17,6 +18,7 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.EventoServi
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
 
 @Controller
+@RequestMapping("/admin/evento")
 public class EventoControlador {
 
 	@Autowired
@@ -33,14 +35,14 @@ public class EventoControlador {
 		List<Evento> evento = servicio.findAll();
 		model.addAttribute("evento", evento);
 		
-		return "eventos";
+		return "/admin/eventos";
 	}
 	
 	@GetMapping("/nuevo/procesion")
 	public String mostrarFormularioProcesion(Model model) {
 		Evento procesion = new Procesion();
 		model.addAttribute("evento", procesion);
-		return "registroProcesion";
+		return "/admin/registroProcesion";
 	}
 	
 	@PostMapping("/nuevo/procesion/submit")
@@ -53,7 +55,7 @@ public class EventoControlador {
 	public String mostrarFormularioConcierto(Model model) {
 		Evento concierto = new Concierto();
 		model.addAttribute("evento", concierto);
-		return "registroConcierto";
+		return "/admin/registroConcierto";
 	}
 	
 	@PostMapping("nuevo/concierto/submit")
