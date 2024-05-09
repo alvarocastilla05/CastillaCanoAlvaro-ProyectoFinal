@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.MusicoServicio;
 
 @Controller
+@RequestMapping("/admin/musico")
 public class MusicoControlador {
 
 	@Autowired
@@ -25,20 +27,20 @@ public class MusicoControlador {
 		List<Musico> musico = servicio.findAll();
 		model.addAttribute("musico", musico);
 		
-		return "tablaMusicos";
+		return "/admin/tablaMusicos";
 	}
 	
 	@GetMapping("/nuevo")
 	public String mostrarFormularioMusico(Model model) {
 		Musico musico = new Musico();
 		model.addAttribute("musico", musico);
-		return "registroMusico";
+		return "/admin/registroMusico";
 	}
 	
 	@PostMapping("/nuevo/submit")
 	public String guardarMusico(@ModelAttribute("musico")Musico musico, Model model) {
 		servicio.save(musico);
-		return "redirect:/listado";
+		return "redirect:/admin/musico/listado";
 	}
 	
 	@GetMapping("/editar/{id}")
@@ -47,9 +49,9 @@ public class MusicoControlador {
 		
 		if(musicoEditar.isPresent()) {
 			model.addAttribute("musico", musicoEditar.get());
-			return "registroMusico";
+			return "/admin/registroMusico";
 		}else {
-			return "redirect:/listado";
+			return "redirect:/admin/musico/listado";
 		}
 		
 	}
@@ -57,14 +59,14 @@ public class MusicoControlador {
 	@PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("musico") Musico m) {
 		servicio.save(m);
-		return "redirect:/listado";
+		return "redirect:/admin/musico/listado";
 	}
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarMusico(@PathVariable("id") long id) {
 		servicio.deleteById(id);
 		
-		return "redirect:/listado";
+		return "redirect:/admin/musico/listado";
 	}
 	
 	
