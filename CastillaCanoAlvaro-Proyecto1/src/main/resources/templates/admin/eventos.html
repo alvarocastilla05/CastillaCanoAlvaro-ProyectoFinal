@@ -36,16 +36,16 @@
 	                </thead>
 	                <tbody>
 	                    
-	                    <tr th:each="evento : ${evento}">
-	                        <td th:text="${evento.id}"></td>
-	                        <td th:text="${evento.nombre}"></td>
-	                        <td th:text="${evento.fecha}"></td>
-	                        <td th:text="${evento.hora}"></td>
-	                        <td th:text="${evento.duracion}"></td>
-	                        <td th:text="${evento.ciudad}"></td>
-	                        <td th:text="${evento.musicosNecesarios}"></td>
-							<td th:text="${evento.dineroPagado}"></td>
-							<td th:text="${evento.urlImg}"></td>
+	                    <tr th:each="procesion : ${procesion}">
+	                        <td th:text="${procesion.id}"></td>
+	                        <td th:text="${procesion.nombre}"></td>
+	                        <td th:text="${procesion.fecha}"></td>
+	                        <td th:text="${procesion.hora}"></td>
+	                        <td th:text="${procesion.duracion}"></td>
+	                        <td th:text="${procesion.ciudad}"></td>
+	                        <td th:text="${procesion.musicosNecesarios}"></td>
+							<td th:text="${procesion.dineroPagado}"></td>
+							<td th:text="${procesion.urlImg}"></td>
 	                            <a class="btn btn-primary" th:href="@{/editar/{id}(id=${evento.id})}">Editar</a>
 	                            <a class="btn btn-danger" th:href="@{/eliminar/{id}(id=${evento.id})}">Eliminar</a>
 	                        </td>
