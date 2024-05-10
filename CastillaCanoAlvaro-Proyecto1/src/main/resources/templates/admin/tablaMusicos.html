@@ -43,8 +43,8 @@
 	                        <td th:text="${musico.tipoInstrumento}"></td>
 	                        <td th:text="${musico.fechaAlta}"></td>
 	                        <td>
-	                            <a class="btn btn-primary" th:href="@{/editar/{id}(id=${musico.id})}">Editar</a>
-	                            <a class="btn btn-danger" th:href="@{/eliminar/{id}(id=${musico.id})}">Eliminar</a>
+	                            <a class="btn btn-primary" th:href="@{/admin/musico/editar/{id}(id=${musico.id})}">Editar</a>
+	                            <a class="btn btn-danger" th:href="@{/admin/musico/eliminar/{id}(id=${musico.id})}">Eliminar</a>
 	                        </td>
 	                    </tr>
 	                </tbody>
