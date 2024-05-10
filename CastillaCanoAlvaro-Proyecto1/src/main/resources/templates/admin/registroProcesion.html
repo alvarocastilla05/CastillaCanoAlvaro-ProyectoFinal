@@ -11,7 +11,7 @@
 	<!--REVISAR-->
 	<div class="container">
 	        <h2 class="mt-5 mb-4">Registro de Evento</h2>
-	        <form  method="POST" th:action="addEvento" th:object="${eventoForm}">
+	        <form  method="POST" th:action="@{/admin/evento/nuevo/procesion/submit}" th:object="${procesion}">
 				<div class="mb-3">
 					<label for="nombre" class="form-label">Nombre</label>
 				    <input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
@@ -26,11 +26,18 @@
 				 </div>
 				 <div class="mb-3">
 				    <label for="duracion" class="form-label">Duración (en horas)</label>
-				    <input type="number" class="form-control" id="duracion" name="duracion" required th:field="*{hora}" th:value="*{hora}">
+				    <input type="number" class="form-control" id="duracion" name="duracion" required th:value="*{duracion}">
 				 </div>
 				 <div class="mb-3">
 				    <label for="ciudad" class="form-label">Ciudad</label>
 				    <input type="text" class="form-control" id="ciudad" name="ciudad" required th:field="*{ciudad}">
+				 </div>
+				 <div class="mb-3">
+				 	<label for="respuesta">¿Desea contratar un autobús?</label><br>
+					<input type="radio" id="si" name="respuesta" value="true" th:field="*{busContratado}">
+				 	<label for="si">Sí</label><br>
+				 	<input type="radio" id="no" name="respuesta" value="false" th:field="*{busContratado}">
+				 	<label for="no">No</label><br>
 				 </div>
 				 <div class="mb-3">
 				    <label for="dineroPagado" class="form-label">Dinero Pagado</label>
@@ -40,6 +47,19 @@
 				 	<label for="img" class="form-label">URL cartel</label>
 				 	<input type="text" class="form-control" id="img" name="img" required th:field="*{urlImg}">
 				 </div>
+				 <div class="mb-3">
+				 	<label for="hermandad" class="form-label">Hermandad:</label>
+				 	<input type="text" class="form-control" id="hermandad" name="hermandad" required th:field="*{hermandad}">
+				 </div>
+				 <div class="mb-3">
+				 	<label for="titular" class="form-label">Titular Hermandad</label>
+				 	<input type="text" class="form-control" id="titular" name="titular" required th:field="*{titular}">
+				 </div>
+				 <div class="mb-3">
+				 	<label for="dineroExtra" class="form-label">Dinero por Extras:</label>
+				 	<input type="number" class="form-control" id="dineroExtra" name="dineroExtra" required th:field="*{precioHorasExtras}">
+				 </div>
+				 
 	
 	            <button type="submit" class="btn btn-primary">Registrar</button>
 	        </form>

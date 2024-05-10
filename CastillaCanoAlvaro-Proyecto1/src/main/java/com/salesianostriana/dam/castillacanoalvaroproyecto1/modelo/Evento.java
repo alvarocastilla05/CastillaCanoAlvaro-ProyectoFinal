@@ -29,8 +29,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-
-public abstract class Evento {
+public class Evento {
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -48,13 +47,19 @@ public abstract class Evento {
 	
 	private int musicosNecesarios;
 	
+	private boolean busContratado;
+	
 	private double dineroPagado;
 	
 	private String urlImg;
 	
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name="fk_evento_bus"))
+	private Bus bus;
+	
 	
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
-			int musicosNecesarios, double dineroPagado, String urlImg) {
+			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg) {
 		super();
 		this.nombre = nombre;
 		this.fecha = fecha;
@@ -62,13 +67,12 @@ public abstract class Evento {
 		this.duracion = duracion;
 		this.ciudad = ciudad;
 		this.musicosNecesarios = musicosNecesarios;
+		this.busContratado = busContratado;
 		this.dineroPagado = dineroPagado;
 		this.urlImg = urlImg;
 	}
 	
-	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name="fk_evento_bus"))
-	private Bus bus;
+	
 
 	
 	

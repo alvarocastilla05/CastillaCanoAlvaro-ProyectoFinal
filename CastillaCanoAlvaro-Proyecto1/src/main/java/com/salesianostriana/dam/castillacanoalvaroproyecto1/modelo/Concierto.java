@@ -9,27 +9,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class Concierto extends Evento{
 
 	private int aforo;
 	
 	private boolean gratuito;
 	
-	private double precioHoraExtra;
+	private double precio;
+
 
 	public Concierto(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
-			int musicosNecesarios, double dineroPagado, String urlImg, List<Musico> musicos, int aforo,
-			boolean gratuito, double precioHoraExtra) {
-		super(nombre, fecha, hora, duracion, ciudad, musicosNecesarios, dineroPagado, urlImg);
+			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg, int aforo,
+			boolean gratuito, double precio) {
+		super(nombre, fecha, hora, duracion, ciudad, musicosNecesarios, busContratado, dineroPagado, urlImg);
 		this.aforo = aforo;
 		this.gratuito = gratuito;
-		this.precioHoraExtra = precioHoraExtra;
+		this.precio = precio;
 	}
 
 	
