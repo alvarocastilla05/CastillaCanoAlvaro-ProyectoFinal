@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
-	
+	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
 </head>
 <body>
 	<!--REVISAR-->
@@ -52,13 +52,13 @@
 				 	<input type="number" class="form-control" id="aforo" name="aforo" step="100" required th:field="*{aforo}">
 				 </div>
 				 <div class="mb-3">
-						<label for="respuesta">Gratuito</label><br>
-						<input type="radio" id="si" name="respuesta" value="true" th:field="*{gratuito}">
+						<label for="gratuito">Gratuito</label><br>
+						<input type="radio" id="si" name="gratuito" value="true" th:field="*{gratuito}">
 						<label for="si">Sí</label><br>
-						<input type="radio" id="no" name="respuesta" value="false" th:field="*{gratuito}">
+						<input type="radio" id="no" name="gratuito" value="false" th:field="*{gratuito}">
 						<label for="no">No</label>
 				</div>
-				<div class="mb-3" th:if="${gratuito}">
+				<div class="mb-3 d-none">
 					<label for="precio" class="form-label">Precio:</label>
 					<input type="number" class="form-control" id="precio" name="precio" required th:field="*{precio}">
 				</div>
