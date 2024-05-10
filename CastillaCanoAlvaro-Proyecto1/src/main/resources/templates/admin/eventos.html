@@ -8,12 +8,11 @@
 </head>
 
 <body>
-	<h2>EVENTOS</h2>
+	<h1>EVENTOS</h1>
 
-	<!-- 
-		Solo una pequeña página para mostrar los campos del objeto recogido desde el formulario
-    -->
+	
 	<div class="container">
+		<h2>PROCESIONES</h2><br>
 	    <div class="row justify-content-center">
 	        <div class="col">
 	            <table class="table table-striped table-bordered">
@@ -31,6 +30,7 @@
 							<th scope="col">Hermandad</th>
 							<th scope="col">Titular</th>
 							<th scope="col">Dinero Horas Extras</th>
+							<th scope="col">Acciones</th>
 							
 	                    </tr>
 	                </thead>
@@ -46,12 +46,58 @@
 	                        <td th:text="${procesion.musicosNecesarios}"></td>
 							<td th:text="${procesion.dineroPagado}"></td>
 							<td th:text="${procesion.urlImg}"></td>
-	                            <a class="btn btn-primary" th:href="@{/editar/{id}(id=${evento.id})}">Editar</a>
-	                            <a class="btn btn-danger" th:href="@{/eliminar/{id}(id=${evento.id})}">Eliminar</a>
+							<td th:text="${procesion.hermandad}"></td>
+							<td th:text="${procesion.titular}"></td>
+							<td th:text="${procesion.precioHorasExtras}"></td>
+							<td>	
+	                            <a class="btn btn-primary" th:href="@{/admin/evento/editar/procesion/{id}(id=${procesion.id})}">Editar</a>
+	                            <a class="btn btn-danger" th:href="@{/admin/evento/eliminar/procesion/{id}(id=${procesion.id})}">Eliminar</a>
 	                        </td>
 	                    </tr>
 	                </tbody>
 	            </table>
+				
+				<table class="table table-striped table-bordered">
+					                <thead class="thead-dark">
+					                    <tr>
+					                        <th scope="col">ID</th>
+					                        <th scope="col">Nombre</th>
+					                        <th scope="col">Fecha</th>
+					                        <th scope="col">Hora</th>
+					                        <th scope="col">Duración</th>
+					                        <th scope="col">Ciudad</th>
+					                        <th scope="col">Musicos Necesarios</th>
+					                        <th scope="col">Dinero Pagado</th>
+											<th scope="col">Imagen</th>
+											<th scope="col">Aforo</th>
+											<th scope="col">Gratuito</th>
+											<th scope="col">Precio Entradas</th>
+											<th scope="col">Acciones</th>
+											
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                    
+					                    <tr th:each="concierto : ${concierto}">
+					                        <td th:text="${concierto.id}"></td>
+					                        <td th:text="${concierto.nombre}"></td>
+					                        <td th:text="${concierto.fecha}"></td>
+					                        <td th:text="${concierto.hora}"></td>
+					                        <td th:text="${concierto.duracion}"></td>
+					                        <td th:text="${concierto.ciudad}"></td>
+					                        <td th:text="${concierto.musicosNecesarios}"></td>
+											<td th:text="${concierto.dineroPagado}"></td>
+											<td th:text="${concierto.urlImg}"></td>
+											<td th:text="${concierto.aforo}"></td>
+											<td th:text="${concierto.gratuito}"></td>
+											<td th:text="${concierto.precio}"></td>
+											<td>	
+					                            <a class="btn btn-primary" th:href="@{/admin/evento/editar/concierto/{id}(id=${concierto.id})}">Editar</a>
+					                            <a class="btn btn-danger" th:href="@{/admin/evento/eliminar/concierto/{id}(id=${concierto.id})}">Eliminar</a>
+					                        </td>
+					                    </tr>
+					                </tbody>
+					            </table>
 	        </div>
 	    </div>
 	</div>

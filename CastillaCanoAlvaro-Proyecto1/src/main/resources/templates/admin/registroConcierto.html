@@ -11,7 +11,7 @@
 	<!--REVISAR-->
 	<div class="container">
 	        <h2 class="mt-5 mb-4">Registro de Evento</h2>
-	        <form  method="POST" th:action="@{admin/evento/nuevo/concierto/submit}" th:object="${evento}">
+	        <form  method="POST" th:action="@{/admin/evento/nuevo/concierto/submit}" th:object="${concierto}">
 				<div class="mb-3">
 					<label for="nombre" class="form-label">Nombre</label>
 				    <input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
@@ -26,14 +26,14 @@
 				 </div>
 				 <div class="mb-3">
 				    <label for="duracion" class="form-label">Duración (en horas)</label>
-				    <input type="number" class="form-control" id="duracion" name="duracion" required th:field="*{hora}" th:value="*{hora}">
+				    <input type="number" class="form-control" id="duracion" name="duracion" required th:value="*{duracion}">
 				 </div>
 				 <div class="mb-3">
 				    <label for="ciudad" class="form-label">Ciudad</label>
 				    <input type="text" class="form-control" id="ciudad" name="ciudad" required th:field="*{ciudad}">
 				 </div>
 				 <div class="mb-3">
-					 <label for="respuesta">¿Estás de acuerdo?</label><br>
+					 <label for="respuesta">¿Desea Contratar un autobús?</label><br>
 					 <input type="radio" id="si" name="respuesta" value="true" th:field="*{busContratado}">
 					 <label for="si">Sí</label><br>
 					 <input type="radio" id="no" name="respuesta" value="false" th:field="*{busContratado}">
@@ -59,7 +59,7 @@
 						<label for="no">No</label>
 				</div>
 				<div class="mb-3" th:if="${gratuito}">
-					<label for="precio" class="form-label">Aforo:</label>
+					<label for="precio" class="form-label">Precio:</label>
 					<input type="number" class="form-control" id="precio" name="precio" required th:field="*{precio}">
 				</div>
 				 

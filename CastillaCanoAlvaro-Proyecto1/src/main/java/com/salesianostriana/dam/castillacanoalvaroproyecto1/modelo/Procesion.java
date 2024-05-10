@@ -19,8 +19,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class Procesion extends Evento {
+public class Procesion extends Evento{
 
+	private String hermandad, titular;
+	
+	private double precioHorasExtras;
+	
 	public Procesion(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
 			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg, String hermandad,
 			String titular, double precioHorasExtras) {
@@ -29,10 +33,6 @@ public class Procesion extends Evento {
 		this.titular = titular;
 		this.precioHorasExtras = precioHorasExtras;
 	}
-
-	private String hermandad, titular;
-	
-	private double precioHorasExtras;
 
 	
 

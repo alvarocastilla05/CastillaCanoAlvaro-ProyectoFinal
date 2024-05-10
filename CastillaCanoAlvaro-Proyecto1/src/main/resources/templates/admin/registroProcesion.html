@@ -11,7 +11,7 @@
 	<!--REVISAR-->
 	<div class="container">
 	        <h2 class="mt-5 mb-4">Registro de Evento</h2>
-	        <form  method="POST" th:action="@{/admin/evento/nuevo/procesion/submit}" th:object="${evento}">
+	        <form  method="POST" th:action="@{/admin/evento/nuevo/procesion/submit}" th:object="${procesion}">
 				<div class="mb-3">
 					<label for="nombre" class="form-label">Nombre</label>
 				    <input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
@@ -26,7 +26,7 @@
 				 </div>
 				 <div class="mb-3">
 				    <label for="duracion" class="form-label">Duración (en horas)</label>
-				    <input type="number" class="form-control" id="duracion" name="duracion" required th:field="*{hora}" th:value="*{hora}">
+				    <input type="number" class="form-control" id="duracion" name="duracion" required th:value="*{duracion}">
 				 </div>
 				 <div class="mb-3">
 				    <label for="ciudad" class="form-label">Ciudad</label>

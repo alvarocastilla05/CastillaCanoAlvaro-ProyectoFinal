@@ -29,7 +29,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-
 public class Evento {
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
