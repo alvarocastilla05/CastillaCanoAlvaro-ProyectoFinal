@@ -15,18 +15,41 @@
 <body>
 	<div th:replace="~{fragmentos/nav::nav}"></div>
 
-	<div class="row mt-5">
-		<div class="col-12 col-md-4 mt-5">
-			<div th:each=" procesion : ${procesion}" class="card">
-				<img th:src="${procesion.urlImg}" alt="CartelEvento" class="w-50">
-				<h3 th:text="${procesion.nombre} + ' ' + ${procesion.fecha}" class="card-title"></h3>
-				<p th:text="${procesion.hora}" class="card-description"></p>
-				<span>Ubicación: <h4 th:text="${procesion.ciudad}" class="car-add-info"></h4></span>
-				<div class="bottons"><a th:href="index">Más info</a></div>
-			</div>
-		</div>
-	</div>
-
+	<div class="container">
+	    <h2>PROCESIONES</h2>
+	    <div class="row row-cols-1 row-cols-md-3 mt-5">
+	      <!-- Aquí comienza el bucle para las procesiones -->
+	      <div th:each="procesion : ${procesion}" class="col mt-5">
+	        <div class="card">
+	          <img th:src="${procesion.urlImg}" alt="CartelEvento" class="card-img-top">
+	          <div class="card-body">
+	            <h5 th:text="${procesion.nombre} + ' ' + ${procesion.fecha}" class="card-title"></h5>
+	            <p th:text="${procesion.hora}" class="card-text"></p>
+	            <p>Ubicación: <span th:text="${procesion.ciudad}" class="card-text"></span></p>
+	            <a th:href="index" class="btn btn-primary">Más info</a>
+	          </div>
+	        </div>
+	      </div>
+	      <!-- Aquí termina el bucle para las procesiones -->
+	    </div>
+	
+	    <h2>CONCIERTOS</h2>
+	    <div class="row row-cols-1 row-cols-md-3 mt-5">
+	      <!-- Aquí comienza el bucle para los conciertos -->
+	      <div th:each="concierto : ${concierto}" class="col mt-5">
+	        <div class="card">
+	          <img th:src="${concierto.urlImg}" alt="CartelEvento" class="card-img-top">
+	          <div class="card-body">
+	            <h5 th:text="${concierto.nombre} + ' ' + ${concierto.fecha}" class="card-title"></h5>
+	            <p th:text="${concierto.hora}" class="card-text"></p>
+	            <p>Ubicación: <span th:text="${concierto.ciudad}" class="card-text"></span></p>
+	            <a th:href="index" class="btn btn-primary">Más info</a>
+	          </div>
+	        </div>
+	      </div>
+	      <!-- Aquí termina el bucle para los conciertos -->
+	    </div>
+	  </div>
 
 
 

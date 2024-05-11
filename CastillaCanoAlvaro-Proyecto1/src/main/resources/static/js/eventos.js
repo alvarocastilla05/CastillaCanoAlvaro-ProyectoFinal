@@ -2,8 +2,8 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    let gratuitoSi = document.getElementById('si');
-    let gratuitoNo = document.getElementById('no');
+    let gratuitoSi = document.getElementById('gratuitoSi');
+    let gratuitoNo = document.getElementById('gratuitoNo');
     let divPrecio = document.querySelector('.d-none');
 
     function precioInput() {
