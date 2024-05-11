@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMUECI - Contrato Bus</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Contratación de Bus</h2>
+        <div class="card">
+            <div class="card-body">
+                <form th:action="${bus.id != 0} ? @{/admin/bus/editar/submit} : @{/admin/bus/nuevo/submit}" th:object="${bus}"
+                    method="post">
+                    <input th:if="${bus.id != 0}" type="hidden" name="id" th:field="*{id}">
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label for="email" class="form-label">Usuario:</label>
+                            <input type="email" class="form-control" id="email" name="email" required th:field="*{usuario}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required
+                                th:field="*{nombre}">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label for="apellidos" class="form-label">Apellidos:</label>
+                            <input type="text" class="form-control" id="apellidos" name="apellidos" required
+                                th:field="*{apellidos}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="password" class="form-label">Contraseña:</label>
+                            <input type="password" class="form-control" id="password" name="password" required
+                                th:field="*{contrasenia}">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label for="tipo_instrumento" class="form-label">Tipo de Instrumento:</label>
+                            <select class="form-select" id="tipo_instrumento" name="tipo_instrumento" required
+                                th:field="*{tipoInstrumento}">
+                                <option value="VientoMetal">Viento Metal</option>
+                                <option value="VientoMadera">Viento Madera</option>
+                                <option value="Percusion">Percusión</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="fecha_alta" class="form-label">Fecha de Alta:</label>
+                            <input type="date" class="form-control" id="fecha_alta" name="fecha_alta" required
+                                th:field="*{fechaAlta}">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -18,8 +18,6 @@ public class Bus {
 	
 	private double kmRecorridos;
 	
-	private boolean contratado;
-	
 	private double descuento;
 	
 }
