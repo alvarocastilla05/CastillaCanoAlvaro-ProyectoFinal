@@ -43,6 +43,14 @@
 	                <input type="radio" id="no" name="respuesta" value="false" th:field="*{busContratado}">
 	                <label for="no">No</label>
 	            </div>
+				<ul>
+							<li th:each="bus : ${nombre}">
+								<input type="radio" th:field="*{nombre}" th:value="${bus}" />
+				
+				
+								<label th:for="${#ids.prev('nombre')}" th:text="${bus}">Tipo de Bus</label>
+							</li>
+						</ul>
 	            <div class="col-md-6">
 	                <label for="dineroPagado" class="form-label">Dinero Pagado</label>
 	                <input type="number" class="form-control" id="dineroPagado" name="dineroPagado" step="100" required th:field="*{dineroPagado}">

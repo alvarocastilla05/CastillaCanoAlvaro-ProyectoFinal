@@ -72,6 +72,16 @@ public class Evento {
 		this.urlImg = urlImg;
 	}
 	
+	public void addToBus(Bus bus) {
+		this.bus= bus;
+		bus.getEventos().add(this);
+	}
+	
+	public void removeFromBus(Bus bus) {
+		bus.getEventos().remove(this);
+		this.bus = null;
+	}
+	
 	
 
 	

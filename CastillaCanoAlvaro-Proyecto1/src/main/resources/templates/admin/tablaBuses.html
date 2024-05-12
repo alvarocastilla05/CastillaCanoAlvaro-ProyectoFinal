@@ -23,7 +23,11 @@
 	                <thead class="thead-dark">
 	                    <tr>
 	                        <th scope="col">ID</th>
-	                        <th scope="col">KM Recorridos</th>
+	                        <th scope="col">Nombre</th>
+							<th scope="col">Plazas</th>
+							<th scope="col">Precio Por Km</th>
+							<th scope="col">Acciones</th>
+							
 	                        
 	                    </tr>
 	                </thead>
@@ -31,7 +35,9 @@
 	                    <!-- Iterar sobre cada objeto musico -->
 	                    <tr th:each="bus : ${bus}">
 	                        <td th:text="${bus.id}"></td>
-	                        <td th:text="${bus.kmRecorridos}"></td>
+	                        <td th:text="${bus.nombre}"></td>
+							<td th:text="${bus.plazas}"></td>
+							<td th:text="${bus.precioKm}"></td>
 	                  
 	                        <td>
 	                            <a class="btn btn-primary" th:href="@{/admin/bus/editar/{id}(id=${bus.id})}">Editar</a>
@@ -43,7 +49,7 @@
 	        </div>
 	    </div>
 	</div>
-		<a class="btn btn-primary" th:href="nuevo">Añadir Musico</a>
+		<a class="btn btn-primary" th:href="@{/admin/bus/contratar}">Añadir Bus</a>
 	</div>
 	
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
