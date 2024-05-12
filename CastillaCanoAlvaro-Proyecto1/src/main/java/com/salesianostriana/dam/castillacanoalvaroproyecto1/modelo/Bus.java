@@ -20,4 +20,6 @@ public class Bus {
 	
 	private double descuento;
 	
+	
+	
 }
