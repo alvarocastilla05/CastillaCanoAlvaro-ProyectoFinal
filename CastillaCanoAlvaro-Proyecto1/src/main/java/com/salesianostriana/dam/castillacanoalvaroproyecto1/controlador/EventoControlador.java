@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.BusServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.EventoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
@@ -25,6 +26,9 @@ public class EventoControlador {
 
 	@Autowired
 	private EventoServicio servicio;
+	
+	@Autowired
+	private BusServicio busServicio;
 	
 	@Autowired
 	private ProcesionServicio servicioProce;
@@ -47,6 +51,8 @@ public class EventoControlador {
 	@GetMapping("/nuevo/procesion")
 	public String mostrarFormularioProcesion(Model model) {
 		Procesion procesion = new Procesion();
+		
+		model.addAttribute("buses", busServicio.findAll());
 		model.addAttribute("procesion", procesion);
 		return "admin/registroProcesion";
 	}
@@ -60,7 +66,8 @@ public class EventoControlador {
 	@GetMapping("/editar/procesion/{id}")
 	public String editarProcesion(@PathVariable("id") long id, Model model) {
 		Optional<Procesion> procesionEditar = servicioProce.findBYId(id);
-		
+
+		model.addAttribute("buses", busServicio.findAll());
 		if(procesionEditar.isPresent()) {
 			model.addAttribute("procesion", procesionEditar.get());
 			return "/admin/registroProcesion";
@@ -87,6 +94,7 @@ public class EventoControlador {
 	@GetMapping("/nuevo/concierto")
 	public String mostrarFormularioConcierto(Model model) {
 		Concierto concierto = new Concierto();
+		model.addAttribute("buses", busServicio.findAll());
 		model.addAttribute("concierto", concierto);
 		return "/admin/registroConcierto";
 	}
@@ -100,6 +108,7 @@ public class EventoControlador {
 	@GetMapping("/editar/concierto/{id}")
 	public String editarConcierto(@PathVariable("id") long id, Model model) {
 		Optional<Concierto> conciertoEditar = servicioConcer.findBYId(id);
+		model.addAttribute("buses", busServicio.findAll());
 		
 		if(conciertoEditar.isPresent()) {
 			model.addAttribute("concierto", conciertoEditar.get());

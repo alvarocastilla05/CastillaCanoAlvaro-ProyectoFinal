@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Listado Musicos</title>
+	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	
+	<div th:replace="~{fragmentos/navAdmin::navAdmin}"></div>
+	<h1>MÚSICOS</h1>
+	<br>
+
+	<!-- 
+		Solo una pequeña página para mostrar los campos del objeto recogido desde el formulario
+    -->
+	<div class="container">
+	    <div class="row justify-content-center">
+	        <div class="col">
+	            <table class="table table-striped table-bordered">
+	                <thead class="thead-dark">
+	                    <tr>
+	                        <th scope="col">ID</th>
+	                        <th scope="col">Nombre</th>
+							<th scope="col">Plazas</th>
+							<th scope="col">Precio Por Km</th>
+							<th scope="col">Acciones</th>
+							
+	                        
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                    <!-- Iterar sobre cada objeto musico -->
+	                    <tr th:each="bus : ${bus}">
+	                        <td th:text="${bus.id}"></td>
+	                        <td th:text="${bus.nombre}"></td>
+							<td th:text="${bus.plazas}"></td>
+							<td th:text="${bus.precioKm}"></td>
+	                  
+	                        <td>
+	                            <a class="btn btn-primary" th:href="@{/admin/bus/editar/{id}(id=${bus.id})}">Editar</a>
+	                            <a class="btn btn-danger" th:href="@{/admin/bus/eliminar/{id}(id=${bus.id})}">Eliminar</a>
+	                        </td>
+	                    </tr>
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	</div>
+		<a class="btn btn-primary" th:href="@{/admin/bus/contratar}">Añadir Bus</a>
+	</div>
+	
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+
+	
+
+</body>
+
+</html>

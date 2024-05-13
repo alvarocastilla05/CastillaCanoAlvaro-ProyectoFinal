@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMUECI - Contrato Bus</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Contratación de Bus</h2>
+        <div class="card">
+            <div class="card-body">
+                <form th:action="${bus.id != 0} ? @{/admin/bus/contratar/submit} : @{/admin/bus/editar/submit}" th:object="${bus}"
+                    method="post">
+                    <input th:if="${bus.id != 0}" type="hidden" name="id" th:field="*{id}">
+					<div class="col-sm-6">
+						<label for="nombre" class="form-label">Nombre:</label>
+						<input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
+					</div>
+					<div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label for="plazas" class="form-label">Plazas</label>
+                            <input type="number" class="form-control" id="plazas" name="plazas" required th:field="*{plazas}">
+                    	</div>
+						<div class="col-sm-6">
+						<label for="precioKm" class="form-label">Precio Por Km:</label>
+						<input type="number" class="form-control" id="precioKm" name="precioKm" required th:field="*{precioKm}">
+						</div>
+					</div>
+                       
+
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

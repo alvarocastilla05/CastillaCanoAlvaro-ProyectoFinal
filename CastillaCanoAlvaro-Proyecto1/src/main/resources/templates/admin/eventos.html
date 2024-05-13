@@ -25,6 +25,8 @@
 	                        <th scope="col">Hora</th>
 	                        <th scope="col">Duración</th>
 	                        <th scope="col">Ciudad</th>
+							<th scope="col">KM a Recorrer</th>
+							<th scope="col">Bus</th>
 	                        <th scope="col">Musicos Necesarios</th>
 	                        <th scope="col">Dinero Pagado</th>
 							<th scope="col">Imagen</th>
@@ -44,6 +46,8 @@
 	                        <td th:text="${procesion.hora}"></td>
 	                        <td th:text="${procesion.duracion}"></td>
 	                        <td th:text="${procesion.ciudad}"></td>
+							<td th:text="${procesion.kmARecorrer}"></td>
+							<td th:text="${procesion.bus.nombre}"></td>
 	                        <td th:text="${procesion.musicosNecesarios}"></td>
 							<td th:text="${procesion.dineroPagado}"></td>
 							<td th:text="${procesion.urlImg}"></td>
@@ -67,11 +71,12 @@
 					                        <th scope="col">Hora</th>
 					                        <th scope="col">Duración</th>
 					                        <th scope="col">Ciudad</th>
+											<th scope="col">KM a Recorrer</th>
+											<th scope="col">Bus</th>
 					                        <th scope="col">Musicos Necesarios</th>
 					                        <th scope="col">Dinero Pagado</th>
 											<th scope="col">Imagen</th>
 											<th scope="col">Aforo</th>
-											<th scope="col">Gratuito</th>
 											<th scope="col">Precio Entradas</th>
 											<th scope="col">Acciones</th>
 											
@@ -86,11 +91,12 @@
 					                        <td th:text="${concierto.hora}"></td>
 					                        <td th:text="${concierto.duracion}"></td>
 					                        <td th:text="${concierto.ciudad}"></td>
+											<td th:text="${concierto.kmARecorrer}"></td>
+											<td th:text="${concierto.bus.nombre}"></td>
 					                        <td th:text="${concierto.musicosNecesarios}"></td>
 											<td th:text="${concierto.dineroPagado}"></td>
 											<td th:text="${concierto.urlImg}"></td>
 											<td th:text="${concierto.aforo}"></td>
-											<td th:text="${concierto.gratuito}"></td>
 											<td th:text="${concierto.precio}"></td>
 											<td>	
 					                            <a class="btn btn-primary" th:href="@{/admin/evento/editar/concierto/{id}(id=${concierto.id})}">Editar</a>
