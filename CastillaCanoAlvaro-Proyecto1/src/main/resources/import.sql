@@ -1,7 +1,8 @@
-insert into musico (id, nombre, apellidos, usuario, contrasenia, tipo_instrumento, fecha_alta) values (1, 'Alvaro', 'Castilla Cano', 'alvarocastilla@amueci.es', '12345', 'Percusion', '2020-01-06');
-insert into musico (id, nombre, apellidos, usuario, contrasenia, tipo_instrumento, fecha_alta) values (2, 'Lucas', 'Falla Urtiaga', 'lucasfalla@amueci.es', '54123', 'Percusion', '2019-05-01');
+--insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (1, 'Alvaro', 'Castilla Cano', 'alvarocastilla@amueci.es', '12345', 'Percusion', '2020-01-06', false);
+--insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (2, 'Lucas', 'Falla Urtiaga', 'lucasfalla@amueci.es', '54123', 'Percusion', '2019-05-01', false);
+--insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (3, 'admin', 'admin', 'admin', 'admin', null, '2019-05-01', true);
 
-ALTER SEQUENCE musico_seq RESTART WITH 52;
+ALTER SEQUENCE musico_seq RESTART WITH 53;
 
 insert into bus(id, nombre, plazas, precio_km, descuento) values (1, 'Autobús 50 Plazas', 50, 2, 0);
 insert into bus(id, nombre, plazas, precio_km, descuento) values (2, 'Autobús 65 Plazas', 65, 2.5, 0);
