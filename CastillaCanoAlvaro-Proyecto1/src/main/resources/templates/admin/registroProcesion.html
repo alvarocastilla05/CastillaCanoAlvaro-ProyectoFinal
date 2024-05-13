@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMUECI - Registro Procesion</title>
 	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
 	
 </head>
 <body>
@@ -79,6 +80,13 @@
 	                    <input type="number" class="form-control" id="dineroExtra" name="dineroExtra" required th:field="*{precioHorasExtras}">
 	                </div>
 	            </div>
+				<div class="mb-3 d-none">
+					<label for="bus">Elija un Bus</label>
+					<select id="bus" class="form-control" th:field="*{bus}">
+						<option value="">Bus</option>
+						<option th:each="bus : ${buses}" th:value="${bus.id}" th:text="${bus.nombre}">N/S</option>
+					</select>
+				</div>
 	        </div>
 	        <div class="col-12 text-center">
 	            <button type="submit" class="btn btn-primary">Registrar</button>

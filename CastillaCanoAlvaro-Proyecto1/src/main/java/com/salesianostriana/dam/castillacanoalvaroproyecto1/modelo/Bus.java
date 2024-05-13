@@ -38,12 +38,6 @@ public class Bus {
 	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy="bus", fetch = FetchType.EAGER)
 	@Builder.Default
-	private List<Evento> eventos = new ArrayList<>();
-	
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
-	@OneToMany(mappedBy="bus", fetch = FetchType.EAGER)
-	@Builder.Default
 	private List<Asiste> asistentes = new ArrayList<>();
 	
 	

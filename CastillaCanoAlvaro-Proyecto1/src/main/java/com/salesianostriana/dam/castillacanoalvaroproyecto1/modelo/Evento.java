@@ -59,7 +59,7 @@ public class Evento {
 	
 	
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
-			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg) {
+			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg, Bus bus) {
 		super();
 		this.nombre = nombre;
 		this.fecha = fecha;
@@ -70,17 +70,10 @@ public class Evento {
 		this.busContratado = busContratado;
 		this.dineroPagado = dineroPagado;
 		this.urlImg = urlImg;
+		this.bus = bus;
 	}
 	
-	public void addToBus(Bus bus) {
-		this.bus= bus;
-		bus.getEventos().add(this);
-	}
 	
-	public void removeFromBus(Bus bus) {
-		bus.getEventos().remove(this);
-		this.bus = null;
-	}
 	
 	
 
