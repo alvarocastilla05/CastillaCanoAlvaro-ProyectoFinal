@@ -47,7 +47,7 @@
 	                        <td th:text="${procesion.duracion}"></td>
 	                        <td th:text="${procesion.ciudad}"></td>
 							<td th:text="${procesion.kmARecorrer}"></td>
-							<td th:text="${procesion.bus.nombre}"></td>
+							<td th:text="${procesion.bus} != null ? ${procesion.bus.nombre} : 'No hay Bus'"></td>
 	                        <td th:text="${procesion.musicosNecesarios}"></td>
 							<td th:text="${procesion.dineroPagado}"></td>
 							<td th:text="${procesion.urlImg}"></td>
@@ -92,7 +92,7 @@
 					                        <td th:text="${concierto.duracion}"></td>
 					                        <td th:text="${concierto.ciudad}"></td>
 											<td th:text="${concierto.kmARecorrer}"></td>
-											<td th:text="${concierto.bus.nombre}"></td>
+											<td th:text="${concierto.bus} != null ? ${concierto.bus.nombre} : 'No hay Bus'"></td>
 					                        <td th:text="${concierto.musicosNecesarios}"></td>
 											<td th:text="${concierto.dineroPagado}"></td>
 											<td th:text="${concierto.urlImg}"></td>

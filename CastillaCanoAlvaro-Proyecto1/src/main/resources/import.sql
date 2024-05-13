@@ -9,3 +9,12 @@ insert into bus(id, nombre, plazas, precio_km, descuento) values (3, 'Autobús 8
 insert into bus(id, nombre, plazas, precio_km, descuento) values (4, 'Autobús 100 Plazas', 100, 3.25, 0);
 
 ALTER SEQUENCE bus_seq RESTART WITH 54;
+
+insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (1, 'Concierto Santa Cecilia', '2024-11-06', '12:30', 2, 'Ecija', 0, 65, false, 1000, 'https://pbs.twimg.com/media/F-RPbXyXEAANeVz?format=jpg&name=large', null);
+insert into concierto(id, aforo, gratuito, precio) values (1, 100, true, 0);
+
+
+insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (2, 'Procesion Cena Huelva', '2024-04-06', '12:30', 8, 'Huelva', 200, 80, true, 10000, 'https://pbs.twimg.com/media/GJbGW2qXoAAXBKZ.jpg', 3);
+insert into procesion(id, hermandad, titular, precio_horas_extras) values (2, 'Cena Huelva', 'Rosario del Polvorin', 100);
+
+ALTER SEQUENCE evento_seq RESTART WITH 52;
