@@ -46,6 +46,13 @@
 	                    <label class="form-check-label" for="no">No</label>
 	                </div>
 	            </div>
+				<div class="mb-3 d-none">
+					<label for="bus">Elija un Bus</label>
+					<select id="bus" class="form-control" th:field="*{bus}">
+						<option value="">Bus</option>
+						<option th:each="bus : ${buses}" th:value="${bus.id}" th:text="${bus.nombre}">N/S</option>
+					</select>
+				</div>
 	        </div>
 	        <div class="col-md-6">
 	            <div class="mb-3">
@@ -73,6 +80,11 @@
 	                    </div>
 	                </div>
 	            </div>
+				<div class="mb-3">
+					<label for="kmARecorrer" class="form-label">KM a Recorrer:</label>
+					<input type="number" class="form-control" id="kmARecorrer" name="kmARecorrer" required
+						th:value="*{kmARecorrer}">
+				</div>
 	            <div class="mb-3">
 	                <label for="dineroExtra" class="form-label">Dinero por Extras</label>
 	                <div class="input-group">
@@ -80,13 +92,8 @@
 	                    <input type="number" class="form-control" id="dineroExtra" name="dineroExtra" required th:field="*{precioHorasExtras}">
 	                </div>
 	            </div>
-				<div class="mb-3 d-none">
-					<label for="bus">Elija un Bus</label>
-					<select id="bus" class="form-control" th:field="*{bus}">
-						<option value="">Bus</option>
-						<option th:each="bus : ${buses}" th:value="${bus.id}" th:text="${bus.nombre}">N/S</option>
-					</select>
-				</div>
+				
+				
 	        </div>
 	        <div class="col-12 text-center">
 	            <button type="submit" class="btn btn-primary">Registrar</button>

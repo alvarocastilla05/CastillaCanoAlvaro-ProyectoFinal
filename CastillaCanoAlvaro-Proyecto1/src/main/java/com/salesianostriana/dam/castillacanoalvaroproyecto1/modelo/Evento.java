@@ -45,6 +45,8 @@ public class Evento {
 	
 	private String ciudad;
 	
+	private double kmARecorrer;
+	
 	private int musicosNecesarios;
 	
 	private boolean busContratado;
@@ -58,7 +60,7 @@ public class Evento {
 	private Bus bus;
 	
 	
-	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
+	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad, double kmARecorrer,
 			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg, Bus bus) {
 		super();
 		this.nombre = nombre;
@@ -66,6 +68,7 @@ public class Evento {
 		this.hora = hora;
 		this.duracion = duracion;
 		this.ciudad = ciudad;
+		this.kmARecorrer = kmARecorrer;
 		this.musicosNecesarios = musicosNecesarios;
 		this.busContratado = busContratado;
 		this.dineroPagado = dineroPagado;

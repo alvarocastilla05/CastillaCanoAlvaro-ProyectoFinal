@@ -36,10 +36,18 @@
 				<label for="duracion" class="form-label">Duración (en horas)</label>
 				<input type="number" class="form-control" id="duracion" name="duracion" required th:value="*{duracion}">
 			</div>
+
 			<div class="mb-3">
 				<label for="ciudad" class="form-label">Ciudad</label>
 				<input type="text" class="form-control" id="ciudad" name="ciudad" required th:field="*{ciudad}">
 			</div>
+			<div class="mb-3">
+				<label for="kmARecorrer" class="form-label">KM a Recorrer:</label>
+				<input type="number" class="form-control" id="kmARecorrer" name="kmARecorrer" required
+					th:value="*{kmARecorrer}">
+			</div>
+
+
 			<div class="row mb-3">
 				<div class="col-md-4">
 					<label for="respuesta">¿Desea Contratar un autobús?</label><br>

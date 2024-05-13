@@ -26,10 +26,10 @@ public class Concierto extends Evento{
 	private double precio;
 
 
-	public Concierto(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad,
+	public Concierto(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad, double kmARecorrer,
 			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg, Bus bus, int aforo,
 			boolean gratuito, double precio) {
-		super(nombre, fecha, hora, duracion, ciudad, musicosNecesarios, busContratado, dineroPagado, urlImg, bus);
+		super(nombre, fecha, hora, duracion, ciudad, kmARecorrer, musicosNecesarios, busContratado, dineroPagado, urlImg, bus);
 		this.aforo = aforo;
 		this.gratuito = gratuito;
 		this.precio = precio;
