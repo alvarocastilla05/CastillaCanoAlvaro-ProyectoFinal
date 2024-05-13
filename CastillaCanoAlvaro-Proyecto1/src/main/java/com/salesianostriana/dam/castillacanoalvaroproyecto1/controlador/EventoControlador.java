@@ -126,7 +126,7 @@ public class EventoControlador {
 	
 	@GetMapping("/eliminar/concierto/{id}")
 	public String eliminarConcierto(@PathVariable("id") long id) {
-		servicioProce.deleteById(id);
+		servicioConcer.deleteById(id);
 		
 		return "redirect:/admin/evento/listadoEvento";
 	}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMUECI - Concierto</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div th:replace="~{fragmentos/nav::nav}"></div>
+
+	<div class="container">
+	  <div class="row justify-content-center text-center">
+	    <div class="col-md-6">
+	      <h1 class="display-2 mb-4" th:text="${concierto.nombre} + ' ' + ${concierto.fecha}"></h1>
+	      <p><i class="bi bi-alarm"></i> HORA: <span th:text="${concierto.hora}"></span></p>
+	      <p><i class="bi bi-pin-map"></i> UBICACIÓN: <span th:text="${concierto.ciudad}"></span></p>
+	      <p><i class="bi bi-people-fill"></i> AFORO: <span th:text="${concierto.aforo}"></span></p>
+	      <p><i class="bi bi-currency-euro"></i> PRECIO: <span th:text="${concierto.gratuito} ? 'Es GRATIS!!' : ${concierto.precio}"></span></p>
+	    </div>
+	    <div class="col-md-6">
+	      <img th:src="${concierto.urlImg}" alt="CartelEvento" class="img-fluid w-75">
+	    </div>
+	  </div>
+	</div>
+
+
+	
+
+    
+
+
+
+</body>
+
+</html>	
