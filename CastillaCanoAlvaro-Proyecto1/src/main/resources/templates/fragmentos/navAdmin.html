@@ -37,22 +37,16 @@
 						<div class="dropdown">
 							<button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
 								aria-expanded="false">
-								INICIAR SESIÓN
+								<span sec:authentication="name">Administrador</span>
 							</button>
 							<ul class="dropdown-menu">
-								<li style="width: 400px;">
-									<form class="p-3">
-										<div class="mb-3">
-											<label for="exampleInputEmail1" class="form-label">Usuario</label>
-											<input type="email" class="form-control" id="exampleInputEmail1">
-										</div>
-										<div class="mb-3">
-											<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-											<input type="password" class="form-control" id="exampleInputPassword1">
-										</div>
-										<button type="submit" class="btn btn-primary">Confirmar</button>
-									</form>
-								</li>
+								<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
+									<h1>Bienvenido a la zona de administrador</h1>
+									<h2>
+										Bienvenido 
+									</h2>
+									<a href="javascript:document.getElementById('logoutForm').submit()">Salir</a>
+
 							</ul>
 						</div>
 					</div>

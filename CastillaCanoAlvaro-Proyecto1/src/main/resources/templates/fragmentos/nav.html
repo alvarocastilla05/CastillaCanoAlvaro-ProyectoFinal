@@ -20,7 +20,7 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<ul sec:authorice="!isAuthenticated()" class="navbar-nav ms-auto mb-2 mb-lg-0" >
 							<li class="nav-item">
 								<a class="nav-link active" aria-current="page" href="/">Inicio</a>
 							</li>
@@ -34,7 +34,22 @@
 								<a class="nav-link" href="listado" tabindex="-1" aria-disabled="true">Componentes</a>
 							</li>
 						</ul>
-						<div class="dropdown">
+						<ul sec:authorize="hasRole('ROLE_ADMIN')" class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="/">Inicio</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/admin/evento/listadoEvento">Eventos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="escuela" tabindex="-1" aria-disabled="true">Nosotros</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/admin/musico/listado" tabindex="-1"
+									aria-disabled="true">Componentes</a>
+							</li>
+						</ul>
+						<div sec:authorice="isAnonymous()" class="dropdown" >
 							<button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
 								aria-expanded="false">
 								INICIAR SESIÓN
@@ -44,15 +59,30 @@
 									<form class="p-3" method="POST" action="#" th:action="@{/login}">
 										<div class="mb-3">
 											<label for="exampleInputEmail1" class="form-label">Usuario</label>
-											<input type="text" class="form-control" id="exampleInputEmail1" name="username">
+											<input type="text" class="form-control" id="exampleInputEmail1"
+												name="username">
 										</div>
 										<div class="mb-3">
 											<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-											<input type="password" class="form-control" id="exampleInputPassword1" name="password">
+											<input type="password" class="form-control" id="exampleInputPassword1"
+												name="password">
 										</div>
 										<button type="submit" class="btn btn-primary">Confirmar</button>
 									</form>
 								</li>
+							</ul>
+
+						</div>
+						<div sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
+							<button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false">
+								<span sec:authentication="name">Administrador</span>
+							</button>
+							<ul class="dropdown-menu">
+								<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
+								<h1>Bienvenido a la zona de administrador</h1>
+								<a href="javascript:document.getElementById('logoutForm').submit()">Salir</a>
+
 							</ul>
 						</div>
 					</div>

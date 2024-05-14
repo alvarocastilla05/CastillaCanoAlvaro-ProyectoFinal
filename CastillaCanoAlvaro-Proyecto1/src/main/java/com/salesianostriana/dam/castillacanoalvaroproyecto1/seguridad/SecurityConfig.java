@@ -10,6 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.savedrequest.NullRequestCache;
+import org.springframework.security.web.savedrequest.RequestCache;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +23,8 @@ public class SecurityConfig {
 	
 	private final UserDetailsService userDetailsService;
 	private final PasswordEncoder passwordEncoder;
+	
+	private final AuthenticationSuccessHandler authenticationSuccessHandler;
 
     @Bean
     AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
@@ -44,16 +49,23 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    	RequestCache requestCache = new NullRequestCache();
+    	
     	http.authorizeHttpRequests(
-				(authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**","/" ).permitAll()
+				(authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**", "/img/**","/", "/escuela", 
+						"/ubicacion", "/director", "/cartas/eventos/**" ).permitAll()
 						.requestMatchers("/admin/**").hasRole("ADMIN")
-						.anyRequest().authenticated())
+						.anyRequest().authenticated()).requestCache(cache -> cache.requestCache(requestCache))
 			.formLogin((loginz) -> loginz
-					.loginPage("/").permitAll())
+					.loginPage("/login")
+					.successHandler(authenticationSuccessHandler)
+					.permitAll())
 			.logout((logoutz) -> logoutz
 					.logoutUrl("/logout")
-					.logoutSuccessUrl("/")
+					.logoutSuccessUrl("/login")
 					.permitAll());
+    	
+    
 		
 		// Añadimos esto para poder seguir accediendo a la consola de H2
 		// con Spring Security habilitado.

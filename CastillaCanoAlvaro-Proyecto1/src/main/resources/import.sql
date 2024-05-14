@@ -1,6 +1,6 @@
---insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (1, 'Alvaro', 'Castilla Cano', 'alvarocastilla@amueci.es', '12345', 'Percusion', '2020-01-06', false);
---insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (2, 'Lucas', 'Falla Urtiaga', 'lucasfalla@amueci.es', '54123', 'Percusion', '2019-05-01', false);
---insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (3, 'admin', 'admin', 'admin', 'admin', null, '2019-05-01', true);
+insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (1, 'Alvaro', 'Castilla Cano', 'alvarocastilla@amueci.es', '{noop}12345', 'Percusion', '2020-01-06', false);
+insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (2, 'Lucas', 'Falla Urtiaga', 'lucasfalla@amueci.es', '{noop}54123', 'Percusion', '2019-05-01', false);
+insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (3, 'admin', 'admin', 'admin', '{noop}admin', null, '2019-05-01', true);
 
 ALTER SEQUENCE musico_seq RESTART WITH 53;
 
