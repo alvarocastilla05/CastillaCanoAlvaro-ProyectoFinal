@@ -40,17 +40,17 @@ public class MainControlador {
 		return "index";//Mostramos la plantilla index
 	}
 	
-	@GetMapping({"/escuela", "/admin/escuela"})
+	@GetMapping({"/escuela", "/admin/escuela", "/musico/escuela"})
 	public String escuela() {
 		return "nuestraEscuela";
 	}
 	
-	@GetMapping({"/ubicacion", "/admin/ubicacion"})
+	@GetMapping({"/ubicacion", "/admin/ubicacion", "/musico/escuela"})
 	public String ubicacion() {
 		return "ubicacion";
 	}
 	
-	@GetMapping({"/director", "/admin/director"})
+	@GetMapping({"/director", "/admin/director", "/musico/escuela"})
 	public String director() {
 		return "director";
 	}
