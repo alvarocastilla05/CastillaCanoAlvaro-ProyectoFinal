@@ -5,6 +5,7 @@
 	<title>Listado Musicos</title>
 	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
 	<meta charset="utf-8" />
+	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
 </head>
 
 <body>
@@ -41,7 +42,7 @@
 	                  
 	                        <td>
 	                            <a class="btn btn-primary" th:href="@{/admin/bus/editar/{id}(id=${bus.id})}">Editar</a>
-	                            <a class="btn btn-danger" th:href="@{/admin/bus/eliminar/{id}(id=${bus.id})}">Eliminar</a>
+	                            <a class="btn btn-danger" th:onclick="'javascript:confirmarEliminacionBus(' + ${bus.id} + ')'">Eliminar</a>
 	                        </td>
 	                    </tr>
 	                </tbody>
