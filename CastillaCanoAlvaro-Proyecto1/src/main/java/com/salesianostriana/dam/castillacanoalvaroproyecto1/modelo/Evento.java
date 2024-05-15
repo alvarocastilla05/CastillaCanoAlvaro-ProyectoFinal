@@ -18,7 +18,9 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -58,6 +60,11 @@ public class Evento {
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_evento_bus"))
 	private Bus bus;
+	
+	@OneToMany(mappedBy="evento", fetch = FetchType.EAGER)
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	private List<Asiste> asiste = new ArrayList<>();
 	
 	
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad, double kmARecorrer,

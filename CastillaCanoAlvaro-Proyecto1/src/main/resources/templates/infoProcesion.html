@@ -25,11 +25,13 @@
 	      <p><i class="bi bi-bank"></i> HERMANDAD: <span th:text="${procesion.hermandad}"></span></p>
 	      <p><i class="bi bi-music-note-beamed"></i> TITULAR: <span th:text="${procesion.titular}"></span></p>
 		  <div sec:authorize="hasRole('ROLE_MUSICO')">
-		  <label for="asistir">¿Va a asistir al evento?</label>
+			<input type="hidden" name="id" th:field="${procesion.id}">
+			<label for="asistir">¿Va a asistir al evento?</label>
 			  <select id="asistir" class="form-control">
 				<option value="true">Sí</option>
 				<option value="false">No</option>
 			  </select>
+			  <a th:href="@{/asociar/{id}(id=${procesion.id})}" th:if="asistir" class="btn btn-info">Confirmar</a>
 		  </div>
 	    </div>
 	    <div class="col-md-6">

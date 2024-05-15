@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo;
 
+import java.util.Optional;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -41,15 +43,9 @@ public class Asiste {
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_asiste_bus"))
 	private Bus bus;
 	
-	public void addToMusico(Musico m) {
-		m.getAsiste().add(this);
-		this.musico = m;
-	}
 	
-	public void removeFromMusico(Musico m) {
-		m.getAsiste().remove(this);
-		this.musico = null;
-	}
+	
+
 	
 	
 }
