@@ -62,7 +62,7 @@ public class SecurityConfig {
 					.permitAll())
 			.logout((logoutz) -> logoutz
 					.logoutUrl("/logout")
-					.logoutSuccessUrl("/login")
+					.logoutSuccessUrl("/")
 					.permitAll());
     	
     

@@ -12,8 +12,8 @@
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 				<div class="container-fluid d-flex">
-					<a class="navbar-brand justify-content-flex-start" href="#"><img src="../img/logo (1).png" th:src="@{/img/logo (1).png}"
-							alt="logo"></a>
+					<a class="navbar-brand justify-content-flex-start" href="#"><img src="../img/logo (1).png"
+							th:src="@{/img/logo (1).png}" alt="logo"></a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 						aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +25,22 @@
 								<a class="nav-link active" aria-current="page" href="/">Inicio</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="cartas/eventos">Eventos</a>
+								<a class="nav-link" href="/cartas/eventos">Eventos</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="escuela" tabindex="-1" aria-disabled="true">Nosotros</a>
+								<a class="nav-link" href="../escuela" tabindex="-1" aria-disabled="true">Nosotros</a>
+							</li>
+
+						</ul>
+						<ul sec:authorize="hasRole('ROLE_MUSICO')" class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="/">Inicio</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/musico/cartas/eventos">Eventos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/musico/escuela" tabindex="-1" aria-disabled="true">Nosotros</a>
 							</li>
 
 						</ul>
@@ -82,8 +94,10 @@
 							</button>
 							<ul class="dropdown-menu">
 								<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
-								<h1>Bienvenido a la zona de administrador</h1>
-								<a href="javascript:document.getElementById('logoutForm').submit()">Salir</a>
+								<h2>BIENVENIDO</h2>
+								<h5>Has iniciado sesión como Administrador</h5>
+								<a class="btn btn-danger"
+									href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a>
 
 							</ul>
 						</div>
@@ -94,8 +108,10 @@
 							</button>
 							<ul class="dropdown-menu">
 								<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
-								<h1>Bienvenido a la zona de Usuario</h1>
-								<a href="javascript:document.getElementById('logoutForm').submit()">Salir</a>
+								<h2>BIENVENIDO</h2>
+								<h5>Has iniciado sesión como Músico</h5>
+								<a class="btn btn-danger"
+									href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a>
 
 							</ul>
 						</div>
