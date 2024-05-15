@@ -30,6 +30,30 @@ document.addEventListener('DOMContentLoaded', function() {
     precioInput(); 
 });
 
+function confirmarEliminacionMusico(id) {
+    if (confirm('¿Estás seguro de que quieres eliminar este músico?')) {
+        window.location.href = '/admin/musico/eliminar/' + id;
+    }
+}
+
+function confirmarEliminacionConcierto(id) {
+    if (confirm('¿Estás seguro de que quieres eliminar esta concierto?')) {
+        window.location.href = '/admin/evento/eliminar/concierto/' + id;
+    }
+}
+
+function confirmarEliminacionProcesion(id) {
+    if (confirm('¿Estás seguro de que quieres eliminar esta procesion?')) {
+        window.location.href = '/admin/evento/eliminar/procesion/' + id;
+    }
+}
+
+function confirmarEliminacionBus(id) {
+    if (confirm('¿Estás seguro de que quieres eliminar este autobús?')) {
+        window.location.href = '/admin/bus/eliminar/' + id;
+    }
+}
+
 
 
 

@@ -5,11 +5,12 @@
 	<title>Listado Musicos</title>
 	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
 	<meta charset="utf-8" />
+	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
 </head>
 
 <body>
 	
-	<div th:replace="~{fragmentos/navAdmin::navAdmin}"></div>
+	<div th:replace="~{fragmentos/nav::nav}"></div>
 	<h1>MÚSICOS</h1>
 	<br>
 
@@ -26,7 +27,6 @@
 	                        <th scope="col">Usuario</th>
 	                        <th scope="col">Nombre</th>
 	                        <th scope="col">Apellidos</th>
-	                        <th scope="col">Contraseña</th>
 	                        <th scope="col">Tipo Instrumento</th>
 	                        <th scope="col">Fecha Alta</th>
 	                        <th scope="col">Acciones</th>
@@ -36,15 +36,14 @@
 	                    <!-- Iterar sobre cada objeto musico -->
 	                    <tr th:each="musico : ${musico}">
 	                        <td th:text="${musico.id}"></td>
-	                        <td th:text="${musico.usuario}"></td>
+	                        <td th:text="${musico.username}"></td>
 	                        <td th:text="${musico.nombre}"></td>
 	                        <td th:text="${musico.apellidos}"></td>
-	                        <td th:text="${musico.contrasenia}"></td>
 	                        <td th:text="${musico.tipoInstrumento}"></td>
 	                        <td th:text="${musico.fechaAlta}"></td>
 	                        <td>
 	                            <a class="btn btn-primary" th:href="@{/admin/musico/editar/{id}(id=${musico.id})}">Editar</a>
-	                            <a class="btn btn-danger" th:href="@{/admin/musico/eliminar/{id}(id=${musico.id})}">Eliminar</a>
+	                            <a class="btn btn-danger" th:onclick="'javascript:confirmarEliminacionMusico(' + ${musico.id} + ')'">Eliminar</a>
 	                        </td>
 	                    </tr>
 	                </tbody>

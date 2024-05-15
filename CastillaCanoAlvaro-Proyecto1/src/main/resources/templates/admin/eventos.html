@@ -5,10 +5,11 @@
 	<title>Datos</title>
 	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
 	<meta charset="utf-8" />
+	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
 </head>
 
 <body>
-	<div th:replace="~{fragmentos/navAdmin::navAdmin}"></div>
+	<div th:replace="~{fragmentos/nav::nav}"></div>
 	<h1>EVENTOS</h1>
 
 	
@@ -56,7 +57,7 @@
 							<td th:text="${procesion.precioHorasExtras}"></td>
 							<td>	
 	                            <a class="btn btn-primary" th:href="@{/admin/evento/editar/procesion/{id}(id=${procesion.id})}">Editar</a>
-	                            <a class="btn btn-danger" th:href="@{/admin/evento/eliminar/procesion/{id}(id=${procesion.id})}">Eliminar</a>
+	                            <a class="btn btn-danger" th:onclick="'javascript:confirmarEliminacionProcesion(' + ${procesion.id} + ')'">Eliminar</a>
 	                        </td>
 	                    </tr>
 	                </tbody>
@@ -100,7 +101,7 @@
 											<td th:text="${concierto.precio}"></td>
 											<td>	
 					                            <a class="btn btn-primary" th:href="@{/admin/evento/editar/concierto/{id}(id=${concierto.id})}">Editar</a>
-					                            <a class="btn btn-danger" th:href="@{/admin/evento/eliminar/concierto/{id}(id=${concierto.id})}">Eliminar</a>
+					                            <a class="btn btn-danger" th:onclick="'javascript:confirmarEliminacionConcierto(' + ${concierto.id} + ')'">Eliminar</a>
 					                        </td>
 					                    </tr>
 					                </tbody>

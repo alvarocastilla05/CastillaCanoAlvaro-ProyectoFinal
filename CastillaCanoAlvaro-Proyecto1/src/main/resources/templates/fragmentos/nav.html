@@ -13,46 +13,106 @@
 			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 				<div class="container-fluid d-flex">
 					<a class="navbar-brand justify-content-flex-start" href="#"><img src="../img/logo (1).png"
-							alt="logo"></a>
+							th:src="@{/img/logo (1).png}" alt="logo"></a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 						aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<ul sec:authorize="isAnonymous()" class="navbar-nav ms-auto mb-2 mb-lg-0">
 							<li class="nav-item">
 								<a class="nav-link active" aria-current="page" href="/">Inicio</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="cartas/eventos">Eventos</a>
+								<a class="nav-link" href="/cartas/eventos">Eventos</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="escuela" tabindex="-1" aria-disabled="true">Nosotros</a>
+								<a class="nav-link" href="../escuela" tabindex="-1" aria-disabled="true">Nosotros</a>
+							</li>
+
+						</ul>
+						<ul sec:authorize="hasRole('ROLE_MUSICO')" class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="/">Inicio</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="listado" tabindex="-1" aria-disabled="true">Componentes</a>
+								<a class="nav-link" href="../cartas/eventos">Eventos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="../escuela" tabindex="-1" aria-disabled="true">Nosotros</a>
+							</li>
+
+						</ul>
+						<ul sec:authorize="hasRole('ROLE_ADMIN')" class="navbar-nav ms-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="/">Inicio</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/admin/evento/listadoEvento">Eventos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="../escuela" tabindex="-1" aria-disabled="true">Nosotros</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/admin/musico/listado" tabindex="-1"
+									aria-disabled="true">Componentes</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/admin/bus/listaBuses" tabindex="-1"
+									aria-disabled="true">Autobuses</a>
 							</li>
 						</ul>
-						<div class="dropdown">
+						<div sec:authorize="isAnonymous()" class="dropdown">
 							<button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
 								aria-expanded="false">
 								INICIAR SESIÓN
 							</button>
 							<ul class="dropdown-menu">
 								<li style="width: 400px;">
-									<form class="p-3">
+									<form class="p-3" method="POST" action="#" th:action="@{/login}">
 										<div class="mb-3">
 											<label for="exampleInputEmail1" class="form-label">Usuario</label>
-											<input type="email" class="form-control" id="exampleInputEmail1">
+											<input type="text" class="form-control" id="exampleInputEmail1"
+												name="username">
 										</div>
 										<div class="mb-3">
 											<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-											<input type="password" class="form-control" id="exampleInputPassword1">
+											<input type="password" class="form-control" id="exampleInputPassword1"
+												name="password">
 										</div>
 										<button type="submit" class="btn btn-primary">Confirmar</button>
 									</form>
 								</li>
+							</ul>
+
+						</div>
+						<div sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
+							<button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false">
+								<span sec:authentication="name">Administrador</span>
+							</button>
+							<ul class="dropdown-menu">
+								<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
+								<h2>BIENVENIDO</h2>
+								<h5>Has iniciado sesión como Administrador</h5>
+								<a class="btn btn-danger"
+									href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a>
+
+							</ul>
+						</div>
+						<div sec:authorize="hasRole('ROLE_MUSICO')" class="dropdown">
+							<button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+								aria-expanded="false">
+								<span sec:authentication="name">Musico</span>
+							</button>
+							<ul class="dropdown-menu">
+								<form th:action="@{/logout}" method="POST" id="logoutForm"></form>
+								<h2>BIENVENIDO</h2>
+								<h5>Has iniciado sesión como Músico</h5>
+								<a class="btn btn-danger"
+									href="javascript:document.getElementById('logoutForm').submit()">Cerrar Sesión</a>
+
 							</ul>
 						</div>
 					</div>
