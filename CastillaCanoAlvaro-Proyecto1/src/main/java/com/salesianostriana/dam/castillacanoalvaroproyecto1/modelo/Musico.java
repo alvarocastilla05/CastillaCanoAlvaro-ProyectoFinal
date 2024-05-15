@@ -64,7 +64,7 @@ public class Musico implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		String role = "ROLE_";
-		role += (admin) ? "ADMIN" : "USER";
+		role += (admin) ? "ADMIN" : "MUSICO";
 		return List.of(new SimpleGrantedAuthority(role));
 	}
 
