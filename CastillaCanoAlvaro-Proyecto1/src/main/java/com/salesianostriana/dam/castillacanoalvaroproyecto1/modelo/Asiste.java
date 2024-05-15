@@ -25,6 +25,8 @@ public class Asiste {
 		
 	}
 	
+	private double sueldo;
+	
 	@ManyToOne
 	@MapsId("musico_id")
 	@JoinColumn(name = "musico_id")

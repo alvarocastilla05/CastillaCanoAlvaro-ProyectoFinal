@@ -24,13 +24,21 @@
 	      <p><i class="bi bi-pin-map"></i> UBICACIÓN: <span th:text="${procesion.ciudad}"></span></p>
 	      <p><i class="bi bi-bank"></i> HERMANDAD: <span th:text="${procesion.hermandad}"></span></p>
 	      <p><i class="bi bi-music-note-beamed"></i> TITULAR: <span th:text="${procesion.titular}"></span></p>
+		  <div sec:authorize="hasRole('ROLE_MUSICO')">
+		  <label for="asistir">¿Va a asistir al evento?</label>
+			  <select id="asistir" class="form-control">
+				<option value="true">Sí</option>
+				<option value="false">No</option>
+			  </select>
+		  </div>
 	    </div>
 	    <div class="col-md-6">
 	      <img th:src="${procesion.urlImg}" alt="CartelEvento" class="img-fluid w-75">
 	    </div>
 	  </div>
+	  
 	</div>
-
+	
 
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
