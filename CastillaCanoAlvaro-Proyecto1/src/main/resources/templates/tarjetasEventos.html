@@ -10,6 +10,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
+		
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </head>
 
 <body>
@@ -19,7 +23,7 @@
 	    <h2>PROCESIONES</h2>
 	    <div class="row row-cols-1 row-cols-md-3 mt-5">
 	      <!-- Aquí comienza el bucle para las procesiones -->
-	      <div th:each="procesion : ${procesion}" class="col mt-5">
+	      <div th:each="procesion : ${procesion}" class="col mt-5" data-aos="flip-right">
 	        <div class="card">
 	          <img th:src="${procesion.urlImg}" alt="CartelEvento" class="card-img-top">
 	          <div class="card-body">
@@ -36,7 +40,7 @@
 	    <h2>CONCIERTOS</h2>
 	    <div class="row row-cols-1 row-cols-md-3 mt-5">
 	      <!-- Aquí comienza el bucle para los conciertos -->
-	      <div th:each="concierto : ${concierto}" class="col mt-5">
+	      <div th:each="concierto : ${concierto}" class="col mt-5" data-aos="flip-right">
 	        <div class="card">
 	          <img th:src="${concierto.urlImg}" alt="CartelEvento" class="card-img-top">
 	          <div class="card-body">
@@ -56,7 +60,9 @@
 
 
 	
-
+	  <script>
+	    AOS.init();
+	  </script>
 
 </body>
 
