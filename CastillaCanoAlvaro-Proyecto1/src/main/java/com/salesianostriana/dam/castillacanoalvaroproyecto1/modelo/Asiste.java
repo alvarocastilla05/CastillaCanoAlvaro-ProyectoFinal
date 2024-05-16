@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo;
 
+import java.util.Optional;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -25,6 +27,8 @@ public class Asiste {
 		
 	}
 	
+	private double sueldo;
+	
 	@ManyToOne
 	@MapsId("musico_id")
 	@JoinColumn(name = "musico_id")
@@ -43,11 +47,13 @@ public class Asiste {
 		m.getAsiste().add(this);
 		this.musico = m;
 	}
-	
+
 	public void removeFromMusico(Musico m) {
 		m.getAsiste().remove(this);
 		this.musico = null;
 	}
+	
+
 	
 	
 }

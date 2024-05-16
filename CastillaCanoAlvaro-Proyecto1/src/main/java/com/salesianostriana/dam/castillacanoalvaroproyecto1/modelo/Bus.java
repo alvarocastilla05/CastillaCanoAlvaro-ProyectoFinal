@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo;
+												package com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -18,7 +18,9 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -60,6 +62,7 @@ public class Evento {
 	private Bus bus;
 	
 	
+	
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad, double kmARecorrer,
 			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg, Bus bus) {
 		super();
@@ -75,6 +78,8 @@ public class Evento {
 		this.urlImg = urlImg;
 		this.bus = bus;
 	}
+	
+	
 	
 
 	

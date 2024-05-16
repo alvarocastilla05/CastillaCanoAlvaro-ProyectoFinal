@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,9 @@ public class MusicoControlador {
 	@Autowired
 	private MusicoServicio servicio;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@GetMapping("/listado")
 	public String lista(Model model) {
 		List<Musico> musico = servicio.findAll();
@@ -39,7 +43,11 @@ public class MusicoControlador {
 	
 	@PostMapping("/nuevo/submit")
 	public String guardarMusico(@ModelAttribute("musico")Musico musico, Model model) {
+		String contrasenia = passwordEncoder.encode(musico.getPassword());
+		musico.setPassword(contrasenia);
+		
 		servicio.save(musico);
+		model.addAttribute("musico", musico);
 		return "redirect:/admin/musico/listado";
 	}
 	

@@ -11,6 +11,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
 </head>
 
 <body>
@@ -24,13 +25,17 @@
 	      <p><i class="bi bi-pin-map"></i> UBICACIÓN: <span th:text="${procesion.ciudad}"></span></p>
 	      <p><i class="bi bi-bank"></i> HERMANDAD: <span th:text="${procesion.hermandad}"></span></p>
 	      <p><i class="bi bi-music-note-beamed"></i> TITULAR: <span th:text="${procesion.titular}"></span></p>
+		  <div sec:authorize="hasRole('ROLE_MUSICO')">
+			  <a th:onclick="'javascript:confirmarAsistenciaProcesion(' + ${procesion.id} + ')'" class="btn btn-info">CLICK SI VA A ASISTIR</a>
+		  </div>
 	    </div>
 	    <div class="col-md-6">
 	      <img th:src="${procesion.urlImg}" alt="CartelEvento" class="img-fluid w-75">
 	    </div>
 	  </div>
+	  
 	</div>
-
+	
 
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
