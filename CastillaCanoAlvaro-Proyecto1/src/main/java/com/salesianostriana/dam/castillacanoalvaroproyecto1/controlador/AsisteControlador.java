@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Asiste;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Bus;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.AsisteServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.BusServicio;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.MusicoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
 
@@ -25,30 +27,43 @@ public class AsisteControlador {
 	private ProcesionServicio procesionServicio;
 	
 	@Autowired
+	private ConciertoServicio conciertoServicio;
+	
+	@Autowired
 	private MusicoServicio musicoServicio;
 	
 	@Autowired
 	private BusServicio busServicio;
 	
 	
-	@GetMapping("/asociar/{id}")
-	public String asociarMusicoEvento(@AuthenticationPrincipal Musico musico, @PathVariable("id") Long id) {
+	@GetMapping("/asociar/procesion/{id}")
+	public String asociarMusicoProcesion(@AuthenticationPrincipal Musico musico, @PathVariable("id") Long id) {
 		
 		
 		if(procesionServicio.findBYId(id).isPresent()) {
 			
 			Procesion p = procesionServicio.findBYId(id).get();
 			Asiste asiste = new Asiste(musico, p);
-			Bus b = p.getBus();
 			
-			asisteServicio.addToMusicoAndEvento(musico, p, asiste, b);
-			
-			
-			musicoServicio.edit(musico);
-			procesionServicio.edit(p);
-			busServicio.edit(b);
+			asiste.addToMusico(musico);
+			asisteServicio.save(asiste);
 		}
 		return "redirect:/cartas/eventos";
+	}
+	
+	@GetMapping("/asociar/concierto/{id}")
+	public String asociarMusicoConcierto(@AuthenticationPrincipal Musico musico, @PathVariable("id") Long id) {
 		
+		
+		if(conciertoServicio.findBYId(id).isPresent()) {
+			
+			Concierto c = conciertoServicio.findBYId(id).get();
+			Asiste asiste = new Asiste(musico, c);
+			
+			
+			asiste.addToMusico(musico);
+			asisteServicio.save(asiste);
+		}
+		return "redirect:/cartas/eventos";
 	}
 }

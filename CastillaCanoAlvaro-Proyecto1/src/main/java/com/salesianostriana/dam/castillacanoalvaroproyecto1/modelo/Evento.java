@@ -61,10 +61,6 @@ public class Evento {
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_evento_bus"))
 	private Bus bus;
 	
-	@OneToMany(mappedBy="evento", fetch = FetchType.EAGER)
-	@EqualsAndHashCode.Exclude
-	@ToString.Exclude
-	private List<Asiste> asiste = new ArrayList<>();
 	
 	
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad, double kmARecorrer,

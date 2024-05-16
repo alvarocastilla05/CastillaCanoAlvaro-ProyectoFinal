@@ -1,6 +1,6 @@
-insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (1, 'Alvaro', 'Castilla Cano', 'alvarocastilla@amueci.es', '{noop}12345', 'Percusion', '2020-01-06', false);
-insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (2, 'Lucas', 'Falla Urtiaga', 'lucasfalla@amueci.es', '{noop}54123', 'Percusion', '2019-05-01', false);
-insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (3, 'admin', 'admin', 'admin', '{noop}admin', null, '2019-05-01', true);
+insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (1, 'Alvaro', 'Castilla Cano', 'alvarocastilla@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'Percusion', '2020-01-06', false);
+insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (2, 'Lucas', 'Falla Urtiaga', 'lucasfalla@amueci.es', '{bcrypt}$2y$10$JDTNn62jTwOCGp/AXERmc.gK2GNRoZtIeww1SNnDQzsEx4Acvtw8m', 'Percusion', '2019-05-01', false);
+insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (3, 'admin', 'admin', 'admin', '{bcrypt}$2y$10$Ra8hLpI7cMY21iuUhxI0e.SMoSgjtpABaEEdw9gVu2R1MuLLweFbe', null, '2019-05-01', true);
 
 ALTER SEQUENCE musico_seq RESTART WITH 53;
 
