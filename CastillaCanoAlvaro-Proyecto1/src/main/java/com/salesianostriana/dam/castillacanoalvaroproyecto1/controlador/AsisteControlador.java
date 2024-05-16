@@ -5,6 +5,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Asiste;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Bus;
@@ -51,6 +52,18 @@ public class AsisteControlador {
 		return "redirect:/cartas/eventos";
 	}
 	
+	/*
+	@GetMapping("/asociar/musico/{id}")
+	public String asociarMusicoBus(@AuthenticationPrincipal Musico musico, @PathVariable("id") Long id) {
+		
+		if(procesionServicio.findBYId(id).isPresent()) {
+			Asiste asiste = new Asiste();
+			asiste.setEnBus(true);
+			
+		}
+	}*/
+	
+	
 	@GetMapping("/asociar/concierto/{id}")
 	public String asociarMusicoConcierto(@AuthenticationPrincipal Musico musico, @PathVariable("id") Long id) {
 		
@@ -66,4 +79,6 @@ public class AsisteControlador {
 		}
 		return "redirect:/cartas/eventos";
 	}
+	
+	
 }
