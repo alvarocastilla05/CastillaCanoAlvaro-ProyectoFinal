@@ -3,12 +3,12 @@ package com.salesianostriana.dam.castillacanoalvaroproyecto1.controlador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Asiste;
-import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Bus;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
@@ -48,19 +48,18 @@ public class AsisteControlador {
 			
 			asiste.addToMusico(musico);
 			asisteServicio.save(asiste);
+			
 		}
 		return "redirect:/cartas/eventos";
 	}
 	
 	/*
-	@GetMapping("/asociar/musico/{id}")
-	public String asociarMusicoBus(@AuthenticationPrincipal Musico musico, @PathVariable("id") Long id) {
+	@PostMapping("/asociar/bus")
+	public String asociarMusicoBus(@AuthenticationPrincipal Musico musico,  Asiste asiste, Model model) {
 		
-		if(procesionServicio.findBYId(id).isPresent()) {
-			Asiste asiste = new Asiste();
-			asiste.setEnBus(true);
-			
-		}
+		model.addAttribute("asiste", asiste);
+		asisteServicio.save(asiste);
+		return "redirect:/cartas/eventos";
 	}*/
 	
 	
