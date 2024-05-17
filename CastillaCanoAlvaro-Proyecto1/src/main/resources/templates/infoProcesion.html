@@ -26,21 +26,23 @@
 				<p><i class="bi bi-bank"></i> HERMANDAD: <span th:text="${procesion.hermandad}"></span></p>
 				<p><i class="bi bi-music-note-beamed"></i> TITULAR: <span th:text="${procesion.titular}"></span></p>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
-					<a th:onclick="'javascript:confirmarAsistenciaProcesion(' + ${procesion.id} + ')'"
-						class="btn btn-info">CLICK SI VA A ASISTIR</a>
-					<div th:if="${procesion.bus} != null">
-						<form th:action="@{/asociar/bus/submit}" th:object="${asisteForm}"  method="post">
-							<input th:if="${procesion.id != 0}" type="hidden" name="id" th:field="*{idEvento}">
-						<div class="form-group">
-							<label for="enBus">¿Asiste en el bus?</label>
-							<select class="form-control" id="enBus" name="enBus" th:field="*{enBus}">
-								<option value="true">Sí</option>
-								<option value="false">No</option>
-							</select>
+
+					<form th:action="@{/asociar/busProcesion/submit}" th:object="${asisteForm}" method="post">
+						<!--th:if="${procesion.id != null}"-->
+						<input type="hidden" name="idEvento" th:field="*{idEvento}">
+						<div th:if="${procesion.bus} != null">
+							<div class="form-group">
+								<label for="enBus">¿Asiste en el bus?</label>
+								<select class="form-control" id="enBus" name="enBus" th:field="*{enBus}">
+									<option value="true">Sí</option>
+									<option value="false" selected>No</option>
+								</select>
+							</div>
 						</div>
-						<button type="submit" class="btn btn-primary mt-3" >Enviar</button>
+						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
+						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
-					</div>
+
 				</div>
 			</div>
 			<div class="col-md-6">

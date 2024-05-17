@@ -12,6 +12,9 @@ public class AsisteFormBean {
 	private long idEvento;
 	private boolean enBus;
 	
+	public AsisteFormBean(Long id) {
+		this.idEvento = id;
+	}
 	
 	
 	

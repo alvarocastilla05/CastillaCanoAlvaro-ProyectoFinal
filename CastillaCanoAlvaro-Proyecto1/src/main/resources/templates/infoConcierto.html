@@ -12,7 +12,7 @@
 		crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
-	
+
 </head>
 
 <body>
@@ -28,7 +28,23 @@
 				<p><i class="bi bi-currency-euro"></i> PRECIO: <span
 						th:text="${concierto.gratuito} ? 'Es GRATIS!!' : ${concierto.precio}"></span></p>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
-					<a 	th:onclick="'javascript:confirmarAsistenciaConcierto(' + ${concierto.id} + ')'"  class="btn btn-info">CLICK SI VA A ASISTIR</a>
+
+					<form th:action="@{/asociar/busConcierto/submit}" th:object="${asisteForm}" method="post">
+						<!--th:if="${procesion.id != null}"-->
+						<input type="hidden" name="idEvento" th:field="*{idEvento}">
+						<div th:if="${concierto.bus} != null">
+							<div class="form-group">
+								<label for="enBus">¿Asiste en el bus?</label>
+								<select class="form-control" id="enBus" name="enBus" th:field="*{enBus}">
+									<option value="true">Sí</option>
+									<option value="false" selected>No</option>
+								</select>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
+						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
+					</form>
+
 				</div>
 			</div>
 			<div class="col-md-6">

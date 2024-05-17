@@ -51,6 +51,8 @@ public class Asiste {
 		m.getAsiste().remove(this);
 		this.musico = null;
 	}
+
+
 	
 
 	
