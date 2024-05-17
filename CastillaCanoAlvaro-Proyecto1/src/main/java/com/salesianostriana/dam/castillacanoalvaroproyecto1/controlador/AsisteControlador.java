@@ -5,15 +5,17 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Asiste;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsisteFormBean;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsistePK;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.AsisteServicio;
-import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.BusServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.MusicoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
@@ -33,8 +35,6 @@ public class AsisteControlador {
 	@Autowired
 	private MusicoServicio musicoServicio;
 	
-	@Autowired
-	private BusServicio busServicio;
 	
 	
 	@GetMapping("/asociar/procesion/{id}")
@@ -53,14 +53,28 @@ public class AsisteControlador {
 		return "redirect:/cartas/eventos";
 	}
 	
-	/*
-	@PostMapping("/asociar/bus")
-	public String asociarMusicoBus(@AuthenticationPrincipal Musico musico,  Asiste asiste, Model model) {
+	@GetMapping("/asociar/bus/{id}")
+	public String asociarBus(@PathVariable("id") long id, Model model) {
 		
-		model.addAttribute("asiste", asiste);
-		asisteServicio.save(asiste);
+		if(procesionServicio.findBYId(id).isPresent()) {
+			AsisteFormBean asiste = new AsisteFormBean();
+			
+			model.addAttribute("asisteForm", asiste );
+		}
+		
+		return "infoProcesion";
+		
+	}
+	
+	@PostMapping("/asociar/bus/submit")
+	public String confirmarEnBus(@ModelAttribute("asisteForm") AsisteFormBean asiste, @AuthenticationPrincipal Musico musico) {
+		
+		if(asiste.isEnBus()) {
+			asisteServicio.findBYId(new AsistePK()).get().setEnBus(true);
+		}
+		
 		return "redirect:/cartas/eventos";
-	}*/
+	}
 	
 	
 	@GetMapping("/asociar/concierto/{id}")

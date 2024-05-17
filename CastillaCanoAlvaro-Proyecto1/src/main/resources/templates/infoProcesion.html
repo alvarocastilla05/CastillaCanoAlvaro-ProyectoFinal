@@ -28,7 +28,9 @@
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
 					<a th:onclick="'javascript:confirmarAsistenciaProcesion(' + ${procesion.id} + ')'"
 						class="btn btn-info">CLICK SI VA A ASISTIR</a>
-					<!--<form th:action="@{/asociar/bus}" th:object="${asiste}" method="post">
+					<div th:if="${procesion.bus} != null">
+						<form th:action="@{/asociar/bus/submit}" th:object="${asisteForm}"  method="post">
+							<input th:if="${procesion.id != 0}" type="hidden" name="id" th:field="*{idEvento}">
 						<div class="form-group">
 							<label for="enBus">¿Asiste en el bus?</label>
 							<select class="form-control" id="enBus" name="enBus" th:field="*{enBus}">
@@ -36,8 +38,9 @@
 								<option value="false">No</option>
 							</select>
 						</div>
-						<button type="submit" class="btn btn-primary mt-3">Enviar</button>
-					</form>-->
+						<button type="submit" class="btn btn-primary mt-3" >Enviar</button>
+					</form>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-6">
