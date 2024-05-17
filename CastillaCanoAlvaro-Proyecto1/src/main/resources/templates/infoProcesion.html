@@ -2,47 +2,63 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMUECI - Procesión</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AMUECI - Procesión</title>
 
-    <link rel="stylesheet" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
 </head>
 
 <body>
-    <div th:replace="~{fragmentos/nav::nav}"></div>
+	<div th:replace="~{fragmentos/nav::nav}"></div>
 
 	<div class="container">
-	  <div class="row justify-content-center text-center">
-	    <div class="col-md-6">
-	      <h1 class="display-2 mb-4" th:text="${procesion.nombre} + ' ' + ${procesion.fecha}"></h1>
-	      <p><i class="bi bi-alarm"></i> HORA: <span th:text="${procesion.hora}"></span></p>
-	      <p><i class="bi bi-pin-map"></i> UBICACIÓN: <span th:text="${procesion.ciudad}"></span></p>
-	      <p><i class="bi bi-bank"></i> HERMANDAD: <span th:text="${procesion.hermandad}"></span></p>
-	      <p><i class="bi bi-music-note-beamed"></i> TITULAR: <span th:text="${procesion.titular}"></span></p>
-		  <div sec:authorize="hasRole('ROLE_MUSICO')">
-			  <a th:onclick="'javascript:confirmarAsistenciaProcesion(' + ${procesion.id} + ')'" class="btn btn-info">CLICK SI VA A ASISTIR</a>
-		  </div>
-	    </div>
-	    <div class="col-md-6">
-	      <img th:src="${procesion.urlImg}" alt="CartelEvento" class="img-fluid w-75">
-	    </div>
-	  </div>
-	  
+		<div class="row justify-content-center text-center">
+			<div class="col-md-6">
+				<h1 class="display-2 mb-4" th:text="${procesion.nombre} + ' ' + ${procesion.fecha}"></h1>
+				<p><i class="bi bi-alarm"></i> HORA: <span th:text="${procesion.hora}"></span></p>
+				<p><i class="bi bi-pin-map"></i> UBICACIÓN: <span th:text="${procesion.ciudad}"></span></p>
+				<p><i class="bi bi-bank"></i> HERMANDAD: <span th:text="${procesion.hermandad}"></span></p>
+				<p><i class="bi bi-music-note-beamed"></i> TITULAR: <span th:text="${procesion.titular}"></span></p>
+				<div sec:authorize="hasRole('ROLE_MUSICO')">
+
+					<form th:action="@{/asociar/busProcesion/submit}" th:object="${asisteForm}" method="post">
+						<!--th:if="${procesion.id != null}"-->
+						<input type="hidden" name="idEvento" th:field="*{idEvento}">
+						<div th:if="${procesion.bus} != null">
+							<div class="form-group">
+								<label for="enBus">¿Asiste en el bus?</label>
+								<select class="form-control" id="enBus" name="enBus" th:field="*{enBus}">
+									<option value="true">Sí</option>
+									<option value="false" selected>No</option>
+								</select>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
+						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
+					</form>
+
+				</div>
+			</div>
+			<div class="col-md-6">
+				<img th:src="${procesion.urlImg}" alt="CartelEvento" class="img-fluid w-75">
+			</div>
+		</div>
+
 	</div>
-	
+
 
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
-    
+
 
 
 
 </body>
 
-</html>	
+</html>

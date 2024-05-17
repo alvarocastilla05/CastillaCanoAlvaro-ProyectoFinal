@@ -29,6 +29,8 @@ public class Asiste {
 	
 	private double sueldo;
 	
+	private boolean enBus;
+	
 	@ManyToOne
 	@MapsId("musico_id")
 	@JoinColumn(name = "musico_id")
@@ -39,9 +41,6 @@ public class Asiste {
 	@JoinColumn(name = "evento_id")
 	private Evento evento;
 	
-	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name="fk_asiste_bus"))
-	private Bus bus;
 	
 	public void addToMusico(Musico m) {
 		m.getAsiste().add(this);
@@ -52,6 +51,8 @@ public class Asiste {
 		m.getAsiste().remove(this);
 		this.musico = null;
 	}
+
+
 	
 
 	

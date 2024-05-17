@@ -79,6 +79,16 @@ public class Evento {
 		this.bus = bus;
 	}
 	
+	public void addToBus(Bus b) {
+		b.getEventos().add(this);
+		this.bus = b;
+	}
+
+	public void removeFromBus(Bus b) {
+		b.getEventos().remove(this);
+		this.bus = null;
+	}
+	
 	
 	
 

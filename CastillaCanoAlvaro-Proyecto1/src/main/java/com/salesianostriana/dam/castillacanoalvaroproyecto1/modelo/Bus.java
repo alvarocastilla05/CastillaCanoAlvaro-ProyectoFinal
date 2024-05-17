@@ -33,12 +33,11 @@ public class Bus {
 	
 	private double descuento;
 	
-	
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy="bus", fetch = FetchType.EAGER)
 	@Builder.Default
-	private List<Asiste> asistentes = new ArrayList<>();
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	private List<Evento> eventos = new ArrayList<>();
 	
 	
 	

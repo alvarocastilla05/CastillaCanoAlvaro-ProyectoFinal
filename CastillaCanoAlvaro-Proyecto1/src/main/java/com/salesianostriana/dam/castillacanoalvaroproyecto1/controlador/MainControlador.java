@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsisteFormBean;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
@@ -70,6 +71,10 @@ public class MainControlador {
 		
 		model.addAttribute("concierto", concierto.get());
 		
+		AsisteFormBean asiste = new AsisteFormBean(id);
+		
+		model.addAttribute("asisteForm", asiste );
+		
 		return "infoConcierto";
 	}
 	
@@ -78,6 +83,10 @@ public class MainControlador {
 		Optional<Procesion> procesion = servicioProce.findBYId(id);
 		
 		model.addAttribute("procesion", procesion.get());
+		
+		AsisteFormBean asiste = new AsisteFormBean(id);
+		
+		model.addAttribute("asisteForm", asiste );
 		
 		return "infoProcesion";
 	}

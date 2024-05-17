@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Bus;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.BusServicio;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.EventoServicio;
 
 @Controller
 @RequestMapping("/admin/bus")
@@ -22,6 +22,9 @@ public class BusControlador {
 
 	@Autowired
 	private BusServicio busServicio;
+	
+	@Autowired
+	private EventoServicio eventoServicio;
 	
 	@GetMapping("/listaBuses")
 	public String listadoBuses(Model model) {
@@ -66,6 +69,7 @@ public class BusControlador {
 	
 	@GetMapping("/eliminar/{id}")
 	public String elimarBus(@PathVariable("id") long id) {
+		eventoServicio.findAll().stream().forEach(e -> e.removeFromBus(busServicio.findBYId(id).get()));
 		busServicio.deleteById(id);
 		return "redirect:/admin/bus/listaBuses";
 	}
