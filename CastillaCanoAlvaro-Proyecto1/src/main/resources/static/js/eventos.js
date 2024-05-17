@@ -54,17 +54,10 @@ function confirmarEliminacionBus(id) {
     }
 }
 
-function confirmarAsistenciaConcierto(id) {
-    if (confirm('¿Estás seguro de que vas asistir a este evento?')) {
-        window.location.href = '/asociar/concierto/' + id;
-    }
+function limpiarCampos(){
+	window.location = '/admin/musico/listado';
 }
 
-function confirmarAsistenciaProcesion(id) {
-    if (confirm('¿Estás seguro de que vas asistir a este evento?')) {
-        window.location.href = '/asociar/procesion/' + id;
-    }
-}
 
 
 

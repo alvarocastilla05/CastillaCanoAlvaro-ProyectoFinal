@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 
@@ -19,4 +20,12 @@ public interface MusicoRepositorio extends JpaRepository<Musico, Long>{
 				LIKE %?1%
 			""")
 	public List<Musico> findAllByPalabraClave(String palabraClave);
+	
+	//Revisar
+	
+	@Query("""
+			SELECT m FROM Musico m 
+			WHERE m.tipoInstrumento = :tipo"
+			""")
+	public List<Musico> findByTipoInstrumento(@Param("tipo") String tipo);
 }
