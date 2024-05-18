@@ -17,12 +17,6 @@ public interface EventoRepositorio extends JpaRepository<Evento, Long>{
 			""")
 	List<Evento> eventosPorMes(LocalDate fecha);
 	
-	@Query("""
-			SELECT e.nombre, COUNT(a.musico.id) 
-			FROM Evento e 
-			JOIN e.asiste a 
-			GROUP BY e.id
-			""")
-	public List<Evento> findNumeroMusicosPorEvento();
+	
 }
 
