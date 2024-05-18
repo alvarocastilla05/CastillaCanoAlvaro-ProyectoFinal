@@ -70,7 +70,7 @@
 							</button>
 							<ul class="dropdown-menu">
 								<li style="width: 400px;">
-									<form class="p-3" method="POST" action="#" th:action="@{/login}">
+									<form class="p-3" method="POST" action="#" th:action="@{/}">
 										<div class="mb-3">
 											<label for="exampleInputEmail1" class="form-label">Usuario</label>
 											<input type="text" class="form-control" id="exampleInputEmail1"
@@ -83,7 +83,7 @@
 										</div>
 										<button type="submit" class="btn btn-primary">Confirmar</button>
 									</form>
-									
+								<p th:if="${param.error}" class="btn btn-danger">Usuario o Contraseña ERRÓNEOS</p>
 								</li>
 							</ul>
 

@@ -58,7 +58,7 @@ public class SecurityConfig {
 						.requestMatchers("/admin/**").hasRole("ADMIN")
 						.anyRequest().authenticated()).requestCache(cache -> cache.requestCache(requestCache))
 			.formLogin((loginz) -> loginz
-					.loginPage("/login")
+					.loginPage("/")
 					.successHandler(authenticationSuccessHandler)
 					.permitAll())
 			.logout((logoutz) -> logoutz
