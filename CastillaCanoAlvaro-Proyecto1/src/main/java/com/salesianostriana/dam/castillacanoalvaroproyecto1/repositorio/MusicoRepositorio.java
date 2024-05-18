@@ -16,16 +16,14 @@ public interface MusicoRepositorio extends JpaRepository<Musico, Long>{
 	@Query("""
 			SELECT m FROM Musico m 
 			WHERE CONCAT(m.id, m.nombre, m.apellidos, 
-				m.username, m.tipoInstrumento, m.fechaAlta)
+				m.username, m.tipoInstrumento)
 				LIKE %?1%
 			""")
 	public List<Musico> findAllByPalabraClave(String palabraClave);
 	
-	//Revisar
 	
-	@Query("""
-			SELECT m FROM Musico m 
-			WHERE m.tipoInstrumento = :tipo"
-			""")
-	public List<Musico> findByTipoInstrumento(@Param("tipo") String tipo);
+	
+
+	
+	
 }

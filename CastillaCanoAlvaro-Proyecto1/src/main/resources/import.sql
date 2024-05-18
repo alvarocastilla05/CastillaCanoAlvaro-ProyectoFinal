@@ -11,7 +11,6 @@ insert into musico (id, nombre, apellidos, username, password, tipo_instrumento,
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (11, 'Javier', 'Martinez Lopez', 'javiermartinez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'Percusion', '2022-01-10', false);
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (12, 'Ana', 'Gonzalez Ruiz', 'anagonzalez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMetal', '2022-01-10', false);
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (13, 'Luis', 'Fernandez Gomez', 'luisfernandez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMadera', '2022-01-10', false);
-insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (14, 'Elena', 'Garcia Sanchez', 'elenagarcia@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'Percusion', '2022-01-10', false),
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (15, 'Manuel', 'Rodriguez Diaz', 'manuelrodriguez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMetal', '2022-01-10', false);
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (16, 'Carmen', 'Lopez Martinez', 'carmenlopez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMadera', '2022-01-10', false);
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (17, 'Miguel', 'Perez Gomez', 'miguelperez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'Percusion', '2022-01-10', false);
@@ -99,8 +98,10 @@ insert into musico (id, nombre, apellidos, username, password, tipo_instrumento,
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (99, 'Lucia', 'Fernandez Gomez', 'luciafernandez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'Percusion', '2022-01-10', false);
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (100, 'Diego', 'Hernandez Perez', 'diegohernandez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMetal', '2022-01-10', false);
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (101, 'Sara', 'Lopez Gomez', 'saralopez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMadera', '2022-01-10', false);
+insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (14, 'Manuel', 'Rodriguez Diaz', 'manuelrodriguez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMetal', '2022-01-10', false);
 
-ALTER SEQUENCE musico_seq RESTART WITH 60;
+
+ALTER SEQUENCE musico_seq RESTART WITH 152;
 
 insert into bus(id, nombre, plazas, precio_km, descuento) values (1, 'Autobús 50 Plazas', 50, 2, 0);
 insert into bus(id, nombre, plazas, precio_km, descuento) values (2, 'Autobús 65 Plazas', 65, 2.5, 0);

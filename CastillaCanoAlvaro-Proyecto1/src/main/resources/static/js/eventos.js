@@ -55,7 +55,7 @@ function confirmarEliminacionBus(id) {
 }
 
 function limpiarCampos(){
-	window.location = '/admin/musico/listado';
+	window.location.href = '/admin/musico/listado';
 }
 
 
