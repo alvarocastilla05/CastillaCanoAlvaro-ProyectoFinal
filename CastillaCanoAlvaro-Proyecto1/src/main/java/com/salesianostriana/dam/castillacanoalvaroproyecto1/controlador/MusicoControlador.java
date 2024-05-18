@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,9 +28,10 @@ public class MusicoControlador {
 	private PasswordEncoder passwordEncoder;
 	
 	@GetMapping("/listado")
-	public String lista(Model model) {
-		List<Musico> musico = servicio.findAll();
+	public String lista(Model model, @Param("palabraClave") String palabraClave) {
+		List<Musico> musico = servicio.listaAll(palabraClave);
 		model.addAttribute("musico", musico);
+		model.addAttribute("palabraClave", palabraClave);
 		
 		return "/admin/tablaMusicos";
 	}
