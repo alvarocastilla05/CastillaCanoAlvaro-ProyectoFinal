@@ -21,7 +21,7 @@
 
 	<div class="container">
 
-		<form class="form-inline" th:action="@{/evento/fecha}">
+		<form class="form-inline" th:action="@{/evento/fecha/{mes}(mes=${mes})}">
 			<div class="form-group mb-2">
 				<label>Buscar: </label>
 			</div>

@@ -26,7 +26,6 @@ public interface EventoRepositorio extends JpaRepository<Evento, Long>{
 			""")
 	public List<Evento> findNumeroMusicosPorEvento();*/
 	
-	@Query("SELECT e FROM Evento e WHERE MONTH(e.fecha) = :mes")
-	List<Evento> findByMes(@Param("mes") int mes);
+	
 }
 

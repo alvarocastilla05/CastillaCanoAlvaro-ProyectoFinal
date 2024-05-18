@@ -97,11 +97,13 @@ public class MainControlador {
 		return "infoProcesion";
 	}
 	
-	@GetMapping("/evento/fecha")
-	public String eventoPorMes(Model model, @Param("mes") int mes) {
-		List<Evento> evento = servicioEven.eventoPorMes(mes);
+	@GetMapping("/evento/fecha/{mes}")
+	public String eventoPorMes(Model model, @PathVariable("mes") int mes) {
+		List<Concierto> concierto = servicioConcer.eventoPorMes(mes);
+		List<Procesion> procesion = servicioProce.eventoPorMes(mes);
 		
-		model.addAttribute("evento", evento);
+		model.addAttribute("concierto", concierto);
+		model.addAttribute("procesion", procesion);
 		
 		return "tarjetasEventos";
 	}

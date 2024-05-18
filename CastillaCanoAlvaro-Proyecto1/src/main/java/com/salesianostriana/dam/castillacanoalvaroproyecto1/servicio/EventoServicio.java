@@ -21,7 +21,5 @@ public class EventoServicio extends BaseServiceImpl<Evento, Long, EventoReposito
 	}
 	*/
 	
-	public List<Evento> eventoPorMes(int mes){
-		return eventoRepositorio.findByMes(mes);
-	}
+	
 }
