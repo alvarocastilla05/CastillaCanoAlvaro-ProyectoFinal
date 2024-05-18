@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface EventoRepositorio extends JpaRepository<Evento, Long>{
 
@@ -24,5 +25,8 @@ public interface EventoRepositorio extends JpaRepository<Evento, Long>{
 			GROUP BY e.id
 			""")
 	public List<Evento> findNumeroMusicosPorEvento();*/
+	
+	@Query("SELECT e FROM Evento e WHERE MONTH(e.fecha) = :mes")
+	List<Evento> findByMes(@Param("mes") int mes);
 }
 

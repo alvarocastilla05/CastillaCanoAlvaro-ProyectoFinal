@@ -13,11 +13,15 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base.BaseSe
 @Service
 public class EventoServicio extends BaseServiceImpl<Evento, Long, EventoRepositorio>{
 
-	/*@Autowired
+	@Autowired
 	private EventoRepositorio eventoRepositorio;
-	
+	/*
 	public List<Musico> musicosPorEvento(){
 		return eventoRepositorio.findNumeroMusicosPorEvento();
 	}
 	*/
+	
+	public List<Evento> eventoPorMes(int mes){
+		return eventoRepositorio.findByMes(mes);
+	}
 }

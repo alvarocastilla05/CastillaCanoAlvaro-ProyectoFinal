@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
-		
+
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -20,49 +20,76 @@
 	<div th:replace="~{fragmentos/nav::nav}"></div>
 
 	<div class="container">
-	    <h2>PROCESIONES</h2>
-	    <div class="row row-cols-1 row-cols-md-3 mt-5">
-	      <!-- Aquí comienza el bucle para las procesiones -->
-	      <div th:each="procesion : ${procesion}" class="col mt-5" data-aos="flip-right">
-	        <div class="card">
-	          <img th:src="${procesion.urlImg}" alt="CartelEvento" class="card-img-top">
-	          <div class="card-body">
-	            <h5 th:text="${procesion.nombre} + ' ' + ${procesion.fecha}" class="card-title"></h5>
-	            <p th:text="${procesion.hora}" class="card-text"></p>
-	            <p>Ubicación: <span th:text="${procesion.ciudad}" class="card-text"></span></p>
-	            <a th:href="@{/cartas/eventos/procesion/{id}(id=${procesion.id})}" class="btn btn-primary">Más info</a>
-	          </div>
-	        </div>
-	      </div>
-	      <!-- Aquí termina el bucle para las procesiones -->
-	    </div>
-	
-	    <h2>CONCIERTOS</h2>
-	    <div class="row row-cols-1 row-cols-md-3 mt-5">
-	      <!-- Aquí comienza el bucle para los conciertos -->
-	      <div th:each="concierto : ${concierto}" class="col mt-5" data-aos="flip-right">
-	        <div class="card">
-	          <img th:src="${concierto.urlImg}" alt="CartelEvento" class="card-img-top">
-	          <div class="card-body">
-	            <h5 th:text="${concierto.nombre} + ' ' + ${concierto.fecha}" class="card-title"></h5>
-	            <p th:text="${concierto.hora}" class="card-text"></p>
-	            <p>Ubicación: <span th:text="${concierto.ciudad}" class="card-text"></span></p>
-	            <a th:href="@{/cartas/eventos/concierto/{id}(id=${concierto.id})}" class="btn btn-primary">Más info</a>
-	          </div>
-	        </div>
-	      </div>
-	      <!-- Aquí termina el bucle para los conciertos -->
-	    </div>
-	  </div>
 
-	  
-	  <footer th:replace="~{fragmentos/footer::footer}"></footer>
+		<form class="form-inline" th:action="@{/evento/fecha}">
+			<div class="form-group mb-2">
+				<label>Buscar: </label>
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<label for="mes">Elija un Mes</label>
+				<select id="mes" class="form-control" th:value="${mes}">
+					<option value="01">Enero</option>
+					<option value="02">Febrero</option>
+					<option value="03">Marzo</option>
+					<option value="04">Abril</option>
+					<option value="05">Mayo</option>
+					<option value="06">Junio</option>
+					<option value="07">Julio</option>
+					<option value="08">Agosto</option>
+					<option value="09">Septiembre</option>
+					<option value="10">Octubre</option>
+					<option value="11">Noviembre</option>
+					<option value="12">Diciembre</option>
+					
+			</div>
+			<input type="submit" class="btn btn-info mb-2" value="Buscar">
+			&nbsp; &nbsp;
+			<input type="submit" class="btn btn-secondary mb-2" value="Limpiar" onclick="limpiarCampos()">
+			<h2>PROCESIONES</h2>
+			<div class="row row-cols-1 row-cols-md-3 mt-5">
+				<!-- Aquí comienza el bucle para las procesiones -->
+				<div th:each="procesion : ${procesion}" class="col mt-5" data-aos="flip-right">
+					<div class="card">
+						<img th:src="${procesion.urlImg}" alt="CartelEvento" class="card-img-top">
+						<div class="card-body">
+							<h5 th:text="${procesion.nombre} + ' ' + ${procesion.fecha}" class="card-title"></h5>
+							<p th:text="${procesion.hora}" class="card-text"></p>
+							<p>Ubicación: <span th:text="${procesion.ciudad}" class="card-text"></span></p>
+							<a th:href="@{/cartas/eventos/procesion/{id}(id=${procesion.id})}"
+								class="btn btn-primary">Más info</a>
+						</div>
+					</div>
+				</div>
+				<!-- Aquí termina el bucle para las procesiones -->
+			</div>
+
+			<h2>CONCIERTOS</h2>
+			<div class="row row-cols-1 row-cols-md-3 mt-5">
+				<!-- Aquí comienza el bucle para los conciertos -->
+				<div th:each="concierto : ${concierto}" class="col mt-5" data-aos="flip-right">
+					<div class="card">
+						<img th:src="${concierto.urlImg}" alt="CartelEvento" class="card-img-top">
+						<div class="card-body">
+							<h5 th:text="${concierto.nombre} + ' ' + ${concierto.fecha}" class="card-title"></h5>
+							<p th:text="${concierto.hora}" class="card-text"></p>
+							<p>Ubicación: <span th:text="${concierto.ciudad}" class="card-text"></span></p>
+							<a th:href="@{/cartas/eventos/concierto/{id}(id=${concierto.id})}"
+								class="btn btn-primary">Más info</a>
+						</div>
+					</div>
+				</div>
+				<!-- Aquí termina el bucle para los conciertos -->
+			</div>
+	</div>
 
 
-	
-	  <script>
-	    AOS.init();
-	  </script>
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+
+
+
+	<script>
+		AOS.init();
+	</script>
 
 </body>
 
