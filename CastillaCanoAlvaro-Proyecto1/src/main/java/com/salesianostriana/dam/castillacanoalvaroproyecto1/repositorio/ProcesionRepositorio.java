@@ -10,6 +10,6 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
 
 public interface ProcesionRepositorio extends JpaRepository<Procesion, Long>{
 
-	@Query("SELECT e FROM Procesion e WHERE MONTH(e.fecha) = :mes")
+	@Query("SELECT e FROM Procesion e WHERE e.fecha.getMonthValue() = :mes")
 	List<Procesion> findByMes(@Param("mes") int mes);
 }

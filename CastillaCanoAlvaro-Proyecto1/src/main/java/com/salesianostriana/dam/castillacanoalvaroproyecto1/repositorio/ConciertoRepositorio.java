@@ -11,6 +11,6 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 
 public interface ConciertoRepositorio extends JpaRepository<Concierto, Long>{
 
-	@Query("SELECT e FROM Concierto e WHERE MONTH(e.fecha) = :mes")
+	@Query("SELECT e FROM Concierto e WHERE e.fecha.getMonthValue() = :mes")
 	List<Concierto> findByMes(@Param("mes") int mes);
 }

@@ -27,19 +27,19 @@
 			</div>
 			<div class="form-group mx-sm-3 mb-2">
 				<label for="mes">Elija un Mes</label>
-				<select id="mes" class="form-control" th:value="${mes}">
-					<option value="01">Enero</option>
-					<option value="02">Febrero</option>
-					<option value="03">Marzo</option>
-					<option value="04">Abril</option>
-					<option value="05">Mayo</option>
-					<option value="06">Junio</option>
-					<option value="07">Julio</option>
-					<option value="08">Agosto</option>
-					<option value="09">Septiembre</option>
-					<option value="10">Octubre</option>
-					<option value="11">Noviembre</option>
-					<option value="12">Diciembre</option>
+				<select id="mes" class="form-control">
+					<option th:value="${mes}" value="01">Enero</option>
+					<option th:value="${mes}" value="02">Febrero</option>
+					<option th:value="${mes}" value="03">Marzo</option>
+					<option th:value="${mes}" value="04">Abril</option>
+					<option th:value="${mes}" value="05">Mayo</option>
+					<option th:value="${mes}" value="06">Junio</option>
+					<option th:value="${mes}" value="07">Julio</option>
+					<option th:value="${mes}" value="08">Agosto</option>
+					<option th:value="${mes}" value="09">Septiembre</option>
+					<option th:value="${mes}" value="10">Octubre</option>
+					<option th:value="${mes}" value="11">Noviembre</option>
+					<option th:value="${mes}" value="12">Diciembre</option>
 					
 			</div>
 			<input type="submit" class="btn btn-info mb-2" value="Buscar">
