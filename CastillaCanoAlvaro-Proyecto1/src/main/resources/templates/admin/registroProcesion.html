@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMUECI - Registro Procesion</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AMUECI - Registro Procesion</title>
 	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
 	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
-	
+
 </head>
+
 <body>
 	<!--REVISAR-->
 	<div class="container">
-	    <h2 class="mt-5 mb-4 text-center">Registro de Evento</h2>
-	    <form method="POST" th:action="${procesion.id != 0} ? @{/admin/evento/editar/procesion/submit} : @{/admin/evento/nuevo/procesion/submit}" th:object="${procesion}" class="row g-3">
+		<h2 class="mt-5 mb-4 text-center">Registro de Evento</h2>
+		<form method="POST"
+			th:action="${procesion.id != 0} ? @{/admin/evento/editar/procesion/submit} : @{/admin/evento/nuevo/procesion/submit}"
+			th:object="${procesion}" class="row g-3">
 			<input th:if="${procesion.id != 0}" type="hidden" name="id" th:field="*{id}">
-	        <div class="col-md-6">
-	            <div class="mb-3">
-	                <label for="nombre" class="form-label">Nombre</label>
-	                <input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
-	            </div>
-	            <div class="mb-3">
-	                <label for="fecha" class="form-label">Fecha y Hora</label>
-	                <div class="input-group">
-	                    <input type="date" class="form-control" id="fecha" name="fecha" required th:field="*{fecha}" th:value="*{fecha}">
-	                    <span class="input-group-text">a las</span>
-	                    <input type="time" class="form-control" id="hora" name="hora" required th:field="*{hora}">
-	                </div>
-	            </div>
-	            <div class="mb-3">
-	                <label for="duracion" class="form-label">Duración (en horas)</label>
-	                <input type="number" class="form-control" id="duracion" name="duracion" required th:value="*{duracion}">
-	            </div>
-	            <div class="mb-3">
-	                <label for="ciudad" class="form-label">Ciudad</label>
-	                <input type="text" class="form-control" id="ciudad" name="ciudad" required th:field="*{ciudad}">
-	            </div>
-	            <div class="mb-3">
-	                <label for="respuesta">¿Desea contratar un autobús?</label>
-	                <div class="form-check">
-	                    <input class="form-check-input" type="radio" id="si" name="respuesta" value="true" th:field="*{busContratado}">
-	                    <label class="form-check-label" for="si">Sí</label>
-	                </div>
-	                <div class="form-check">
-	                    <input class="form-check-input" type="radio" id="no" name="respuesta" value="false" th:field="*{busContratado}">
-	                    <label class="form-check-label" for="no">No</label>
-	                </div>
-	            </div>
+			<div class="col-md-6">
+				<div class="mb-3">
+					<label for="nombre" class="form-label">Nombre</label>
+					<input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
+				</div>
+				<div class="mb-3">
+					<label for="fecha" class="form-label">Fecha y Hora</label>
+					<div class="input-group">
+						<input type="date" class="form-control" id="fecha" name="fecha" required th:field="*{fecha}"
+							th:value="*{fecha}">
+						<span class="input-group-text">a las</span>
+						<input type="time" class="form-control" id="hora" name="hora" required th:field="*{hora}">
+					</div>
+				</div>
+				<div class="mb-3">
+					<label for="duracion" class="form-label">Duración (en horas)</label>
+					<input type="number" class="form-control" id="duracion" name="duracion" required
+						th:value="*{duracion}">
+				</div>
+				<div class="mb-3">
+					<label for="ciudad" class="form-label">Ciudad</label>
+					<input type="text" class="form-control" id="ciudad" name="ciudad" required th:field="*{ciudad}">
+				</div>
+				<div class="mb-3">
+					<label for="respuesta">¿Desea contratar un autobús?</label>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" id="si" name="respuesta" value="true"
+							th:field="*{busContratado}">
+						<label class="form-check-label" for="si">Sí</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" id="no" name="respuesta" value="false"
+							th:field="*{busContratado}">
+						<label class="form-check-label" for="no">No</label>
+					</div>
+				</div>
 				<div class="mb-3 d-none">
 					<label for="bus">Elija un Bus</label>
 					<select id="bus" class="form-control" th:field="*{bus}">
@@ -53,54 +61,66 @@
 						<option th:each="bus : ${buses}" th:value="${bus.id}" th:text="${bus.nombre}">N/S</option>
 					</select>
 				</div>
-	        </div>
-	        <div class="col-md-6">
-	            <div class="mb-3">
-	                <label for="dineroPagado" class="form-label">Dinero Pagado</label>
-	                <div class="input-group">
-	                    <span class="input-group-text">€</span>
-	                    <input type="number" class="form-control" id="dineroPagado" name="dineroPagado" step="100" required th:field="*{dineroPagado}">
-	                </div>
-	            </div>
-	            <div class="mb-3">
-	                <label for="img" class="form-label">URL cartel</label>
-	                <input type="text" class="form-control" id="img" name="img" required th:field="*{urlImg}">
-	            </div>
-	            <div class="row g-3">
-	                <div class="col-md-6">
-	                    <div class="mb-3">
-	                        <label for="hermandad" class="form-label">Hermandad</label>
-	                        <input type="text" class="form-control" id="hermandad" name="hermandad" required th:field="*{hermandad}">
-	                    </div>
-	                </div>
-	                <div class="col-md-6">
-	                    <div class="mb-3">
-	                        <label for="titular" class="form-label">Titular</label>
-	                        <input type="text" class="form-control" id="titular" name="titular" required th:field="*{titular}">
-	                    </div>
-	                </div>
-	            </div>
+			</div>
+			<div class="col-md-6">
+				<div class="mb-3">
+					<label for="dineroPagado" class="form-label">Dinero Pagado</label>
+					<div class="input-group">
+						<span class="input-group-text">€</span>
+						<input type="number" class="form-control" id="dineroPagado" name="dineroPagado" step="100"
+							required th:field="*{dineroPagado}">
+					</div>
+				</div>
+				<div class="mb-3">
+					<label for="img" class="form-label">URL cartel</label>
+					<input type="text" class="form-control" id="img" name="img" required th:field="*{urlImg}">
+				</div>
+				<div class="row g-3">
+					<div class="col-md-6">
+						<div class="mb-3">
+							<label for="hermandad" class="form-label">Hermandad</label>
+							<input type="text" class="form-control" id="hermandad" name="hermandad" required
+								th:field="*{hermandad}">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="mb-3">
+							<label for="titular" class="form-label">Titular</label>
+							<input type="text" class="form-control" id="titular" name="titular" required
+								th:field="*{titular}">
+						</div>
+					</div>
+				</div>
 				<div class="mb-3">
 					<label for="kmARecorrer" class="form-label">KM a Recorrer:</label>
 					<input type="number" class="form-control" id="kmARecorrer" name="kmARecorrer" required
 						th:value="*{kmARecorrer}">
 				</div>
-	            <div class="mb-3">
-	                <label for="dineroExtra" class="form-label">Dinero por Extras</label>
-	                <div class="input-group">
-	                    <span class="input-group-text">€</span>
-	                    <input type="number" class="form-control" id="dineroExtra" name="dineroExtra" required th:field="*{precioHorasExtras}">
-	                </div>
-	            </div>
-				
-				
-	        </div>
-	        <div class="col-12 text-center">
-	            <button type="submit" class="btn btn-primary">Registrar</button>
-	        </div>
-	    </form>
+				<div class="mb-3">
+					<label for="dineroExtra" class="form-label">Dinero por Extras</label>
+					<div class="input-group">
+						<span class="input-group-text">€</span>
+						<input type="number" class="form-control" id="dineroExtra" name="dineroExtra" required
+							th:field="*{precioHorasExtras}">
+					</div>
+				</div>
+				<div class="mb-2">
+					<label for="musicosNecesarios">Elija Nº de Músicos Necesarios</label>
+					<select id="bus" class="form-control" th:field="*{musicosNecesarios}">
+						<option value="65">65 Músicos</option>
+						<option value="80">80 Músicos</option>
+					</select>
+				</div>
+
+
+			</div>
+			<div class="col-12 text-center">
+				<button type="submit" class="btn btn-primary">Registrar</button>
+			</div>
+		</form>
 	</div>
 
 
 </body>
+
 </html>

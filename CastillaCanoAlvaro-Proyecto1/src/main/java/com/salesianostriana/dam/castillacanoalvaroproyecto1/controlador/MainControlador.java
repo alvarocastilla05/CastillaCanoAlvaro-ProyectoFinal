@@ -13,6 +13,7 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsisteFormBea
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.MusicoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
 
 
@@ -24,6 +25,9 @@ public class MainControlador {
 	
 	@Autowired
 	private ConciertoServicio servicioConcer;
+	
+	@Autowired
+	private MusicoServicio musicoServicio;
 	
 	
 	@GetMapping("/")
@@ -87,6 +91,8 @@ public class MainControlador {
 		AsisteFormBean asiste = new AsisteFormBean(id);
 		
 		model.addAttribute("asisteForm", asiste );
+		
+		musicoServicio.porcentajeMusicosAsistentes(id);
 		
 		return "infoProcesion";
 	}

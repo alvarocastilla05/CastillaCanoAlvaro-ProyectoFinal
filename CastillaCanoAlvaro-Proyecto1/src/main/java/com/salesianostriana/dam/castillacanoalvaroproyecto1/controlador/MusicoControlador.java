@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.MusicoServicio;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
 
 @Controller
 @RequestMapping("/admin/musico")
@@ -25,7 +27,14 @@ public class MusicoControlador {
 	private MusicoServicio servicio;
 	
 	@Autowired
+	private ProcesionServicio procesionServicio;
+	
+	@Autowired
+	private ConciertoServicio conciertoServicio;
+	
+	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
 	
 	@GetMapping("/listado")
 	public String lista(Model model, @Param("palabraClave") String palabraClave) {
@@ -77,6 +86,18 @@ public class MusicoControlador {
 		servicio.deleteById(id);
 		
 		return "redirect:/admin/musico/listado";
+	}
+	
+	
+	//REVISAR
+	@GetMapping("/porcentaje/musicos){id}")
+	public String porcentajeMusicos(@PathVariable("id") long id, Model model) {
+		
+		if(procesionServicio.findBYId(id).isPresent()) {
+			servicio.porcentajeMusicosAsistentes(id);
+		}
+		
+		return "infoProcesion";
 	}
 	
 	
