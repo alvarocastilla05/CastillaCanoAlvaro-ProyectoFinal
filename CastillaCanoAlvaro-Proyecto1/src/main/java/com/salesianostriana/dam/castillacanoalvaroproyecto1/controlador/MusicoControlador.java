@@ -90,6 +90,7 @@ public class MusicoControlador {
 	
 	
 	//REVISAR
+	/*
 	@GetMapping("/porcentaje/musicos){id}")
 	public String porcentajeMusicos(@PathVariable("id") long id, Model model) {
 		
@@ -98,7 +99,7 @@ public class MusicoControlador {
 		}
 		
 		return "infoProcesion";
-	}
+	}*/
 	
 	
 }

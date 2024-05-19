@@ -28,7 +28,7 @@ public interface MusicoRepositorio extends JpaRepository<Musico, Long>{
 			WHERE e.id = :id
 			GROUP BY e.id
 			""")
-	public double findNumeroMusicosPorEvento(@Param("id") long id);
+	public int findNumeroMusicosPorEvento(@Param("id") long id);
 	
 	
 	

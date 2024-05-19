@@ -42,10 +42,11 @@
 						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
 						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
-					
-					<!--Revisar
-					<p th:text="@{/porcentaje/musicos){id}(id=${procesion.id})}"></p>
-					-->
+				</div>
+				<div sec:authorize="hasRole('ROLE_ADMIN')">
+					<p><i class="bi bi-person-check"></i> PORCENTAJE DE MÚSICOS ASISTENTES:
+						<span th:text="${porcentajeAsistentes} + '%'"></span>
+					</p>
 				</div>
 			</div>
 			<div class="col-md-6">

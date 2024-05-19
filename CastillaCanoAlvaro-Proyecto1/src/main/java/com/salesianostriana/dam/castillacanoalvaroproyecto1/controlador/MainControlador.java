@@ -60,7 +60,7 @@ public class MainControlador {
 		return "director";
 	}
 	
-	@GetMapping("/cartas/eventos")
+	@GetMapping({"/cartas/eventos", "admin/cartas/eventos"})
 	public String eventos(Model model) {
 		List<Procesion> procesion = servicioProce.findAll();
 		List<Concierto> concierto = servicioConcer.findAll();
@@ -93,6 +93,10 @@ public class MainControlador {
 		model.addAttribute("asisteForm", asiste );
 		
 		musicoServicio.porcentajeMusicosAsistentes(id);
+		
+		double porcentajeAsistentes = musicoServicio.porcentajeMusicosAsistentes(id);
+        model.addAttribute("porcentajeAsistentes", porcentajeAsistentes);
+
 		
 		return "infoProcesion";
 	}
