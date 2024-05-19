@@ -27,6 +27,7 @@
 				<p><i class="bi bi-people-fill"></i> AFORO: <span th:text="${concierto.aforo}"></span></p>
 				<p><i class="bi bi-currency-euro"></i> PRECIO: <span
 						th:text="${concierto.gratuito} ? 'Es GRATIS!!' : ${concierto.precio}"></span></p>
+						<hr>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
 
 					<form th:action="@{/asociar/busConcierto/submit}" th:object="${asisteForm}" method="post">
@@ -45,6 +46,10 @@
 						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
 
+				</div>
+				<div sec:authorize="hasRole('ROLE_ADMIN')">
+					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span th:text="${precioBus}"></span> €</p>
+					<p><i class="bi bi-wallet"></i></i> LOS INGRESOS FINALES DE ESTE : <span th:text="${ingresosFinales}"></span> €</p>
 				</div>
 			</div>
 			<div class="col-md-6">

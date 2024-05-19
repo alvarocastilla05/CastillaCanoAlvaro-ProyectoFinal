@@ -73,11 +73,17 @@ public class MainControlador {
 	public String verConcierto(@PathVariable("id") long id, Model model) {
 		Optional<Concierto> concierto = servicioConcer.findBYId(id);
 		
+		double precioBus = concierto.get().calcularPrecioBus();
+		double ingresosFinales = concierto.get().calcularIngresosFinales();
+		
 		model.addAttribute("concierto", concierto.get());
 		
 		AsisteFormBean asiste = new AsisteFormBean(id);
 		
 		model.addAttribute("asisteForm", asiste );
+		
+		model.addAttribute("precioBus", precioBus);
+		model.addAttribute("ingresosFinales", ingresosFinales);
 		
 		return "infoConcierto";
 	}
@@ -86,17 +92,26 @@ public class MainControlador {
 	public String verProcesion(@PathVariable("id") long id, Model model) {
 		Optional<Procesion> procesion = servicioProce.findBYId(id);
 		
+		double precioBus = procesion.get().calcularPrecioBus();
+		double ingresosFinales = procesion.get().calcularIngresosFinales();
+		
 		model.addAttribute("procesion", procesion.get());
 		
 		AsisteFormBean asiste = new AsisteFormBean(id);
 		
 		model.addAttribute("asisteForm", asiste );
 		
+		model.addAttribute("precioBus", precioBus);
+		model.addAttribute("ingresosFinales", ingresosFinales);
+
+		
+		/*
 		musicoServicio.porcentajeMusicosAsistentes(id);
+		
 		
 		double porcentajeAsistentes = musicoServicio.porcentajeMusicosAsistentes(id);
         model.addAttribute("porcentajeAsistentes", porcentajeAsistentes);
-
+		*/
 		
 		return "infoProcesion";
 	}
