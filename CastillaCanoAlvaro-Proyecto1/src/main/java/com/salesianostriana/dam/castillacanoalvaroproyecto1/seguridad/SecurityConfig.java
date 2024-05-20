@@ -54,7 +54,7 @@ public class SecurityConfig {
     	
     	http.authorizeHttpRequests(
 				(authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**", "/img/**","/", "/escuela", 
-						"/ubicacion", "/director", "/cartas/eventos/**", "/error" ).permitAll()
+						"/ubicacion", "/director", "/cartas/eventos/**", "/error", "/evento/fecha/**" ).permitAll()
 						.requestMatchers("/admin/**").hasRole("ADMIN")
 						.anyRequest().authenticated()).requestCache(cache -> cache.requestCache(requestCache))
 			.formLogin((loginz) -> loginz

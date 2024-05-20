@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsisteFormBean;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
@@ -130,5 +131,16 @@ public class MainControlador {
 		model.addAttribute("porcentajeAsistentes", porcentajeAsistentes);
 
 		return "infoProcesion";
+	}
+	
+	@GetMapping("/evento/fecha/")
+	public String eventoPorMes(Model model, @RequestParam("mes") int mes) {
+		List<Concierto> concierto = servicioConcer.eventoPorMes(mes);
+		List<Procesion> procesion = servicioProce.eventoPorMes(mes);
+		
+		model.addAttribute("concierto", concierto);
+		model.addAttribute("procesion", procesion);
+		
+		return "tarjetasEventos";
 	}
 }
