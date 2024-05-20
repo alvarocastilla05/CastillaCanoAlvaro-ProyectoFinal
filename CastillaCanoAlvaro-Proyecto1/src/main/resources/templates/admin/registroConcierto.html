@@ -1,124 +1,124 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>AMUECI- Registro Concierto</title>
-	<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
-	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
-</head>
-
-<body>
-	<div class="container">
-		<h2 class="mt-5 mb-4">Registro de Concierto</h2>
-		<form method="POST"
-			th:action="${concierto.id != 0} ? @{/admin/evento/editar/concierto/submit} : @{/admin/evento/nuevo/concierto/submit}"
-			th:object="${concierto}">
-			<input th:if="${concierto.id != 0}" type="hidden" name="id" th:field="*{id}">
-
-			<div class="row mb-3">
-				<div class="col-md-6">
-					<label for="nombre" class="form-label">Nombre</label>
-					<input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
-				</div>
-				<div class="col-md-6">
-					<label for="ciudad" class="form-label">Ciudad</label>
-					<input type="text" class="form-control" id="ciudad" name="ciudad" required th:field="*{ciudad}">
-				</div>
-			</div>
-
-			<div class="row mb-3">
-				<div class="col-md-6">
-					<label for="fecha" class="form-label">Fecha</label>
-					<input type="date" class="form-control" id="fecha" name="fecha" required th:field="*{fecha}"
-						th:value="*{fecha}">
-				</div>
-				<div class="col-md-6">
-					<label for="hora" class="form-label">Hora</label>
-					<input type="time" class="form-control" id="hora" name="hora" required th:field="*{hora}">
-				</div>
-			</div>
-
-			<div class="row mb-3">
-				<div class="col-md-6">
-					<label for="duracion" class="form-label">Duración (en horas)</label>
-					<input type="number" class="form-control" id="duracion" name="duracion" required
-						th:value="*{duracion}">
-				</div>
-				<div class="col-md-6">
-					<label for="kmARecorrer" class="form-label">KM a Recorrer</label>
-					<input type="number" class="form-control" id="kmARecorrer" name="kmARecorrer" required
-						th:value="*{kmARecorrer}">
-				</div>
-			</div>
-
-			<div class="row mb-3">
-				<div class="col-md-4">
-					<label for="respuesta" class="form-label">¿Desea Contratar un autobús?</label>
-					<div>
-						<input type="radio" id="si" name="respuesta" value="true" th:field="*{busContratado}">
-						<label for="si">Sí</label>
-						<input type="radio" id="no" name="respuesta" value="false" th:field="*{busContratado}">
-						<label for="no">No</label>
+	<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>AMUECI- Registro Concierto</title>
+		<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
+		<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
+	</head>
+	
+	<body>
+		<div class="container">
+			<h2 class="mt-5 mb-4">Registro de Concierto</h2>
+			<form method="POST"
+				th:action="${concierto.id != 0} ? @{/admin/evento/editar/concierto/submit} : @{/admin/evento/nuevo/concierto/submit}"
+				th:object="${concierto}">
+				<input th:if="${concierto.id != 0}" type="hidden" name="id" th:field="*{id}">
+	
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<label for="nombre" class="form-label">Nombre</label>
+						<input type="text" class="form-control" id="nombre" name="nombre" required th:field="*{nombre}">
+					</div>
+					<div class="col-md-6">
+						<label for="ciudad" class="form-label">Ciudad</label>
+						<input type="text" class="form-control" id="ciudad" name="ciudad" required th:field="*{ciudad}">
 					</div>
 				</div>
-				<div class="col-md-4 d-none">
-					<label for="bus" class="form-label">Elija un Bus</label>
-					<select id="bus" class="form-select" th:field="*{bus}">
-						<option value="">Bus</option>
-						<option th:each="bus : ${buses}" th:value="${bus.id}" th:text="${bus.nombre}">N/S</option>
-					</select>
-				</div>
-				<div class="col-md-4">
-					<label for="musicosNecesarios" class="form-label">Elija Nº de Músicos Necesarios</label>
-					<select id="musicosNecesarios" class="form-select" th:field="*{musicosNecesarios}">
-						<option value="65">65 Músicos</option>
-						<option value="80">80 Músicos</option>
-					</select>
-				</div>
-			</div>
-			<div class="row mb-3">
-				<div class="col-md-6">
-					<label for="dineroPagado" class="form-label">Dinero Pagado</label>
-					<input type="number" class="form-control" id="dineroPagado" name="dineroPagado" step="100" required
-						th:field="*{dineroPagado}">
-				</div>
-				<div class="col-md-6">
-					<label for="aforo" class="form-label">Aforo</label>
-					<input type="number" class="form-control" id="aforo" name="aforo" step="100" required
-						th:field="*{aforo}">
-				</div>
-			</div>
-
-			<div class="row mb-3">
-				<div class="col-md-6">
-					<label for="gratuito" class="form-label">Gratuito</label>
-					<div>
-						<input type="radio" id="gratuitoSi" name="gratuito" value="true" th:field="*{gratuito}">
-						<label for="gratuitoSi">Sí</label>
-						<input type="radio" id="gratuitoNo" name="gratuito" value="false" th:field="*{gratuito}">
-						<label for="gratuitoNo">No</label>
+	
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<label for="fecha" class="form-label">Fecha</label>
+						<input type="date" class="form-control" id="fecha" name="fecha" required th:field="*{fecha}"
+							th:value="*{fecha}">
+					</div>
+					<div class="col-md-6">
+						<label for="hora" class="form-label">Hora</label>
+						<input type="time" class="form-control" id="hora" name="hora" required th:field="*{hora}">
 					</div>
 				</div>
-				<div class="col-md-6 d-none" id="precio">
-					<label for="precio" class="form-label">Precio</label>
-					<input type="number" class="form-control" id="precio" name="precio" required th:field="*{precio}">
+	
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<label for="duracion" class="form-label">Duración (en horas)</label>
+						<input type="number" class="form-control" id="duracion" name="duracion" required
+							th:value="*{duracion}">
+					</div>
+					<div class="col-md-6">
+						<label for="kmARecorrer" class="form-label">KM a Recorrer</label>
+						<input type="number" class="form-control" id="kmARecorrer" name="kmARecorrer" required
+							th:value="*{kmARecorrer}">
+					</div>
 				</div>
-			</div>
-
-			<div class="mb-3">
-				<label for="img" class="form-label">URL cartel</label>
-				<input type="text" class="form-control" id="img" name="img" required th:field="*{urlImg}">
-			</div>
-
-			<div class="text-end">
-				<button type="submit" class="btn btn-primary">Registrar</button>
-			</div>
-		</form>
-	</div>
-
-
-</body>
-
-</html>
+	
+				<div class="row mb-3">
+					<div class="col-md-4">
+						<label for="respuesta" class="form-label">¿Desea Contratar un autobús?</label>
+						<div>
+							<input type="radio" id="si" name="respuesta" value="true" th:field="*{busContratado}">
+							<label for="si">Sí</label>
+							<input type="radio" id="no" name="respuesta" value="false" th:field="*{busContratado}">
+							<label for="no">No</label>
+						</div>
+					</div>
+					<div class="col-md-4 d-none">
+						<label for="bus" class="form-label">Elija un Bus</label>
+						<select id="bus" class="form-select" th:field="*{bus}">
+							<option value="">Bus</option>
+							<option th:each="bus : ${buses}" th:value="${bus.id}" th:text="${bus.nombre}">N/S</option>
+						</select>
+					</div>
+					<div class="col-md-4">
+						<label for="musicosNecesarios" class="form-label">Elija Nº de Músicos Necesarios</label>
+						<select id="musicosNecesarios" class="form-select" th:field="*{musicosNecesarios}">
+							<option value="65">65 Músicos</option>
+							<option value="80">80 Músicos</option>
+						</select>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<label for="dineroPagado" class="form-label">Dinero Pagado</label>
+						<input type="number" class="form-control" id="dineroPagado" name="dineroPagado" step="100" required
+							th:field="*{dineroPagado}">
+					</div>
+					<div class="col-md-6">
+						<label for="aforo" class="form-label">Aforo</label>
+						<input type="number" class="form-control" id="aforo" name="aforo" step="100" required
+							th:field="*{aforo}">
+					</div>
+				</div>
+	
+				<div class="row mb-3">
+					<div class="col-md-6">
+						<label for="gratuito" class="form-label">Gratuito</label>
+						<div>
+							<input type="radio" id="gratuitoSi" name="gratuito" value="true" th:field="*{gratuito}">
+							<label for="gratuitoSi">Sí</label>
+							<input type="radio" id="gratuitoNo" name="gratuito" value="false" th:field="*{gratuito}">
+							<label for="gratuitoNo">No</label>
+						</div>
+					</div>
+					<div class="col-md-6 d-none" id="precio">
+						<label for="precio" class="form-label">Precio</label>
+						<input type="number" class="form-control" id="precio" name="precio" required th:field="*{precio}">
+					</div>
+				</div>
+	
+				<div class="mb-3">
+					<label for="img" class="form-label">URL cartel</label>
+					<input type="text" class="form-control" id="img" name="img" required th:field="*{urlImg}">
+				</div>
+	
+				<div class="text-end">
+					<button type="submit" class="btn btn-primary">Registrar</button>
+				</div>
+			</form>
+		</div>
+	
+	
+	</body>
+	
+	</html>
