@@ -44,6 +44,9 @@
 						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
 						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
+					<!--
+					<p th:text="*{asiste.sueldo}"></p>
+					-->
 
 				</div>
 				<div sec:authorize="hasRole('ROLE_ADMIN')">

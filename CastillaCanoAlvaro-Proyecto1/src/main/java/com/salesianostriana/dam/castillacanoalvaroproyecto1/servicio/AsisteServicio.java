@@ -1,6 +1,6 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio;
 
-import java.util.Optional;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Asiste;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsistePK;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.TipoInstrumento;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.repositorio.AsisteRepositorio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base.BaseServiceImpl;
 
@@ -21,6 +23,8 @@ public class AsisteServicio extends BaseServiceImpl<Asiste, AsistePK, AsisteRepo
 
 	@Autowired
 	private AsisteRepositorio asisteRepositorio;
+	
+	
 
 	public double porcentajeMusicosAsistentes(Evento e) {
 
@@ -38,6 +42,8 @@ public class AsisteServicio extends BaseServiceImpl<Asiste, AsistePK, AsisteRepo
 
 		return porcentaje;
 	}
+	
+	
 	
 	
 	

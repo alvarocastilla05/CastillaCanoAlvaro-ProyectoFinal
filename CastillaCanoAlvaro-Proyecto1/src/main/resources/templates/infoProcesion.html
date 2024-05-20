@@ -58,6 +58,17 @@
 					<p><i class="bi bi-wallet"></i></i> LOS INGRESOS FINALES DE ESTE : <span
 							th:text="${ingresosFinales}"></span> €</p>
 				</div>
+				<div sec:authorize="hasRole('ROLE_MUSICO')">
+
+					<form th:action="@{/ver/sueldoProcesion/submit}" method="post">
+						<button type="submit">Mostrar Sueldo Aproximado</button>
+					</form>
+
+					<!-- Muestra el sueldo aproximado si está disponible -->
+					<div th:if="${sueldo != null}">
+						<p>Sueldo Aproximado del Músico: <span th:text="${asiste.sueldo}"></span> euros.</p>
+					</div>
+				</div>
 
 			</div>
 			<div class="col-md-6">

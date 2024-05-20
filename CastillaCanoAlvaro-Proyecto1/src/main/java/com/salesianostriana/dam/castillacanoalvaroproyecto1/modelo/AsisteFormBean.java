@@ -11,6 +11,7 @@ public class AsisteFormBean {
 
 	private long idEvento;
 	private boolean enBus;
+	private double sueldo;
 	
 	public AsisteFormBean(Long id) {
 		this.idEvento = id;
