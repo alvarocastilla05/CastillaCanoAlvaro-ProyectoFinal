@@ -131,4 +131,6 @@ public class EventoControlador {
 		return "redirect:/admin/evento/listadoEvento";
 	}
 	
+	
+	
 }

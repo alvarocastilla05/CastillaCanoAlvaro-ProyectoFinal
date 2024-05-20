@@ -9,4 +9,5 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base.BaseSe
 @Service
 public class ProcesionServicio extends BaseServiceImpl<Procesion, Long, ProcesionRepositorio>{
 
+
 }
