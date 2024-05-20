@@ -119,20 +119,18 @@ insert into concierto(id, aforo, gratuito, precio) values (3, 200, true, 0);
 insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (4, 'Concierto Marchas Procesionales Huelva', '2025-03-11', '21:00', 2, 'Huelva', 180, 65, true, 2500, 'https://www.artesacro.org/imagenes/IMG-20230309-WA0001.jpg', 2);
 insert into concierto(id, aforo, gratuito, precio) values (4, 150, true, 0);
 
-insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (5, 'Concierto Santa Cecilia', '2024-11-06', '12:30', 2, 'Ecija', 0, 65, false, 1000, 'https://pbs.twimg.com/media/F-RPbXyXEAANeVz?format=jpg&name=large', null);
-insert into concierto(id, aforo, gratuito, precio) values (5, 100, true, 0);
-
-insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (6, 'Concierto Santa Cecilia', '2024-11-06', '12:30', 2, 'Ecija', 0, 65, false, 1000, 'https://pbs.twimg.com/media/F-RPbXyXEAANeVz?format=jpg&name=large', null);
-insert into concierto(id, aforo, gratuito, precio) values (6, 100, true, 0);
-
-insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (7, 'Concierto Santa Cecilia', '2024-11-06', '12:30', 2, 'Ecija', 0, 65, false, 1000, 'https://pbs.twimg.com/media/F-RPbXyXEAANeVz?format=jpg&name=large', null);
-insert into concierto(id, aforo, gratuito, precio) values (7, 100, true, 0);
 
 
-insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (2, 'Procesion Cena Huelva', '2024-04-06', '12:30', 8, 'Huelva', 200, 80, true, 10000, 'https://pbs.twimg.com/media/GJbGW2qXoAAXBKZ.jpg', 3);
+insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (2, 'Procesion Cena Huelva', '2024-03-24', '12:30', 8, 'Huelva', 200, 80, true, 10000, 'https://pbs.twimg.com/media/GJbGW2qXoAAXBKZ.jpg', 3);
 insert into procesion(id, hermandad, titular, precio_horas_extras) values (2, 'Cena Huelva', 'Rosario del Polvorin', 100);
 
-ALTER SEQUENCE evento_seq RESTART WITH 57;
+insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (5, 'Procesion Magna Paz de Fatima Jerez', '2024-10-12', '18:00', 9, 'Jerez', 174, 80, true, 5000, 'https://pbs.twimg.com/media/GNnG2NXWMAEciC7?format=jpg&name=large', 3);
+insert into procesion(id, hermandad, titular, precio_horas_extras) values (5, 'Paz de Fatima', 'Virgen del Refugio', 250);
+
+insert into evento(id, nombre, fecha, hora, duracion, ciudad, kmarecorrer, musicos_necesarios, bus_contratado, dinero_pagado, url_img, bus_id) values (6, 'Procesion Paz de Fatima Jerez', '2025-03-25', '16:50', 9, 'Jerez', 174, 80, true, 8000, 'https://pbs.twimg.com/media/GJgJREsWAAAMgS3.jpg', 3);
+insert into procesion(id, hermandad, titular, precio_horas_extras) values (6, 'Paz de Fatima', 'Virgen del Refugio', 100);
+
+ALTER SEQUENCE evento_seq RESTART WITH 59;
 
 
 INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 2, 10);
@@ -251,4 +249,65 @@ INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (false, 0, 1, 5
 INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (false, 0, 1, 60);
 INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (false, 0, 1, 61);
 
+
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 1);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 2);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 3);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 4);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 5);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 6);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 7);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 8);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 9);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 21);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 22);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 23);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 24);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 25);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 26);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 27);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 28);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 29);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 30);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 31);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 32);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 33);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 34);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 35);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 36);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 37);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 38);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 39);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 40);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 41);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 42);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 43);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 44);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 45);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 46);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 47);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 48);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 49);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 50);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 51);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 52);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 53);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 54);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 55);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 56);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 57);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 58);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 59);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 60);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 80);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 90);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 91);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 92);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 93);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 94);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 95);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 96);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 97);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 98);
+INSERT INTO asiste (en_bus, sueldo, evento_id, musico_id) VALUES (true, 0, 5, 99);
 

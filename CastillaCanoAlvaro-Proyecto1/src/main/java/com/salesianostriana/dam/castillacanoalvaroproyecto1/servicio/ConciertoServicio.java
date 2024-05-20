@@ -10,15 +10,17 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.repositorio.Conciert
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base.BaseServiceImpl;
 
 @Service
-public class ConciertoServicio extends BaseServiceImpl<Concierto, Long, ConciertoRepositorio>{
+public class ConciertoServicio extends BaseServiceImpl<Concierto, Long, ConciertoRepositorio> {
 
 	@Autowired
 	private ConciertoRepositorio conciertoRepositorio;
-	
+
 	public List<Concierto> eventoPorMes(int mes){
 		return conciertoRepositorio.findByMes(mes);
-	public double calcularPosibleDineroEntradas(Concierto c) {
+	}
+	public double calcularPosibleDineroEntradas(Concierto c){
 
 		return c.getAforo()*c.getPrecio();
 	}
 }
+

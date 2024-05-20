@@ -50,7 +50,7 @@ public class EventoServicio extends BaseServiceImpl<Evento, Long, EventoReposito
 		
 		double ingresoFinal;
 		
-		ingresoFinal = e.getDineroPagado() - (calcularPrecioBus(e)+(e.getDineroPagado()*(calcularMusicosContratados(e)*0.05)));
+		ingresoFinal = Math.round(e.getDineroPagado() - (calcularPrecioBus(e)+(e.getDineroPagado()*(calcularMusicosContratados(e)*0.05))));
 		
 		
 		
