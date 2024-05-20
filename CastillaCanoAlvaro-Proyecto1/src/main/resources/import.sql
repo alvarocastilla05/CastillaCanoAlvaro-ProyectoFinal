@@ -99,6 +99,8 @@ insert into musico (id, nombre, apellidos, username, password, tipo_instrumento,
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (100, 'Diego', 'Hernandez Perez', 'diegohernandez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMetal', '2022-01-10', false);
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (101, 'Sara', 'Lopez Gomez', 'saralopez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMadera', '2022-01-10', false);
 insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (14, 'Manuel', 'Rodriguez Diaz', 'manuelrodriguez@amueci.es', '{bcrypt}$2y$10$ddfFumDiAoDhpNj0XYRVHe3CEazScrvDNLqU2X8VwXGCoS6HT4Dt6', 'VientoMetal', '2022-01-10', false);
+insert into musico (id, nombre, apellidos, username, password, tipo_instrumento, fecha_alta, admin) values (102, 'user', 'user', 'user', '{bcrypt}$2y$10$2TgnpXNiJaumgV71lo8fWObjP84M0XGo8SVZ3q0KtpG79/i.6a0hO', null, '2019-05-01', false);
+
 
 
 ALTER SEQUENCE musico_seq RESTART WITH 152;

@@ -2,63 +2,66 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMUECI - Director</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AMUECI - Director</title>
 
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
 </head>
 
 <body>
-    <div th:replace="~{fragmentos/nav::nav}"></div>
+	<div th:replace="~{fragmentos/nav::nav}"></div>
 
 	<div class="container mt-5">
-	        <p>Inició su formación musical en el Conservatorio Elemental de Música “Fray Juan Bermudo” de Écija. Con D.
-	            Antonio Salguero (catedrático del Conservatorio Superior de Sevilla) comienza sus estudios de clarinete, y
-	            poco después con Dña. Ana Mª Jiménez y D. Francisco Fuentes, pero es con D. Ángel Muñoz con quién finaliza
-	            sus estudios profesionales en el Conservatorio Profesional de Música “Músico Ziryab” de Córdoba.</p>
-	
-	        <p>Realiza varios cursos de perfeccionamiento clarinetístico con profesores nacionales como D. César Martín
-	            (clarinete solista de la Orquesta Sinfónica de Elche), D. Francisco Gil (catedrático del Real Conservatorio
-	            Superior de Granada), D. Francisco Herrera (catedrático del Conservatorio Superior “Manuel Castillo” de
-	            Sevilla) ó D. Joaquin Haro (solista de la Orquesta Sinfónica de Córdoba).</p>
-	
-	        <p>Realiza también cursos de Dirección de Banda con los profesores D. Juan Manuel Busto (Director de la banda de
-	            música de “Los Palacios” de Sevilla) y con D. Norman Milanés (reconocido director musical de La Habana
-	            (Cuba))</p>
-	
-	        <p>Es componente de Amueci como clarinete desde Mayo de 2000 y en el año 2008 D. Francisco Escalera le nombra
-	            nuevo director de la misma, convirtiéndose en el director más joven de la historia de los directores que han
-	            pasado por esta Banda de Música.</p>
-	
-	        <div class="d-flex justify-content-center">
-	            <img src="../img/director.jpeg" th:src="@{../img/director.jpeg}", th:alt-title="#{Director}" class="img-fluid">
-	        </div>
-	        <!-- Offcanvas lateral -->
-	    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-	        <div class="offcanvas-header">
-	            <h5 class="offcanvas-title" id="offcanvasLabel">Quiénes Somos</h5>
-	            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-	                aria-label="Close"></button>
-	        </div>
-	        <div class="offcanvas-body">
-	            <ul><a href="escuela">Nuestra Escuela</a></ul>
-	            <ul><a href="ubicacion">Ubicacion</a></ul>
-	        </div>
-	    </div>
-	
-	    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
-	        aria-controls="offcanvas">
-	        Más Sobre Nosotros
-	    </button>
-	    </div>
+		<p>Inició su formación musical en el Conservatorio Elemental de Música “Fray Juan Bermudo” de Écija. Con D.
+			Antonio Salguero (catedrático del Conservatorio Superior de Sevilla) comienza sus estudios de clarinete, y
+			poco después con Dña. Ana Mª Jiménez y D. Francisco Fuentes, pero es con D. Ángel Muñoz con quién finaliza
+			sus estudios profesionales en el Conservatorio Profesional de Música “Músico Ziryab” de Córdoba.</p>
+
+		<p>Realiza varios cursos de perfeccionamiento clarinetístico con profesores nacionales como D. César Martín
+			(clarinete solista de la Orquesta Sinfónica de Elche), D. Francisco Gil (catedrático del Real Conservatorio
+			Superior de Granada), D. Francisco Herrera (catedrático del Conservatorio Superior “Manuel Castillo” de
+			Sevilla) ó D. Joaquin Haro (solista de la Orquesta Sinfónica de Córdoba).</p>
+
+		<p>Realiza también cursos de Dirección de Banda con los profesores D. Juan Manuel Busto (Director de la banda de
+			música de “Los Palacios” de Sevilla) y con D. Norman Milanés (reconocido director musical de La Habana
+			(Cuba))</p>
+
+		<p>Es componente de Amueci como clarinete desde Mayo de 2000 y en el año 2008 D. Francisco Escalera le nombra
+			nuevo director de la misma, convirtiéndose en el director más joven de la historia de los directores que han
+			pasado por esta Banda de Música.</p>
+
+		<div class="d-flex justify-content-center">
+			<img src="../img/director.jpeg" th:src="@{../img/director.jpeg}" , th:alt-title="#{Director}"
+				class="img-fluid">
+		</div>
+		<!-- Offcanvas lateral -->
+		<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title" id="offcanvasLabel">Quiénes Somos</h5>
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+					aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<ul><a href="escuela">Nuestra Escuela</a></ul>
+				<ul><a href="ubicacion">Ubicacion</a></ul>
+			</div>
+		</div>
+
+		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+			aria-controls="offcanvas">
+			Más Sobre Nosotros
+		</button>
+	</div>
 
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
 
 </body>
 
-</html>	
+</html>
