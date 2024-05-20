@@ -18,6 +18,14 @@ public interface EventoRepositorio extends JpaRepository<Evento, Long>{
 			""")
 	List<Evento> eventosPorMes(LocalDate fecha);
 	
+	/*Revisar*/
+	@Query("""
+            SELECT e FROM Evento e
+            WHERE e.fecha >= CURRENT_DATE
+            ORDER BY e.fecha ASC
+            """)
+    List<Evento> obtenerProximosEventos(int cantidad);
+	
 	
 }
 

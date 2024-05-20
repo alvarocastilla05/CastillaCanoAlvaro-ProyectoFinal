@@ -2,153 +2,139 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMUECI - Inicio</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AMUECI - Inicio</title>
 
-    <link rel="stylesheet" href="../css/bootstrap.css" 	th:href="@{/css/bootstrap.css}">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<script src="../js/eventos.js" th:src="@{/js/eventos.js}" defer></script>
 
 </head>
 
 <body>
-    <div th:replace="~{fragmentos/nav::nav}"></div>
-	
+	<div th:replace="~{fragmentos/nav::nav}"></div>
 
-	
+
+
 
 
 
 	<!-- Carousel -->
-	    <div id="demo" class="carousel slide" data-bs-ride="carousel">
-	
-	        <!-- Indicators/dots -->
-	        <div class="carousel-indicators">
-	            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-	            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-	            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-	        </div>
-	
-	        <!-- The slideshow/carousel -->
-	        <div class="carousel-inner">
-	            <div class="carousel-item active">
-	                <img src="../img/carousel1.jpg" th:src="@{../img/carousel1.jpg}", th:alt-title="#{Carousel}" class="d-block w-100">
-	            </div>
-	            <div class="carousel-item">
-	                <img src="../img/carousel3.jpeg" th:src="@{../img/carousel3.jpeg}", th:alt-title="#{Carousel}" class="d-block w-100">
-	            </div>
-	            <div class="carousel-item">
-	                <img src="../img/carousel2.jpg" th:src="@{../img/carousel2.jpg}", th:alt-title="#{Carousel}" class="d-block w-100">
-	            </div>
-	        </div>
-	
-	        <!-- Left and right controls/icons -->
-	        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-	            <span class="carousel-control-prev-icon"></span>
-	        </button>
-	        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-	            <span class="carousel-control-next-icon"></span>
-	        </button>
-	    </div>
-	
-	
-	
-	    <div class="container">
-	        <div class="row justify-content-center d-flex">
-	
-	            <div class="col-12 col-md-8">
-	                <h1 class="pt-2">Nuestra Historia</h1>
-	                <hr>
-	                <p>Los primeros documentos que avalan la existencia de esta banda son de 1926 cuando la Banda Municipal
-	                    de Música de Écija alcanza cotas muy altas gracias a la labor de D. José Pérez Herrera, recordado
-	                    músico y director de esta banda.
-	
-	                    Es en 1979 cuando se reúnen una serie de músicos pertenecientes a la antigua Banda Municipal y ante
-	                    las circunstancias vividas y en colaboración con su Ayuntamiento, deciden reorganizar la banda de
-	                    música, aunque ya nunca volvería a ser municipal. Es en 1980 cuando nace la Asociación Musical
-	                    Ecijana, más conocida como
-	                    AMUECI, cuyo objeto fue seguir desarrollando la perdida actividad musical en Écija que tan larga
-	                    tradición poseía.
-	
-	                    Desde sus inicios se partió con la idea de fomentar los estudios musicales con una Escuela de Música
-	                    abierta y con el afán de formar a nuevos y jóvenes integrantes, los cuales algunos de ellos
-	                    continuaron sus estudios oficialmente en los conservatorios profesionales y superiores de Córdoba y
-	                    Sevilla, y a día de hoy, dedicándose de forma
-	                    profesional a la música.</p>
-	
-	
-	
-	                <div class="conteiner-fluid">
-	                    <div class="row d-flex justify-content-center">
-	                            <img src="../img/nuestraHistoria-3-209x300.jpg" th:src="@{../img/nuestraHistoria-3-209x300.jpg}", th:alt-title="#{Carousel}" class="w-25">
-	                    </div>
-	                </div>
-	
-	                <p>Su primer director fue D. Manuel Gutiérrez Martín, el cual se presentó con un concierto el día 7 de
-	                    Septiembre de 1980 y se dedicó por entero a la banda y comenzó a enseñar a jóvenes, formando así la
-	                    escuela de música de la banda.
-	
-	                    Su segundo director es bien conocido por los músicos y cofrades de Andalucía, se trata de D. Manuel
-	                    Hidalgo Martín, músico militar de Soria 9 y actual director de la prestigiosa Banda de música del
-	                    “Maestro Tejera” de Sevilla.
-	
-	                    El relevo de la dirección lo recoge en el año 2000 D. Francisco Escalera Duvisón, el cual, inició su
-	                    formación musical en la Escuela de Música de la propia banda, finalizando sus estudios de trompeta
-	                    en el Conservatorio de Sevilla.
-	
-	                    Es en la procesión del Corpus Christi de Écija, en el año 2008 cuando D. Francisco cede la batuta a
-	                    D. David Ruiz Carmona, músico de “Amueci” desde el año 2000. Durante tres años dirige a la banda
-	                    convirtiéndose así en el director más joven de la historia de “Amueci”.</p>
-	            </div>
-	        </div>
-	
-			
-	        <div class="row mt-5">
-				<h1>PROXIMOS EVENTOS</h1>
+	<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+		<!-- Indicators/dots -->
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+			<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+			<button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+		</div>
+
+		<!-- The slideshow/carousel -->
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="../img/carousel1.jpg" th:src="@{../img/carousel1.jpg}" , th:alt-title="#{Carousel}"
+					class="d-block w-100">
+			</div>
+			<div class="carousel-item">
+				<img src="../img/carousel3.jpeg" th:src="@{../img/carousel3.jpeg}" , th:alt-title="#{Carousel}"
+					class="d-block w-100">
+			</div>
+			<div class="carousel-item">
+				<img src="../img/carousel2.jpg" th:src="@{../img/carousel2.jpg}" , th:alt-title="#{Carousel}"
+					class="d-block w-100">
+			</div>
+		</div>
+
+		<!-- Left and right controls/icons -->
+		<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</button>
+	</div>
+
+
+
+	<div class="container">
+		<div class="row justify-content-center d-flex">
+
+			<div class="col-12 col-md-8">
+				<h1 class="pt-2">Nuestra Historia</h1>
 				<hr>
-	            <div class="col-12 col-md-4 mt-5">
-	                <div class="card">
-	                    <img src="../img/evento1.jpg" th:src="@{../img/evento1.jpg}", th:alt-title="#{Evento1}" class="card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">Card title</h5>
-	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-	                            the card's content.</p>
-	                        <a href="#" class="btn btn-primary">Go somewhere</a>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-12 col-md-4 mt-5">
-	                <div class="card">
-	                    <img src="../img/evento2.jpg" th:src="@{../img/evento2.jpg}", th:alt-title="#{Evento2}" class="card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">Card title</h5>
-	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-	                            the card's content.</p>
-	                        <a href="#" class="btn btn-primary">Go somewhere</a>
-	                    </div>
-	                </div>
-	            </div>
-	            <div class="col-12 col-md-4 mt-5">
-	                <div class="card">
-	                    <img src="../img/evento3.jpg" th:src="@{../img/evento3.jpg}", th:alt-title="#{Evento3}"class="card-img-top">
-	                    <div class="card-body">
-	                        <h5 class="card-title">Card title</h5>
-	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-	                            the card's content.</p>
-	                        <a href="#" class="btn btn-primary">Go somewhere</a>
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
+				<p>Los primeros documentos que avalan la existencia de esta banda son de 1926 cuando la Banda Municipal
+					de Música de Écija alcanza cotas muy altas gracias a la labor de D. José Pérez Herrera, recordado
+					músico y director de esta banda.
+
+					Es en 1979 cuando se reúnen una serie de músicos pertenecientes a la antigua Banda Municipal y ante
+					las circunstancias vividas y en colaboración con su Ayuntamiento, deciden reorganizar la banda de
+					música, aunque ya nunca volvería a ser municipal. Es en 1980 cuando nace la Asociación Musical
+					Ecijana, más conocida como
+					AMUECI, cuyo objeto fue seguir desarrollando la perdida actividad musical en Écija que tan larga
+					tradición poseía.
+
+					Desde sus inicios se partió con la idea de fomentar los estudios musicales con una Escuela de Música
+					abierta y con el afán de formar a nuevos y jóvenes integrantes, los cuales algunos de ellos
+					continuaron sus estudios oficialmente en los conservatorios profesionales y superiores de Córdoba y
+					Sevilla, y a día de hoy, dedicándose de forma
+					profesional a la música.</p>
+
+
+
+				<div class="conteiner-fluid">
+					<div class="row d-flex justify-content-center">
+						<img src="../img/nuestraHistoria-3-209x300.jpg" th:src="@{../img/nuestraHistoria-3-209x300.jpg}"
+							, th:alt-title="#{Carousel}" class="w-25">
+					</div>
+				</div>
+
+				<p>Su primer director fue D. Manuel Gutiérrez Martín, el cual se presentó con un concierto el día 7 de
+					Septiembre de 1980 y se dedicó por entero a la banda y comenzó a enseñar a jóvenes, formando así la
+					escuela de música de la banda.
+
+					Su segundo director es bien conocido por los músicos y cofrades de Andalucía, se trata de D. Manuel
+					Hidalgo Martín, músico militar de Soria 9 y actual director de la prestigiosa Banda de música del
+					“Maestro Tejera” de Sevilla.
+
+					El relevo de la dirección lo recoge en el año 2000 D. Francisco Escalera Duvisón, el cual, inició su
+					formación musical en la Escuela de Música de la propia banda, finalizando sus estudios de trompeta
+					en el Conservatorio de Sevilla.
+
+					Es en la procesión del Corpus Christi de Écija, en el año 2008 cuando D. Francisco cede la batuta a
+					D. David Ruiz Carmona, músico de “Amueci” desde el año 2000. Durante tres años dirige a la banda
+					convirtiéndose así en el director más joven de la historia de “Amueci”.</p>
+			</div>
+		</div>
+
+
+		
+		<!--Revisar-->
+		<div class="row mt-5">
+			<h1 class="text-center">Próximos Eventos</h1>
+			<div class="row">
+				<div th:each="procesion : ${proximosEventos}" class="col-md-4">
+					<div class="card mb-3">
+						<img th:src="${evento.urlImg}" class="card-img-top" alt="Imagen del Evento">
+						<div class="card-body">
+							<h5 class="card-title" th:text="${procesion.nombre}"></h5>
+							<p class="card-text">Fecha: <span th:text="${procesion.fecha}"></span></p>
+							<p class="card-text">Hora: <span th:text="${procesion.hora}"></span></p>
+							<p class="card-text">Ciudad: <span th:text="${procesion.ciudad}"></span></p>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 
 
 </body>
 
-</html>	
+</html>

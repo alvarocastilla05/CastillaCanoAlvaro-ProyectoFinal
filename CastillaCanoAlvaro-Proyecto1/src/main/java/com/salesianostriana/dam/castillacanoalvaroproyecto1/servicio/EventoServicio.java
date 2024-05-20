@@ -16,6 +16,9 @@ public class EventoServicio extends BaseServiceImpl<Evento, Long, EventoReposito
 	@Autowired
 	private AsisteServicio asisteServicio;
 	
+	@Autowired
+	private EventoRepositorio eventoRepositorio;
+	
 	public double calcularPrecioBus(Evento e) {
 		double precioBus;
 		if(e.isBusContratado()) {
@@ -56,6 +59,12 @@ public class EventoServicio extends BaseServiceImpl<Evento, Long, EventoReposito
 		
 		return ingresoFinal;
 	}
+	
+	/*Revisar*/
+	 public List<Evento> obtenerProximosEventos() {
+	        return eventoRepositorio.obtenerProximosEventos(3);
+	    }
 	}
+
 	
 	
