@@ -17,5 +17,8 @@ public class ConciertoServicio extends BaseServiceImpl<Concierto, Long, Conciert
 	
 	public List<Concierto> eventoPorMes(int mes){
 		return conciertoRepositorio.findByMes(mes);
+	public double calcularPosibleDineroEntradas(Concierto c) {
+
+		return c.getAforo()*c.getPrecio();
 	}
 }

@@ -6,5 +6,8 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Asiste;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsistePK;
 
 public interface AsisteRepositorio extends JpaRepository<Asiste, AsistePK>{
+	
+	long countByEventoId(Long id);
 
+	
 }

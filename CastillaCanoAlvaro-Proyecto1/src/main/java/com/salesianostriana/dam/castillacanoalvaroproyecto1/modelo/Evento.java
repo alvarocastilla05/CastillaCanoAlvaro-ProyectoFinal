@@ -31,6 +31,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
+@Builder
 public class Evento {
 	
 	@Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -61,7 +62,11 @@ public class Evento {
 	@JoinColumn(foreignKey = @ForeignKey(name="fk_evento_bus"))
 	private Bus bus;
 	
-	
+	@OneToMany(mappedBy="evento", fetch = FetchType.EAGER)
+	@Builder.Default
+	@EqualsAndHashCode.Exclude
+	@ToString.Exclude
+	private List<Asiste> asiste = new ArrayList<>();
 	
 	public Evento(String nombre, LocalDate fecha, LocalTime hora, double duracion, String ciudad, double kmARecorrer,
 			int musicosNecesarios, boolean busContratado, double dineroPagado, String urlImg, Bus bus) {
@@ -88,6 +93,7 @@ public class Evento {
 		b.getEventos().remove(this);
 		this.bus = null;
 	}
+	
 	
 	
 	

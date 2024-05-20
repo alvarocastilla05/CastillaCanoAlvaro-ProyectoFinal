@@ -25,6 +25,7 @@
 				<p><i class="bi bi-pin-map"></i> UBICACIÓN: <span th:text="${procesion.ciudad}"></span></p>
 				<p><i class="bi bi-bank"></i> HERMANDAD: <span th:text="${procesion.hermandad}"></span></p>
 				<p><i class="bi bi-music-note-beamed"></i> TITULAR: <span th:text="${procesion.titular}"></span></p>
+				<hr>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
 
 					<form th:action="@{/asociar/busProcesion/submit}" th:object="${asisteForm}" method="post">
@@ -42,8 +43,22 @@
 						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
 						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
-
 				</div>
+				<div sec:authorize="hasRole('ROLE_ADMIN')">
+					<p><i class="bi bi-person-check"></i> PORCENTAJE DE MÚSICOS ASISTENTES:
+						<span th:text="${porcentajeAsistentes} + '%'"></span>
+					</p>
+					<p><i class="bi bi-person-check"></i>PERSONAS CONTRATADAS:
+						<span th:text="${musicosContratados}"></span>
+					</p>
+					<p><i class="bi bi-clock-history"></i>En caso de horas extras nos llevaríamos:
+						<span th:text="${procesion.precioHorasExtras}"></span>
+					</p>
+					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span th:text="${precioBus}"></span> €</p>
+					<p><i class="bi bi-wallet"></i></i> LOS INGRESOS FINALES DE ESTE : <span
+							th:text="${ingresosFinales}"></span> €</p>
+				</div>
+
 			</div>
 			<div class="col-md-6">
 				<img th:src="${procesion.urlImg}" alt="CartelEvento" class="img-fluid w-75">

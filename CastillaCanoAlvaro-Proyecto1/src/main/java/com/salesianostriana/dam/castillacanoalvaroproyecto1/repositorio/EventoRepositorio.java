@@ -19,7 +19,5 @@ public interface EventoRepositorio extends JpaRepository<Evento, Long>{
 	List<Evento> eventosPorMes(LocalDate fecha);
 	
 	
-	
-	
 }
 
