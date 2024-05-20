@@ -21,14 +21,7 @@ public interface MusicoRepositorio extends JpaRepository<Musico, Long>{
 			""")
 	public List<Musico> findAllByPalabraClave(String palabraClave);
 	
-	@Query("""
-			SELECT COUNT(a.musico.id) 
-			FROM Evento e 
-			JOIN e.asiste a 
-			WHERE e.id = :id
-			GROUP BY e.id
-			""")
-	public int findNumeroMusicosPorEvento(@Param("id") long id);
+	
 	
 	
 	

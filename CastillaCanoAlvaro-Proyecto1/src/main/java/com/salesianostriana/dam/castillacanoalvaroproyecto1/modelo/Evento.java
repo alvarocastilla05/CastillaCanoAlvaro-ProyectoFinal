@@ -94,27 +94,7 @@ public class Evento {
 		this.bus = null;
 	}
 	
-	public double calcularPrecioBus() {
-		double precioBus;
-		if(busContratado) {
-			 precioBus = bus.getPrecioKm()*kmARecorrer;
-			 if(asiste.size()==bus.getPlazas()) {
-				 double precioFinalBus = precioBus*0.2;
-				 return precioFinalBus;
-			 }
-		}else {
-			precioBus = 0;
-		}
-		return precioBus;
-	}
 	
-	public double calcularIngresosFinales() {
-		double ingresoFinal;
-		
-		ingresoFinal = dineroPagado - calcularPrecioBus();
-		
-		return ingresoFinal;
-	}
 	
 	
 

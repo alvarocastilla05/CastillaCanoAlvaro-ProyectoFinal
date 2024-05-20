@@ -27,11 +27,10 @@
 				<p><i class="bi bi-people-fill"></i> AFORO: <span th:text="${concierto.aforo}"></span></p>
 				<p><i class="bi bi-currency-euro"></i> PRECIO: <span
 						th:text="${concierto.gratuito} ? 'Es GRATIS!!' : ${concierto.precio}"></span></p>
-						<hr>
+				<hr>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
 
 					<form th:action="@{/asociar/busConcierto/submit}" th:object="${asisteForm}" method="post">
-						<!--th:if="${procesion.id != null}"-->
 						<input type="hidden" name="idEvento" th:field="*{idEvento}">
 						<div th:if="${concierto.bus} != null">
 							<div class="form-group">
@@ -48,8 +47,21 @@
 
 				</div>
 				<div sec:authorize="hasRole('ROLE_ADMIN')">
+					<p><i class="bi bi-person-check"></i> PORCENTAJE DE MÚSICOS ASISTENTES:
+						<span th:text="${porcentajeAsistentes} + '%'"></span>
+					</p>
+					<p><i class="bi bi-person-check"></i>PERSONAS CONTRATADAS:
+						<span th:text="${musicosContratados}"></span>
+					</p>
+
+					<p><i class="bi bi-ticket-perforated"></i>DINERO MÁX. POR VENTA ENTRADAS:
+						<span th:text="${dineroEntradas}"></span> €
+					</p>
+
+
 					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span th:text="${precioBus}"></span> €</p>
-					<p><i class="bi bi-wallet"></i></i> LOS INGRESOS FINALES DE ESTE : <span th:text="${ingresosFinales}"></span> €</p>
+					<p><i class="bi bi-wallet"></i></i> LOS INGRESOS FINALES DE ESTE : <span
+							th:text="${ingresosFinales}"></span> €</p>
 				</div>
 			</div>
 			<div class="col-md-6">

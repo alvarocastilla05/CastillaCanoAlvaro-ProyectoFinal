@@ -9,4 +9,8 @@ import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base.BaseSe
 @Service
 public class ConciertoServicio extends BaseServiceImpl<Concierto, Long, ConciertoRepositorio>{
 
+	public double calcularPosibleDineroEntradas(Concierto c) {
+
+		return c.getAforo()*c.getPrecio();
+	}
 }
