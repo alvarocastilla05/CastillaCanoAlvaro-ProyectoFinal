@@ -51,6 +51,16 @@ public class Asiste {
 		m.getAsiste().remove(this);
 		this.musico = null;
 	}
+	
+	public void addToEvento(Evento m) {
+		m.getAsiste().add(this);
+		this.evento = m;
+	}
+
+	public void removeFromEvento(Evento m) {
+		m.getAsiste().remove(this);
+		this.evento = null;
+	}
 
 
 	

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.AsisteServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.MusicoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
@@ -31,6 +32,9 @@ public class MusicoControlador {
 	
 	@Autowired
 	private ConciertoServicio conciertoServicio;
+	
+	@Autowired
+	private AsisteServicio asisteServicio;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -86,6 +90,7 @@ public class MusicoControlador {
 		if(servicio.findBYId(id).get().isAdmin()) {
 			return "errorBorrarAdmin";
 		}else {
+			/*asisteServicio.findAll().stream().forEach(e -> e.removeFromMusico(servicio.findBYId(id).get()));*/
 			servicio.deleteById(id);
 			
 			return "redirect:/admin/musico/listado";
