@@ -83,23 +83,19 @@ public class MusicoControlador {
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarMusico(@PathVariable("id") long id) {
-		servicio.deleteById(id);
+		if(servicio.findBYId(id).get().isAdmin()) {
+			return "errorBorrarAdmin";
+		}else {
+			servicio.deleteById(id);
+			
+			return "redirect:/admin/musico/listado";
+		}
 		
-		return "redirect:/admin/musico/listado";
+		
 	}
 	
 	
-	//REVISAR
-	/*
-	@GetMapping("/porcentaje/musicos){id}")
-	public String porcentajeMusicos(@PathVariable("id") long id, Model model) {
-		
-		if(procesionServicio.findBYId(id).isPresent()) {
-			servicio.porcentajeMusicosAsistentes(id);
-		}
-		
-		return "infoProcesion";
-	}*/
+	
 	
 	
 }

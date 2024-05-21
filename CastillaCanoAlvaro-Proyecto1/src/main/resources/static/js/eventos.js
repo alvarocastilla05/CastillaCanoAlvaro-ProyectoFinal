@@ -1,16 +1,18 @@
+function validateForm() {
+            var emailField = document.getElementById("email");
+            var emailValue = emailField.value;
+            var requiredSuffix = "@amueci.es";
 
-let ojo = document.getElementById('verPwd');
+            if (!emailValue.endsWith(requiredSuffix)) {
+                alert("El usuario debe terminar en " + requiredSuffix);
+                return false;
+            }
+            return true;
+        }
 
-ojo.addEventListener('pointerover', mostrarContrasena);
-ojo.addEventListener('pointerout', ocultarContrasena);
 
-function mostrarContrasena(evento){
-    this.previousElementSibling.type = 'text';
-}
 
-function ocultarContrasena(evento){
-    this.previousElementSibling.type = 'password';
-}
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
