@@ -64,7 +64,7 @@ public class SecurityConfig {
 			.logout((logoutz) -> logoutz
 					.logoutUrl("/logout")
 					.logoutSuccessUrl("/")
-					.permitAll());
+					.permitAll()).exceptionHandling(exceptionHandling ->  exceptionHandling.accessDeniedPage("/error/**"));
     	
     
 		

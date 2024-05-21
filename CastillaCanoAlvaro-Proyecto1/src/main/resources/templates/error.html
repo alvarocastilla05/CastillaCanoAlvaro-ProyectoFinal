@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>AMUECI - ERROR</title>
 
-	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/bootstrap.css" 	th:href="@{/css/bootstrap.css}">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
@@ -25,7 +25,7 @@
 	    <div class="col">
 	      <!-- La clase "d-flex" con "justify-content-center" y "align-items-center" centra la imagen -->
 	      <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-	        <img href="https://statics.memondo.com/p/99/ccs/2014/04/CC_2312088_d72c01ad6dd74f99974fcfbb4735aa91_bad_luck_brian_ni_siendo_el_administrador_de_un_grupo_de_whatsapp_se_puede_salvar.jpg?cb=2198505" class="full-img" alt="Error">
+	        <img th:src="@{../img/error.jpg}" class="full-img" alt="Error">
 	      </div>
 	    </div>
 	  </div>

@@ -70,9 +70,6 @@ function confirmarEliminacionBus(id) {
     }
 }
 
-function limpiarCampos(){
-	window.location.href = '/admin/musico/listado';
-}
 
 
 
