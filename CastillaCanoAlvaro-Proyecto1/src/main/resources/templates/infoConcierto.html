@@ -30,7 +30,7 @@
 				<hr>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
 
-					<form th:action="@{/asociar/busConcierto/submit}" th:object="${asisteForm}" method="post">
+					<form th:if="@{asiste.asistePK == null}" th:action="@{/asociar/busConcierto/submit}" th:object="${asisteForm}" method="post">
 						<input type="hidden" name="idEvento" th:field="*{idEvento}">
 						<div th:if="${concierto.bus} != null">
 							<div class="form-group">

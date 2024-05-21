@@ -29,7 +29,6 @@
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
 
 					<form th:action="@{/asociar/busProcesion/submit}" th:object="${asisteForm}" method="post">
-						<!--th:if="${procesion.id != null}"-->
 						<input type="hidden" name="idEvento" th:field="*{idEvento}">
 						<div th:if="${procesion.bus} != null">
 							<div class="form-group">
