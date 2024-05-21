@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsisteFormBean;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.AsisteServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
@@ -27,15 +28,22 @@ public class MainControlador {
 
 	@Autowired
 	private ConciertoServicio servicioConcer;
-	
+
 	@Autowired
 	private AsisteServicio asisteServicio;
-	
+
 	@Autowired
 	private EventoServicio eventoServicio;
 
 	@GetMapping("/")
-	public String index() {
+	public String index(Model model) {
+
+		// Obtener los tres próximos eventos
+		List<Evento> proximosEventos = eventoServicio.obtenerProximosEventos();
+
+		// Pasar los eventos al modelo
+		model.addAttribute("proximosEventos", proximosEventos);
+
 		return "index";// Mostramos la plantilla index
 	}
 
@@ -77,12 +85,10 @@ public class MainControlador {
 	public String verConcierto(@PathVariable("id") long id, Model model) {
 		Optional<Concierto> concierto = servicioConcer.findBYId(id);
 
-		
 		double precioBus = eventoServicio.calcularPrecioBus(servicioConcer.findBYId(id).get());
 		double musicosContratados = eventoServicio.calcularMusicosContratados(servicioConcer.findBYId(id).get());
 		double dineroEntradas = servicioConcer.calcularPosibleDineroEntradas(servicioConcer.findBYId(id).get());
 		double ingresosFinales = eventoServicio.calcularIngresosFinales(servicioConcer.findBYId(id).get());
-		
 
 		model.addAttribute("concierto", concierto.get());
 
@@ -90,12 +96,10 @@ public class MainControlador {
 
 		model.addAttribute("asisteForm", asiste);
 
-		
 		model.addAttribute("precioBus", precioBus);
 		model.addAttribute("musicosContratados", musicosContratados);
 		model.addAttribute("dineroEntradas", dineroEntradas);
 		model.addAttribute("ingresosFinales", ingresosFinales);
-		
 
 		asisteServicio.porcentajeMusicosAsistentes(servicioConcer.findBYId(id).get());
 
@@ -119,11 +123,9 @@ public class MainControlador {
 
 		model.addAttribute("asisteForm", asiste);
 
-		
 		model.addAttribute("precioBus", precioBus);
 		model.addAttribute("musicosContratados", musicosContratados);
 		model.addAttribute("ingresosFinales", ingresosFinales);
-		
 
 		asisteServicio.porcentajeMusicosAsistentes(servicioProce.findBYId(id).get());
 
@@ -132,15 +134,17 @@ public class MainControlador {
 
 		return "infoProcesion";
 	}
-	
+
 	@GetMapping("/evento/fecha/")
 	public String eventoPorMes(Model model, @RequestParam("mes") int mes) {
 		List<Concierto> concierto = servicioConcer.eventoPorMes(mes);
 		List<Procesion> procesion = servicioProce.eventoPorMes(mes);
-		
+
 		model.addAttribute("concierto", concierto);
 		model.addAttribute("procesion", procesion);
-		
+
 		return "tarjetasEventos";
 	}
+
+	
 }

@@ -23,8 +23,9 @@ public interface EventoRepositorio extends JpaRepository<Evento, Long>{
             SELECT e FROM Evento e
             WHERE e.fecha >= CURRENT_DATE
             ORDER BY e.fecha ASC
+            LIMIT :cantidad
             """)
-    List<Evento> obtenerProximosEventos(int cantidad);
+    List<Evento> obtenerProximosEventos(@Param("cantidad") int cantidad);
 	
 	
 }

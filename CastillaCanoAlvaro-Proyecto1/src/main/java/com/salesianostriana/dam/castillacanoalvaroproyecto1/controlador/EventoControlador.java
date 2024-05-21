@@ -132,15 +132,6 @@ public class EventoControlador {
 		return "redirect:/admin/evento/listadoEvento";
 	}
 
-	@GetMapping("/proximos-eventos")
-	public String mostrarProximosEventos(Model model) {
-		// Obtener los tres próximos eventos
-		List<Evento> proximosEventos = servicio.obtenerProximosEventos();
 
-		// Pasar los eventos al modelo
-		model.addAttribute("proximosEventos", proximosEventos);
-
-		return "index";
-	}
 
 }
