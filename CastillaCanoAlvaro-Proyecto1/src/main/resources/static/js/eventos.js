@@ -1,29 +1,3 @@
-import customParseFormat from "dayjs/plugin/customParseFormat";
-dayjs.extend(customParseFormat);
-
- function validarFormulario() {
-            // Obtener referencias a los campos del formulario
-            let nombre = document.getElementById('nombre');
-            let ciudad = document.getElementById('ciudad');
-            let fecha = document.getElementById('fecha');
-            let hora = document.getElementById('hora');
-            let duracion = document.getElementById('duracion');
-            let kmARecorrer = document.getElementById('kmARecorrer');
-            let respuesta = document.querySelector('input[name="respuesta"]:checked');
-            let musicosNecesarios = document.getElementById('musicosNecesarios');
-            let dineroPagado = document.getElementById('dineroPagado');
-            let aforo = document.getElementById('aforo');
-            let gratuitoSi = document.getElementById('gratuitoSi');
-            let gratuitoNo = document.getElementById('gratuitoNo');
-            let img = document.getElementById('img');
-
-            // Verificar que todos los campos obligatorios estén completos
-            if (nombre.value === "" || ciudad.value === "" || fecha.value === "" || hora.value === "" || duracion.value === "" || kmARecorrer.value === "" || respuesta === null || musicosNecesarios.value === "" || dineroPagado.value === "" || aforo.value === "" || (gratuitoSi.checked === false && gratuitoNo.checked === false) || img.value === "") {
-                alert("Por favor, complete todos los campos obligatorios.");
-                return false; // Evitar que se envíe el formulario
-            }
-        }
-
 
 let ojo = document.getElementById('verPwd');
 

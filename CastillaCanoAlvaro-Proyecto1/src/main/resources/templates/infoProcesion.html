@@ -60,7 +60,7 @@
 				</div>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
 
-					<form th:action="@{/ver/sueldoProcesion/submit}" method="post">
+					<form th:action="@/ver/sueldoProcesion/{id}}">
 						<button type="submit">Mostrar Sueldo Aproximado</button>
 					</form>
 

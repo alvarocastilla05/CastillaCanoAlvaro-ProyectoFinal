@@ -159,6 +159,7 @@ public class AsisteControlador {
 
 		model.addAttribute("sueldoAproximado", sueldoAproximado);
 		model.addAttribute("asiste", asisteServicio.findBYId(asistePK).get());
+		
 
 		return "infoProcesion";
 	}
