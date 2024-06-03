@@ -1,6 +1,5 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.controlador;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,11 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
-import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.AsisteServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.BusServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.EventoServicio;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.MusicoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
 
 @Controller
@@ -36,6 +36,12 @@ public class EventoControlador {
 
 	@Autowired
 	private ConciertoServicio servicioConcer;
+	
+	@Autowired
+	private AsisteServicio asisteServicio;
+	
+	@Autowired 
+	private MusicoServicio musicoServicio;
 
 	@GetMapping("/listadoEvento")
 	public String lista(Model model) {
