@@ -16,6 +16,9 @@ public class MusicoServicio extends BaseServiceImpl<Musico, Long, MusicoReposito
 
 	@Autowired
 	private MusicoRepositorio musicoRepositorio;
+	
+	@Autowired
+	private AsisteServicio asisteServicio;
 
 
 	public List<Musico> listaAll(String palabraClave) {
@@ -26,6 +29,10 @@ public class MusicoServicio extends BaseServiceImpl<Musico, Long, MusicoReposito
 
 		return musicoRepositorio.findAll();
 
+	}
+	
+	public void eliminarMusicosAsistentes(Musico m) {
+		asisteServicio.eliminarMusicosAsociados(m);
 	}
 
 }

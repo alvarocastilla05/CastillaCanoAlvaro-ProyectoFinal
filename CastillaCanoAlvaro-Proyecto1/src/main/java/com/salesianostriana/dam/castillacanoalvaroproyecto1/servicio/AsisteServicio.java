@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Asiste;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsistePK;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.repositorio.AsisteRepositorio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base.BaseServiceImpl;
 
@@ -39,10 +40,16 @@ public class AsisteServicio extends BaseServiceImpl<Asiste, AsistePK, AsisteRepo
 		return porcentaje;
 	}
 
-	public void eliminarAsistentes(Evento e) {
+	public void eliminarAsistentesEventos(Evento e) {
 		List<Asiste> asistentes = asisteRepositorio.buscarPorEvento(e);
 		
 		asisteRepositorio.deleteAll(asistentes);
+	}
+	
+	public void eliminarMusicosAsociados(Musico m) {
+		List<Asiste> musicos = asisteRepositorio.buscarPorMusico(m);
+		
+		asisteRepositorio.deleteAll(musicos);
 	}
 	
 	
