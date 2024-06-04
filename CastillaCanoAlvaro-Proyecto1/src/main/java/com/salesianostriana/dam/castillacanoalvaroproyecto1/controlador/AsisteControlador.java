@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.controlador;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -37,10 +39,11 @@ public class AsisteControlador {
 	@GetMapping("/asociar/procesion/{id}")
 	public String asociarMusicoProcesion(@AuthenticationPrincipal Musico musico, @PathVariable("id") Long id) {
 		
-		
+		Optional<Procesion> procesion = procesionServicio.findBYId(id);
+
 		if(procesionServicio.findBYId(id).isPresent()) {
 			
-			Procesion p = procesionServicio.findBYId(id).get();
+			Procesion p = procesion.get();
 			Asiste asiste = new Asiste(musico, p);
 			
 			asiste.addToMusico(musico);
@@ -100,10 +103,12 @@ public class AsisteControlador {
 	@GetMapping("/asociar/concierto/{id}")
 	public String asociarMusicoConcierto(@AuthenticationPrincipal Musico musico, @PathVariable("id") Long id) {
 		
+		Optional<Concierto> concierto = conciertoServicio.findBYId(id);
+
 		
 		if(conciertoServicio.findBYId(id).isPresent()) {
 			
-			Concierto c = conciertoServicio.findBYId(id).get();
+			Concierto c = concierto.get();
 			Asiste asiste = new Asiste(musico, c);
 			
 			

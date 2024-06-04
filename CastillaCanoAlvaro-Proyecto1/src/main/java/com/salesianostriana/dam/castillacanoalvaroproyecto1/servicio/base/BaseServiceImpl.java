@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,6 +42,14 @@ public abstract class BaseServiceImpl<T, ID, R extends JpaRepository<T, ID>>
 	public void deleteById(ID id) {
 		repository.deleteById(id);
 	}
+
+	@Override
+	public void deleteAll(Collection<T> list) {
+		repository.deleteAll(list);
+		
+	}
+	
+	
 	
 	
 

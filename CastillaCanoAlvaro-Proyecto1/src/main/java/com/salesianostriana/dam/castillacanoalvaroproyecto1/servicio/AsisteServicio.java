@@ -1,6 +1,6 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +38,15 @@ public class AsisteServicio extends BaseServiceImpl<Asiste, AsistePK, AsisteRepo
 
 		return porcentaje;
 	}
+
+	public void eliminarAsistentes(Evento e) {
+		List<Asiste> asistentes = asisteRepositorio.buscarPorEvento(e);
+		
+		asisteRepositorio.deleteAll(asistentes);
+	}
+	
+	
+	
 	
 	
 	

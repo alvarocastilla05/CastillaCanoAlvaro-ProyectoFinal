@@ -27,13 +27,7 @@ public class MusicoControlador {
 	@Autowired
 	private MusicoServicio servicio;
 	
-	@Autowired
-	private ProcesionServicio procesionServicio;
-	
-	@Autowired
-	private ConciertoServicio conciertoServicio;
-	
-	@Autowired
+	@Autowired 
 	private AsisteServicio asisteServicio;
 	
 	@Autowired
@@ -87,10 +81,13 @@ public class MusicoControlador {
 	
 	@GetMapping("/eliminar/{id}")
 	public String eliminarMusico(@PathVariable("id") long id) {
-		if(servicio.findBYId(id).get().isAdmin()) {
+		Optional<Musico> musico = servicio.findBYId(id);
+
+		if(musico.get().isAdmin()) {
 			return "errorBorrarAdmin";
 		}else {
 			/*asisteServicio.findAll().stream().forEach(e -> e.removeFromMusico(servicio.findBYId(id).get()));*/
+			//Lo comentado da error porque trato de eliminar la clave primaria de una entidad.
 			servicio.deleteById(id);
 			
 			return "redirect:/admin/musico/listado";
