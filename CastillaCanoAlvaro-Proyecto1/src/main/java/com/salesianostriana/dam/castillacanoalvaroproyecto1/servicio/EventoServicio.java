@@ -66,7 +66,7 @@ public class EventoServicio extends BaseServiceImpl<Evento, Long, EventoReposito
 	    }
 	 
 	 public void eleminarAsistentesEventos(Evento e) {
-		 asisteServicio.eliminarAsistentes(e);
+		 asisteServicio.eliminarAsistentesEventos(e);
 	 }
 	}
 

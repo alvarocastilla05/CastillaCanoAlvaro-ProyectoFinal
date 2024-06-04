@@ -86,8 +86,7 @@ public class MusicoControlador {
 		if(musico.get().isAdmin()) {
 			return "errorBorrarAdmin";
 		}else {
-			/*asisteServicio.findAll().stream().forEach(e -> e.removeFromMusico(servicio.findBYId(id).get()));*/
-			//Lo comentado da error porque trato de eliminar la clave primaria de una entidad.
+			asisteServicio.eliminarMusicosAsociados(musico.get());
 			servicio.deleteById(id);
 			
 			return "redirect:/admin/musico/listado";
