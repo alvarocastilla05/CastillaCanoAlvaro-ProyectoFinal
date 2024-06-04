@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,4 +17,6 @@ public interface BaseService<T, ID>{
 	void delete(T t);
 	
 	void deleteById(ID id);
+	
+	void deleteAll(Collection<T> list);
 }

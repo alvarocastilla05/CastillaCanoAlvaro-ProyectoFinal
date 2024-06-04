@@ -64,6 +64,10 @@ public class EventoServicio extends BaseServiceImpl<Evento, Long, EventoReposito
 	 public List<Evento> obtenerProximosEventos() {
 	        return eventoRepositorio.obtenerProximosEventos(3);
 	    }
+	 
+	 public void eleminarAsistentesEventos(Evento e) {
+		 asisteServicio.eliminarAsistentes(e);
+	 }
 	}
 
 	

@@ -36,11 +36,11 @@ public class EventoControlador {
 
 	@Autowired
 	private ConciertoServicio servicioConcer;
-	
+
 	@Autowired
 	private AsisteServicio asisteServicio;
-	
-	@Autowired 
+
+	@Autowired
 	private MusicoServicio musicoServicio;
 
 	@GetMapping("/listadoEvento")
@@ -91,7 +91,13 @@ public class EventoControlador {
 
 	@GetMapping("/eliminar/procesion/{id}")
 	public String eliminarProcesion(@PathVariable("id") long id) {
-		servicioProce.deleteById(id);
+		Optional<Procesion> procesion = servicioProce.findBYId(id);
+
+		if (procesion.isPresent()) {
+			servicio.eleminarAsistentesEventos(procesion.get());
+
+			servicioProce.deleteById(id);
+		}
 
 		return "redirect:/admin/evento/listadoEvento";
 	}
@@ -133,11 +139,14 @@ public class EventoControlador {
 
 	@GetMapping("/eliminar/concierto/{id}")
 	public String eliminarConcierto(@PathVariable("id") long id) {
-		servicioConcer.deleteById(id);
+		Optional<Concierto> concierto = servicioConcer.findBYId(id);
 
+		if (concierto.isPresent()) {
+			servicio.eleminarAsistentesEventos(concierto.get());
+
+			servicioConcer.deleteById(id);
+		}
 		return "redirect:/admin/evento/listadoEvento";
 	}
-
-
 
 }
