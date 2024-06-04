@@ -30,7 +30,6 @@
 							<th scope="col">Bus</th>
 	                        <th scope="col">Musicos Necesarios</th>
 	                        <th scope="col">Dinero Pagado</th>
-							<th scope="col">Imagen</th>
 							<th scope="col">Hermandad</th>
 							<th scope="col">Titular</th>
 							<th scope="col">Dinero Horas Extras</th>
@@ -51,7 +50,6 @@
 							<td th:text="${procesion.bus} != null ? ${procesion.bus.nombre} : 'No hay Bus'"></td>
 	                        <td th:text="${procesion.musicosNecesarios}"></td>
 							<td th:text="${procesion.dineroPagado}"></td>
-							<td th:text="${procesion.urlImg}"></td>
 							<td th:text="${procesion.hermandad}"></td>
 							<td th:text="${procesion.titular}"></td>
 							<td th:text="${procesion.precioHorasExtras}"></td>
@@ -76,7 +74,6 @@
 											<th scope="col">Bus</th>
 					                        <th scope="col">Musicos Necesarios</th>
 					                        <th scope="col">Dinero Pagado</th>
-											<th scope="col">Imagen</th>
 											<th scope="col">Aforo</th>
 											<th scope="col">Precio Entradas</th>
 											<th scope="col">Acciones</th>
@@ -96,7 +93,6 @@
 											<td th:text="${concierto.bus} != null ? ${concierto.bus.nombre} : 'No hay Bus'"></td>
 					                        <td th:text="${concierto.musicosNecesarios}"></td>
 											<td th:text="${concierto.dineroPagado}"></td>
-											<td th:text="${concierto.urlImg}"></td>
 											<td th:text="${concierto.aforo}"></td>
 											<td th:text="${concierto.precio}"></td>
 											<td>	
