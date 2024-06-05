@@ -85,10 +85,10 @@ public class MainControlador {
 	public String verConcierto(@PathVariable("id") long id, Model model) {
 		Optional<Concierto> concierto = servicioConcer.findBYId(id);
 
-		double precioBus = eventoServicio.calcularPrecioBus(servicioConcer.findBYId(id).get());
-		double musicosContratados = eventoServicio.calcularMusicosContratados(servicioConcer.findBYId(id).get());
-		double dineroEntradas = servicioConcer.calcularPosibleDineroEntradas(servicioConcer.findBYId(id).get());
-		double ingresosFinales = eventoServicio.calcularIngresosFinales(servicioConcer.findBYId(id).get());
+		double precioBus = eventoServicio.calcularPrecioBus(concierto.get());
+		double musicosContratados = eventoServicio.calcularMusicosContratados(concierto.get());
+		double dineroEntradas = servicioConcer.calcularPosibleDineroEntradas(concierto.get());
+		double ingresosFinales = eventoServicio.calcularIngresosFinales(concierto.get());
 
 		model.addAttribute("concierto", concierto.get());
 
@@ -101,9 +101,9 @@ public class MainControlador {
 		model.addAttribute("dineroEntradas", dineroEntradas);
 		model.addAttribute("ingresosFinales", ingresosFinales);
 
-		asisteServicio.porcentajeMusicosAsistentes(servicioConcer.findBYId(id).get());
+		asisteServicio.porcentajeMusicosAsistentes(concierto.get());
 
-		double porcentajeAsistentes = asisteServicio.porcentajeMusicosAsistentes(servicioConcer.findBYId(id).get());
+		double porcentajeAsistentes = asisteServicio.porcentajeMusicosAsistentes(concierto.get());
 		model.addAttribute("porcentajeAsistentes", porcentajeAsistentes);
 
 		return "infoConcierto";
@@ -113,9 +113,9 @@ public class MainControlador {
 	public String verProcesion(@PathVariable("id") long id, Model model) {
 		Optional<Procesion> procesion = servicioProce.findBYId(id);
 
-		double precioBus = eventoServicio.calcularPrecioBus(servicioProce.findBYId(id).get());
-		double musicosContratados = eventoServicio.calcularMusicosContratados(servicioProce.findBYId(id).get());
-		double ingresosFinales = eventoServicio.calcularIngresosFinales(servicioProce.findBYId(id).get());
+		double precioBus = eventoServicio.calcularPrecioBus(procesion.get());
+		double musicosContratados = eventoServicio.calcularMusicosContratados(procesion.get());
+		double ingresosFinales = eventoServicio.calcularIngresosFinales(procesion.get());
 
 		model.addAttribute("procesion", procesion.get());
 
@@ -127,9 +127,9 @@ public class MainControlador {
 		model.addAttribute("musicosContratados", musicosContratados);
 		model.addAttribute("ingresosFinales", ingresosFinales);
 
-		asisteServicio.porcentajeMusicosAsistentes(servicioProce.findBYId(id).get());
+		asisteServicio.porcentajeMusicosAsistentes(procesion.get());
 
-		double porcentajeAsistentes = asisteServicio.porcentajeMusicosAsistentes(servicioProce.findBYId(id).get());
+		double porcentajeAsistentes = asisteServicio.porcentajeMusicosAsistentes(procesion.get());
 		model.addAttribute("porcentajeAsistentes", porcentajeAsistentes);
 
 		return "infoProcesion";
