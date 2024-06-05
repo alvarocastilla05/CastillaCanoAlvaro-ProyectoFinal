@@ -30,7 +30,8 @@
 				<hr>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
 
-					<form th:if="@{asiste.asistePK == null}" th:action="@{/asociar/busConcierto/submit}" th:object="${asisteForm}" method="post">
+					<form  th:action="@{/asociar/busConcierto/submit}"
+						th:object="${asisteForm}" method="post">
 						<input type="hidden" name="idEvento" th:field="*{idEvento}">
 						<div th:if="${concierto.bus} != null">
 							<div class="form-group">
@@ -59,9 +60,12 @@
 					</p>
 
 
-					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span th:text="${precioBus}"></span> €</p>
+					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span th:text="${concierto.busContratado} ? ${precioBus} : 'No Contratado'"></span> €</p>
 					<p><i class="bi bi-wallet"></i></i> LOS INGRESOS FINALES DE ESTE : <span
 							th:text="${ingresosFinales}"></span> €</p>
+
+					<a class="btn btn-primary mt-3" th:href="@{/admin/asistentes/{id}(id=${concierto.id})}">Listado de
+						Asistentes</a>
 				</div>
 			</div>
 			<div class="col-md-6">

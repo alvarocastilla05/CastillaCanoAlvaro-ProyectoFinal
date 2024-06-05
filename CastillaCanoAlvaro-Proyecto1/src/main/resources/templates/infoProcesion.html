@@ -53,9 +53,11 @@
 					<p><i class="bi bi-clock-history"></i>En caso de horas extras nos llevaríamos:
 						<span th:text="${procesion.precioHorasExtras}"></span>
 					</p>
-					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span th:text="${precioBus}"></span> €</p>
+					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span th:text="${procesion.busContratado} ? ${precioBus} : 'No Contratado'"></span> €</p>
 					<p><i class="bi bi-wallet"></i></i> LOS INGRESOS FINALES DE ESTE : <span
 							th:text="${ingresosFinales}"></span> €</p>
+					<a class="btn btn-primary mt-3" th:href="@{/admin/asistentes/{id}(id=${procesion.id})}">Listado de Asistentes</a>	
+				
 				</div>
 
 			</div>

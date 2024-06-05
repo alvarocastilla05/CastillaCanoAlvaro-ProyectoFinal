@@ -52,6 +52,9 @@ public class AsisteServicio extends BaseServiceImpl<Asiste, AsistePK, AsisteRepo
 		asisteRepositorio.deleteAll(musicos);
 	}
 	
+	public List<Asiste> buscarMusicosDeEvento(Evento e) {
+		return asisteRepositorio.buscarPorEvento(e);
+	}
 	
 	
 	
