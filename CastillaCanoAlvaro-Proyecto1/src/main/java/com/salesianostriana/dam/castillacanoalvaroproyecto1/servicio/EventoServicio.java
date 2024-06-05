@@ -21,7 +21,7 @@ public class EventoServicio extends BaseServiceImpl<Evento, Long, EventoReposito
 	
 	public double calcularPrecioBus(Evento e) {
 		double precioBus;
-		if(e.isBusContratado()) {
+		if(e.getBus() != null) {
 			 precioBus = e.getBus().getPrecioKm()*e.getKmARecorrer();
 			 if(e.getAsiste().size()==e.getBus().getPlazas()) {
 				 double precioFinalBus = precioBus - (precioBus*0.2);
