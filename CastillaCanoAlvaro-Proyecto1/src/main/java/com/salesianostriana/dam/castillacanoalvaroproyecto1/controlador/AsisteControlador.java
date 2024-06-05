@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +15,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Asiste;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsisteFormBean;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.AsisteServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.EventoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
 
 @Controller
@@ -33,6 +34,9 @@ public class AsisteControlador {
 
 	@Autowired
 	private ConciertoServicio conciertoServicio;
+	
+	@Autowired
+	private EventoServicio eventoServicio;
 
 	// Procesion.
 	@GetMapping("/asociar/procesion/{id}")
@@ -152,12 +156,15 @@ public class AsisteControlador {
 		return "redirect:/cartas/eventos";
 	}
 
-	@GetMapping("/admin/asistentes")
-	public String lista(Model model) {
+	@GetMapping("/admin/asistentes/{id}")
+	public String lista(@PathVariable("id") long id, Model model) {
+		Optional<Evento> evento = eventoServicio.findBYId(id);
 
-		List<Asiste> asistentes = asisteServicio.findAll();
-		model.addAttribute("asistentes", asistentes);
-
+		if(evento.isPresent()) {
+			List<Asiste> asistentes = asisteServicio.buscarMusicosDeEvento(evento.get());
+			model.addAttribute("asistentes", asistentes);
+		}
+		
 		return "/admin/listadoAsistentes";
 
 	}

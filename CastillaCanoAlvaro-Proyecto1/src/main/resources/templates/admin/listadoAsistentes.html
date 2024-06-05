@@ -32,6 +32,7 @@
 							<th scope="col">ID</th>
 							<th scope="col">Nombre</th>
 							<th scope="col">Tipo Instrumento</th>
+							<th scope="col">Transporte</th>
 
 						</tr>
 					</thead>
@@ -41,11 +42,13 @@
 							<td th:text="${asiste.musico.id}"></td>
 							<td th:text="${asiste.musico.nombre}"></td>
 							<td th:text="${asiste.musico.tipoInstrumento}"></td>
+							<td th:text="${asiste.enBus} ? 'Bus' : 'Otro'"></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
+	</div>
 	
 
 
