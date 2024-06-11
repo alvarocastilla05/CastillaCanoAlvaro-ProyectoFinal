@@ -90,7 +90,7 @@
 					                        <td th:text="${concierto.duracion}"></td>
 					                        <td th:text="${concierto.ciudad}"></td>
 											<td th:text="${concierto.kmARecorrer}"></td>
-											<td th:text="${concierto.bus} != null ? ${concierto.bus.nombre} : 'No hay Bus'"></td>
+											<td th:if="${concierto.busContratado}" th:text="${concierto.bus} != null ? ${concierto.bus.nombre} : 'No hay Bus'"></td>
 					                        <td th:text="${concierto.musicosNecesarios}"></td>
 											<td th:text="${concierto.dineroPagado}"></td>
 											<td th:text="${concierto.aforo}"></td>
