@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Bus;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
-import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.repositorio.EventoRepositorio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.base.BaseServiceImpl;
 
@@ -68,7 +68,14 @@ public class EventoServicio extends BaseServiceImpl<Evento, Long, EventoReposito
 	 public void eleminarAsistentesEventos(Evento e) {
 		 asisteServicio.eliminarAsistentesEventos(e);
 	 }
+	 
+	 /*public void eliminarBusAsociados(Bus b) {
+		 List<Bus> buses = eventoRepositorio.buscarPorBus(b);
+		 
+		 eventoRepositorio.deleteAll(buses);
+	 }*/
 	}
+
 
 	
 	
