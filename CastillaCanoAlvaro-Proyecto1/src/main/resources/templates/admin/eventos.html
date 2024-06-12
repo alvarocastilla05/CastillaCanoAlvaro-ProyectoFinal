@@ -49,10 +49,13 @@
 							<td th:text="${procesion.ciudad}"></td>
 							<td th:text="${procesion.kmARecorrer}"></td>
 							<!--<td th:if="${procesion.busContratado}" th:text="${procesion.bus} != null ? ${procesion.bus.nombre} : 'No hay Bus'"></td>-->
-							<th:block th:if="${procesion.busContratado}">
-								<td th:text="${procesion.bus.nombre}">
-								</td>
+							<th:block th:if="${procesion.bus} != null">
+								<th:block th:if="${procesion.busContratado}">
+									<td th:text="${procesion.bus.nombre}">
+									</td>
+								</th:block>
 							</th:block>
+
 							<th:block th:if="${!procesion.busContratado}">
 								<td>No hay Bus</td>
 							</th:block>
@@ -101,9 +104,12 @@
 							<td th:text="${concierto.duracion}"></td>
 							<td th:text="${concierto.ciudad}"></td>
 							<td th:text="${concierto.kmARecorrer}"></td>
-							<th:block th:if="${concierto.busContratado}">
-								<td th:text="${concierto.bus.nombre}"></td>
+							<th:block th:if="${concierto.bus} != null">
+								<th:block th:if="${concierto.busContratado}">
+									<td th:text="${concierto.bus.nombre}"></td>
+								</th:block>
 							</th:block>
+
 							<th:block th:if="${!concierto.busContratado}">
 								<td>No hay Bus</td>
 							</th:block>
