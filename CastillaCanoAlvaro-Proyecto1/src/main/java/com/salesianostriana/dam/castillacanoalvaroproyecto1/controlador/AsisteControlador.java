@@ -168,6 +168,12 @@ public class AsisteControlador {
 		return "/admin/listadoAsistentes";
 
 	}
-	
+
+	/*
+	@GetMapping("eventos/asiste")
+	public String eventosAsiste(@AuthenticationPrincipal Musico musico) {
+
+	}
+*/	
 	
 }
