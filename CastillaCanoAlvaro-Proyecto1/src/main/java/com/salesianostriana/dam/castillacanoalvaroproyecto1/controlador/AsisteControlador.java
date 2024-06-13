@@ -169,11 +169,6 @@ public class AsisteControlador {
 
 	}
 
-	/*
-	@GetMapping("eventos/asiste")
-	public String eventosAsiste(@AuthenticationPrincipal Musico musico) {
-
-	}
-*/	
+	
 	
 }
