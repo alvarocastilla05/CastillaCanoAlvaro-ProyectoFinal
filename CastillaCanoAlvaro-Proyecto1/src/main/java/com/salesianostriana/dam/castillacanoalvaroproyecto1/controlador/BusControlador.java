@@ -69,8 +69,13 @@ public class BusControlador {
 	
 	@GetMapping("/eliminar/{id}")
 	public String elimarBus(@PathVariable("id") long id) {
-		eventoServicio.findAll().stream().forEach(e -> e.removeFromBus(busServicio.findBYId(id).get()));
-		busServicio.deleteById(id);
+		Optional<Bus> bus = busServicio.findBYId(id);
+		
+		if(bus.isPresent()) {
+			eventoServicio.findAll().stream().forEach(e -> e.removeFromBus(bus.get()));
+			busServicio.deleteById(id);
+		}
+		
 		return "redirect:/admin/bus/listaBuses";
 	}
 }

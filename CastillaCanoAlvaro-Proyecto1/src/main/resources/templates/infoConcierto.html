@@ -29,8 +29,8 @@
 						th:text="${concierto.gratuito} ? 'Es GRATIS!!' : ${concierto.precio}"></span></p>
 				<hr>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
-
-					<form  th:action="@{/asociar/busConcierto/submit}"
+					<!-- th:if="${asiste.asistePK == null}"-->
+					<form th:if="${mostrarFormulario}" th:action="@{/asociar/busConcierto/submit}"
 						th:object="${asisteForm}" method="post">
 						<input type="hidden" name="idEvento" th:field="*{idEvento}">
 						<div th:if="${concierto.bus} != null">
@@ -45,7 +45,7 @@
 						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
 						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
-
+					<p th:if="${!mostrarFormulario}">Asistes a este evento</p>
 				</div>
 				<div sec:authorize="hasRole('ROLE_ADMIN')">
 					<p><i class="bi bi-person-check"></i> PORCENTAJE DE MÚSICOS ASISTENTES:

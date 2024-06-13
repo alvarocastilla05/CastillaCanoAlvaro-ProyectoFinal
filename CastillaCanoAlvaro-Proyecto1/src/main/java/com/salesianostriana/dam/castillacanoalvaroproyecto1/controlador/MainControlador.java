@@ -4,20 +4,23 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Asiste;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsisteFormBean;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.AsistePK;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Concierto;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Evento;
+import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Musico;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.modelo.Procesion;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.AsisteServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ConciertoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.EventoServicio;
-import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.MusicoServicio;
 import com.salesianostriana.dam.castillacanoalvaroproyecto1.servicio.ProcesionServicio;
 
 @Controller
@@ -82,7 +85,7 @@ public class MainControlador {
 	}
 
 	@GetMapping("/cartas/eventos/concierto/{id}")
-	public String verConcierto(@PathVariable("id") long id, Model model) {
+	public String verConcierto(@AuthenticationPrincipal Musico musico, @PathVariable("id") long id, Model model) {
 		Optional<Concierto> concierto = servicioConcer.findBYId(id);
 
 		double precioBus = eventoServicio.calcularPrecioBus(concierto.get());
@@ -92,9 +95,22 @@ public class MainControlador {
 
 		model.addAttribute("concierto", concierto.get());
 
-		AsisteFormBean asiste = new AsisteFormBean(id);
+		boolean mostrarFormulario = false;
 
-		model.addAttribute("asisteForm", asiste);
+		if (musico != null) {
+			AsistePK asistePK = new AsistePK(musico.getId(), id);
+
+			// consultar con asisteservicio.findById(...)
+			Optional<Asiste> asistente = asisteServicio.findBYId(asistePK);
+
+			AsisteFormBean asiste = new AsisteFormBean(id);
+
+			mostrarFormulario = asistente.isEmpty();
+			model.addAttribute("asisteForm", asiste);
+
+		}
+
+		model.addAttribute("mostrarFormulario", mostrarFormulario);
 
 		model.addAttribute("precioBus", precioBus);
 		model.addAttribute("musicosContratados", musicosContratados);
@@ -110,7 +126,7 @@ public class MainControlador {
 	}
 
 	@GetMapping("/cartas/eventos/procesion/{id}")
-	public String verProcesion(@PathVariable("id") long id, Model model) {
+	public String verProcesion(@AuthenticationPrincipal Musico musico, @PathVariable("id") long id, Model model) {
 		Optional<Procesion> procesion = servicioProce.findBYId(id);
 
 		double precioBus = eventoServicio.calcularPrecioBus(procesion.get());
@@ -119,9 +135,22 @@ public class MainControlador {
 
 		model.addAttribute("procesion", procesion.get());
 
-		AsisteFormBean asiste = new AsisteFormBean(id);
+		boolean mostrarFormulario = false;
 
-		model.addAttribute("asisteForm", asiste);
+		if (musico != null) {
+			AsistePK asistePK = new AsistePK(musico.getId(), id);
+
+			// consultar con asisteservicio.findById(...)
+			Optional<Asiste> asistente = asisteServicio.findBYId(asistePK);
+
+			AsisteFormBean asiste = new AsisteFormBean(id);
+
+			mostrarFormulario = asistente.isEmpty();
+			model.addAttribute("asisteForm", asiste);
+
+		}
+		model.addAttribute("mostrarFormulario", mostrarFormulario);
+
 
 		model.addAttribute("precioBus", precioBus);
 		model.addAttribute("musicosContratados", musicosContratados);
@@ -146,5 +175,4 @@ public class MainControlador {
 		return "tarjetasEventos";
 	}
 
-	
 }

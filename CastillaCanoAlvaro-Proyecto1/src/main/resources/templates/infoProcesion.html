@@ -28,7 +28,8 @@
 				<hr>
 				<div sec:authorize="hasRole('ROLE_MUSICO')">
 
-					<form th:action="@{/asociar/busProcesion/submit}" th:object="${asisteForm}" method="post">
+					<form th:if="${mostrarFormulario}" th:action="@{/asociar/busProcesion/submit}"
+						th:object="${asisteForm}" method="post">
 						<input type="hidden" name="idEvento" th:field="*{idEvento}">
 						<div th:if="${procesion.bus} != null">
 							<div class="form-group">
@@ -42,6 +43,8 @@
 						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
 						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
+					<p th:if="${!mostrarFormulario}">Asistes a este evento</p>
+
 				</div>
 				<div sec:authorize="hasRole('ROLE_ADMIN')">
 					<p><i class="bi bi-person-check"></i> PORCENTAJE DE MÚSICOS ASISTENTES:
@@ -53,11 +56,13 @@
 					<p><i class="bi bi-clock-history"></i>En caso de horas extras nos llevaríamos:
 						<span th:text="${procesion.precioHorasExtras}"></span>
 					</p>
-					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span th:text="${procesion.busContratado} ? ${precioBus} : 'No Contratado'"></span> €</p>
+					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span
+							th:text="${procesion.busContratado} ? ${precioBus} : 'No Contratado'"></span> €</p>
 					<p><i class="bi bi-wallet"></i></i> LOS INGRESOS FINALES DE ESTE : <span
 							th:text="${ingresosFinales}"></span> €</p>
-					<a class="btn btn-primary mt-3" th:href="@{/admin/asistentes/{id}(id=${procesion.id})}">Listado de Asistentes</a>	
-				
+					<a class="btn btn-primary mt-3" th:href="@{/admin/asistentes/{id}(id=${procesion.id})}">Listado de
+						Asistentes</a>
+
 				</div>
 
 			</div>
