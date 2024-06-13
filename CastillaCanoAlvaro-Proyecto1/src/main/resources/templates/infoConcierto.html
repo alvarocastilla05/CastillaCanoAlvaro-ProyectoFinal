@@ -45,7 +45,7 @@
 						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
 						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
-					<p th:if="${!mostrarFormulario}">Asistes a este evento</p>
+					<p class="btn btn-info mt-3" th:if="${!mostrarFormulario}">Asistes a este evento</p>
 				</div>
 				<div sec:authorize="hasRole('ROLE_ADMIN')">
 					<p><i class="bi bi-person-check"></i> PORCENTAJE DE MÚSICOS ASISTENTES:
