@@ -46,6 +46,8 @@
 						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
 					<p class="btn btn-info mt-3" th:if="${!mostrarFormulario}">Asistes a este evento</p>
+					<p th:text="${asiste.enBus} ? 'VAS EN BUS' : 'NO VAS EN BUS'" th:if="${!mostrarFormulario}"></p>
+
 				</div>
 				<div sec:authorize="hasRole('ROLE_ADMIN')">
 					<p><i class="bi bi-person-check"></i> PORCENTAJE DE MÚSICOS ASISTENTES:

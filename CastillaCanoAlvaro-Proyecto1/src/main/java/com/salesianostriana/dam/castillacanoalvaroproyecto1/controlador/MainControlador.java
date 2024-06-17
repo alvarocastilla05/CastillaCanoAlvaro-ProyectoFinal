@@ -101,12 +101,14 @@ public class MainControlador {
 			AsistePK asistePK = new AsistePK(musico.getId(), id);
 
 			// consultar con asisteservicio.findById(...)
-			Optional<Asiste> asistente = asisteServicio.findBYId(asistePK);
+			Optional<Asiste> asiste = asisteServicio.findBYId(asistePK);
 
-			AsisteFormBean asiste = new AsisteFormBean(id);
+			AsisteFormBean asisteForm = new AsisteFormBean(id);
 
-			mostrarFormulario = asistente.isEmpty();
-			model.addAttribute("asisteForm", asiste);
+			mostrarFormulario = asiste.isEmpty();
+			model.addAttribute("asisteForm", asisteForm);
+			if (asiste.isPresent())
+				model.addAttribute("asiste", asiste.get());
 
 		}
 
@@ -141,12 +143,14 @@ public class MainControlador {
 			AsistePK asistePK = new AsistePK(musico.getId(), id);
 
 			// consultar con asisteservicio.findById(...)
-			Optional<Asiste> asistente = asisteServicio.findBYId(asistePK);
+			Optional<Asiste> asiste = asisteServicio.findBYId(asistePK);
 
-			AsisteFormBean asiste = new AsisteFormBean(id);
+			AsisteFormBean asisteForm = new AsisteFormBean(id);
 
-			mostrarFormulario = asistente.isEmpty();
-			model.addAttribute("asisteForm", asiste);
+			mostrarFormulario = asiste.isEmpty();
+			model.addAttribute("asisteForm", asisteForm);
+			if (asiste.isPresent())
+				model.addAttribute("asiste", asiste.get());
 
 		}
 		model.addAttribute("mostrarFormulario", mostrarFormulario);
@@ -163,6 +167,53 @@ public class MainControlador {
 
 		return "infoProcesion";
 	}
+	
+	/*
+	@GetMapping("/cartas/eventos/{id}")
+	public String verProcesion(@AuthenticationPrincipal Musico musico, @PathVariable("id") long id, Model model) {
+		Optional<Evento> evento = eventoServicio.findBYId(id);
+		Optional<Concierto> concierto = servicioConcer.findBYId(id);
+		
+
+		double precioBus = eventoServicio.calcularPrecioBus(evento.get());
+		double musicosContratados = eventoServicio.calcularMusicosContratados(evento.get());
+		double ingresosFinales = eventoServicio.calcularIngresosFinales(evento.get());
+		double dineroEntradas = servicioConcer.calcularPosibleDineroEntradas(concierto.get());
+
+		model.addAttribute("evento", evento.get());
+
+		boolean mostrarFormulario = false;
+
+		if (musico != null) {
+			AsistePK asistePK = new AsistePK(musico.getId(), id);
+
+			// consultar con asisteservicio.findById(...)
+			Optional<Asiste> asiste = asisteServicio.findBYId(asistePK);
+
+			AsisteFormBean asisteForm = new AsisteFormBean(id);
+
+			mostrarFormulario = asiste.isEmpty();
+			model.addAttribute("asisteForm", asisteForm);
+			if (asiste.isPresent())
+				model.addAttribute("asiste", asiste.get());
+
+		}
+		model.addAttribute("mostrarFormulario", mostrarFormulario);
+
+
+		model.addAttribute("precioBus", precioBus);
+		model.addAttribute("musicosContratados", musicosContratados);
+		model.addAttribute("dineroEntradas", dineroEntradas);
+		model.addAttribute("ingresosFinales", ingresosFinales);
+
+		asisteServicio.porcentajeMusicosAsistentes(evento.get());
+
+		double porcentajeAsistentes = asisteServicio.porcentajeMusicosAsistentes(evento.get());
+		model.addAttribute("porcentajeAsistentes", porcentajeAsistentes);
+
+		return "infoProcesion";
+	}
+	*/
 
 	@GetMapping("/evento/fecha/")
 	public String eventoPorMes(Model model, @RequestParam("mes") int mes) {
