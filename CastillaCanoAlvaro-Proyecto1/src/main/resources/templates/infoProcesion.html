@@ -31,7 +31,7 @@
 					<form th:if="${mostrarFormulario}" th:action="@{/asociar/busProcesion/submit}"
 						th:object="${asisteForm}" method="post">
 						<input type="hidden" name="idEvento" th:field="*{idEvento}">
-						<div th:if="${procesion.bus} != null">
+						<div th:if="${procesion.busContratado}">
 							<div class="form-group">
 								<label for="enBus">¿Asiste en el bus?</label>
 								<select class="form-control" id="enBus" name="enBus" th:field="*{enBus}">
