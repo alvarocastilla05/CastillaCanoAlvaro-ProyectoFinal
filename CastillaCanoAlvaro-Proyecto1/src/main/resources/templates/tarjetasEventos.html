@@ -57,7 +57,7 @@
 						<h5 th:text="${procesion.nombre} + ' ' + ${procesion.fecha}" class="card-title"></h5>
 						<p th:text="${procesion.hora}" class="card-text"></p>
 						<p>Ubicación: <span th:text="${procesion.ciudad}" class="card-text"></span></p>
-						<a th:href="@{/cartas/eventos/{id}(id=${procesion.id})}" class="btn btn-primary">Más
+						<a th:href="@{/cartas/eventos/procesion/{id}(id=${procesion.id})}" class="btn btn-primary">Más
 							info</a>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 						<h5 th:text="${concierto.nombre} + ' ' + ${concierto.fecha}" class="card-title"></h5>
 						<p th:text="${concierto.hora}" class="card-text"></p>
 						<p>Ubicación: <span th:text="${concierto.ciudad}" class="card-text"></span></p>
-						<a th:href="@{/cartas/eventos/{id}(id=${concierto.id})}" class="btn btn-primary">Más
+						<a th:href="@{/cartas/eventos/concierto/{id}(id=${concierto.id})}" class="btn btn-primary">Más
 							info</a>
 					</div>
 				</div>
