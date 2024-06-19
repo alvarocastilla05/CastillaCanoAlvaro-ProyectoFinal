@@ -45,8 +45,12 @@
 						<button type="submit" class="btn btn-primary mt-3">Asisto</button>
 						<a th:href="@{/cartas/eventos}" class="btn btn-danger mt-3">Cancelar</a>
 					</form>
-					<p class="btn btn-info mt-3" th:if="${!mostrarFormulario}">Asistes a este evento</p>
-					<p th:text="${asiste.enBus} ? 'VAS EN BUS' : 'NO VAS EN BUS'" th:if="${!mostrarFormulario}"></p>
+					<th:block th:if="${!mostrarFormulario}">
+						<div class="row">
+							<p class="btn btn-success mt-3">Asistes a este evento, <span class="badge text-bg-danger"
+									th:text="${asiste.enBus} ? 'VAS EN BUS' : 'NO VAS EN BUS'">New</span></p>
+						</div>
+					</th:block>
 
 				</div>
 				<div sec:authorize="hasRole('ROLE_ADMIN')">
@@ -62,7 +66,8 @@
 					</p>
 
 
-					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span th:text="${concierto.busContratado} ? ${precioBus} : 'No Contratado'"></span> €</p>
+					<p><i class="bi bi-bus-front"></i> PRECIO DEL BUS: <span
+							th:text="${concierto.busContratado} ? ${precioBus} : 'No Contratado'"></span> €</p>
 					<p><i class="bi bi-wallet"></i></i> LOS INGRESOS FINALES DE ESTE : <span
 							th:text="${ingresosFinales}"></span> €</p>
 
