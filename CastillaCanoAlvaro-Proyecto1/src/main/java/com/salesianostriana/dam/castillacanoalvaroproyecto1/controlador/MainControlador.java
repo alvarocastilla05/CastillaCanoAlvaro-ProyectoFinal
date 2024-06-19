@@ -84,7 +84,7 @@ public class MainControlador {
 		return "tarjetasEventos";
 	}
 
-	/*
+	
 	@GetMapping("/cartas/eventos/concierto/{id}")
 	public String verConcierto(@AuthenticationPrincipal Musico musico, @PathVariable("id") long id, Model model) {
 		Optional<Concierto> concierto = servicioConcer.findBYId(id);
@@ -167,9 +167,9 @@ public class MainControlador {
 		model.addAttribute("porcentajeAsistentes", porcentajeAsistentes);
 
 		return "infoProcesion";
-	}*/
+	}
 	
-	
+	/*
 	@GetMapping("/cartas/eventos/{id}")
 	public String verProcesion(@AuthenticationPrincipal Musico musico, @PathVariable("id") long id, Model model) {
 		Optional<Evento> evento = eventoServicio.findBYId(id);
@@ -213,7 +213,7 @@ public class MainControlador {
 		model.addAttribute("porcentajeAsistentes", porcentajeAsistentes);
 
 		return "infoProcesion";
-	}
+	}*/
 	
 
 	@GetMapping("/evento/fecha/")
